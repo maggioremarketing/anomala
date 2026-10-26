@@ -120,6 +120,29 @@
 
               <p class="entry-info mt-5 pt-3 border-top">Las columnas expresan la opinión de sus autores y no necesariamente la de Anómala.</p>
 
+              <!--
+                COMPARTIR (template-parts/compartir.php, igual en todos los singles y en la ficha de evento).
+                Enlaces simples, sin plugins ni scripts de terceros (no cargan rastreadores). URL = get_permalink() y
+                texto = get_the_title(), ambos con rawurlencode():
+                · WhatsApp: https://wa.me/?text=TÍTULO%20URL (en el teléfono abre la app; en el computador, WhatsApp Web)
+                · Facebook: https://www.facebook.com/sharer/sharer.php?u=URL
+                · X: https://x.com/intent/post?text=TÍTULO&url=URL
+                · Correo: mailto:?subject=TÍTULO&body=URL
+                · Instagram no permite compartir enlaces desde la web. En el teléfono, "Compartir…" abre el menú del sistema
+                  (navigator.share), con Instagram, WhatsApp, Telegram, etc.; solo aparece donde el navegador lo permite.
+                  En el computador queda "Copiar enlace" (para historias o la biografía de Instagram).
+                La vista previa (imagen, título y bajada) la dan las etiquetas Open Graph que pone el tema o el plugin de SEO.
+              -->
+              <h2 class="h3 mt-5">Compartir</h2>
+              <div class="filtros" role="group" aria-label="Compartir esta columna" data-compartir data-url="https://anomala.org/el-futbol-tambien-es-cultura/" data-titulo="El fútbol también es cultura (y deberíamos tratarlo así)">
+                <button type="button" data-compartir-nativo hidden>Compartir…</button>
+                <a href="https://wa.me/?text=El%20f%C3%BAtbol%20tambi%C3%A9n%20es%20cultura%20(y%20deber%C3%ADamos%20tratarlo%20as%C3%AD)%20https%3A%2F%2Fanomala.org%2Fel-futbol-tambien-es-cultura%2F" target="_blank" rel="noopener">WhatsApp</a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fanomala.org%2Fel-futbol-tambien-es-cultura%2F" target="_blank" rel="noopener">Facebook</a>
+                <a href="https://x.com/intent/post?text=El%20f%C3%BAtbol%20tambi%C3%A9n%20es%20cultura%20(y%20deber%C3%ADamos%20tratarlo%20as%C3%AD)&amp;url=https%3A%2F%2Fanomala.org%2Fel-futbol-tambien-es-cultura%2F" target="_blank" rel="noopener">X</a>
+                <a href="mailto:?subject=El%20f%C3%BAtbol%20tambi%C3%A9n%20es%20cultura%20(y%20deber%C3%ADamos%20tratarlo%20as%C3%AD)&amp;body=https%3A%2F%2Fanomala.org%2Fel-futbol-tambien-es-cultura%2F">Correo</a>
+                <button type="button" data-copiar-enlace>Copiar enlace</button>
+              </div>
+
               <h2 class="h3 mt-5">Temas</h2>
               <nav class="filtros" aria-label="Temas de esta nota">
                 <a href="tema.html">Deporte</a><a href="tema.html">Patrimonio y memoria</a><a href="tema.html">Política cultural</a>

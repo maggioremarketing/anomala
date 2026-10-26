@@ -18,7 +18,7 @@ y luego abrir `http://localhost:5173`.
 
 - `*.html`: una página por plantilla (portada, listados, artículos, páginas).
 - `style.css`: estilos del sitio, sobre Bootstrap 5.3 (cargado desde CDN).
-- `script.js`: movimiento del collage de «Quiénes somos», filtros de la cartelera (disciplina y precio), términos y montos del panel «Hazte Anómala», aviso de cookies e íconos aleatorios de las entradas.
+- `script.js`: movimiento del collage de «Quiénes somos», filtros de la cartelera (disciplina y precio), términos y montos del panel «Hazte Anómala», aviso de cookies, botones de compartir e íconos aleatorios de las entradas.
 - `recortes-psd/`, `iconos-anomala/` y los `*.webp` de la raíz: imágenes del collage, íconos y papel rasgado.
 
 La versión anterior de la maqueta (v1) está en el historial de git, en el commit «Agregar la ficha de evento de la cartelera».

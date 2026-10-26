@@ -142,18 +142,52 @@
               </div>
 
               <!--
+                COMPARTIR (template-parts/compartir.php, igual en todos los singles y en la ficha de evento).
+                Enlaces simples, sin plugins ni scripts de terceros (no cargan rastreadores). URL = get_permalink() y
+                texto = get_the_title(), ambos con rawurlencode():
+                · WhatsApp: https://wa.me/?text=TÍTULO%20URL (en el teléfono abre la app; en el computador, WhatsApp Web)
+                · Facebook: https://www.facebook.com/sharer/sharer.php?u=URL
+                · X: https://x.com/intent/post?text=TÍTULO&url=URL
+                · Correo: mailto:?subject=TÍTULO&body=URL
+                · Instagram no permite compartir enlaces desde la web. En el teléfono, "Compartir…" abre el menú del sistema
+                  (navigator.share), con Instagram, WhatsApp, Telegram, etc.; solo aparece donde el navegador lo permite.
+                  En el computador queda "Copiar enlace" (para historias o la biografía de Instagram).
+                La vista previa (imagen, título y bajada) la dan las etiquetas Open Graph que pone el tema o el plugin de SEO.
+              -->
+              <h2 class="h3 mt-5">Compartir</h2>
+              <div class="filtros" role="group" aria-label="Compartir este evento" data-compartir data-url="https://anomala.org/cartelera/las-cosas-que-no-dijimos/" data-titulo="Las cosas que no dijimos">
+                <button type="button" data-compartir-nativo hidden>Compartir…</button>
+                <a href="https://wa.me/?text=Las%20cosas%20que%20no%20dijimos%20https%3A%2F%2Fanomala.org%2Fcartelera%2Flas-cosas-que-no-dijimos%2F" target="_blank" rel="noopener">WhatsApp</a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fanomala.org%2Fcartelera%2Flas-cosas-que-no-dijimos%2F" target="_blank" rel="noopener">Facebook</a>
+                <a href="https://x.com/intent/post?text=Las%20cosas%20que%20no%20dijimos&amp;url=https%3A%2F%2Fanomala.org%2Fcartelera%2Flas-cosas-que-no-dijimos%2F" target="_blank" rel="noopener">X</a>
+                <a href="mailto:?subject=Las%20cosas%20que%20no%20dijimos&amp;body=https%3A%2F%2Fanomala.org%2Fcartelera%2Flas-cosas-que-no-dijimos%2F">Correo</a>
+                <button type="button" data-copiar-enlace>Copiar enlace</button>
+              </div>
+
+              <!--
                 EJEMPLO · Aviso de "Evento de Anómala": solo se muestra si el campo "Evento de Anómala" = sí
-                (en ese caso la etiqueta de la cabecera dice "Evento de Anómala" y el botón lleva a la inscripción).
-                Inscripción EXTERNA por ahora: campo ACF "URL de inscripción" (formulario, Eventbrite…) en el botón "Inscribirme".
+                (en ese caso la etiqueta de la cabecera dice "Evento de Anómala").
+                Inscripción EXTERNA por ahora: campo ACF "URL de inscripción" (formulario, Eventbrite…).
+                · Con Encuentro activo: se imprime el botón "Inscribirme" con esa URL.
+                · Sin sesión, con Abierta o con Conversa: la URL NO se imprime en el HTML (para que no circule);
+                  en su lugar van "Hazte Anómala" e "Ingresar". La invitación además llega por correo (correos.html).
                 Más adelante podría resolverse en WP (p. ej. con el plugin de membresías validando el plan Encuentro).
+                SOLO MAQUETA: se muestran las dos versiones.
               -->
               <aside class="border border-2 p-3 mt-5" style="--bs-border-color: var(--brand)" aria-label="Evento de Anómala">
                 <p class="etiqueta mb-1">Ejemplo · solo en eventos de Anómala</p>
                 <p class="etiqueta c-pink mb-2">Evento de Anómala</p>
                 <p>Este evento lo organiza Anómala y está incluido en las invitaciones para suscriptores <strong>Anómala Encuentro</strong>, con inscripción previa y sujeto a aforo.</p>
-                <div class="d-flex flex-wrap gap-2">
-                  <a class="btn-brand" href="#" target="_blank" rel="noopener">Inscribirme ↗</a>
+                <!-- Sin Encuentro activo -->
+                <div class="d-flex flex-wrap align-items-center gap-3">
                   <a class="btn-pink" href="#hazte-anomala" data-bs-toggle="offcanvas">Hazte Anómala</a>
+                  <a href="ingresar.html">Ya tengo Encuentro: iniciar sesión</a>
+                </div>
+                <!-- Con Encuentro activo -->
+                <div class="border-top pt-3 mt-3">
+                  <p class="etiqueta mb-2">Vista con Anómala Encuentro</p>
+                  <a class="btn-brand" href="#" target="_blank" rel="noopener">Inscribirme ↗</a>
+                  <p class="entry-info">Inscripciones hasta el 10/11 o hasta completar el aforo. Tu cupo queda asegurado cuando recibes la confirmación.</p>
                 </div>
                 <p class="entry-info mb-0">La inscripción se gestiona en una plataforma externa (formulario o Eventbrite) y requiere una suscripción Encuentro activa.</p>
               </aside>

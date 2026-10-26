@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Correos del sistema · Anómala</title>
+    <!-- Fuentes: Typekit (títulos) y Google Fonts (texto). preconnect adelanta la conexión -->
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://use.typekit.net/aie8ork.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main>
+      <!--
+        HEADER (header.php): una sola huincha, fija arriba.
+        Orden: Logo · Instagram · Lupa · Cuenta · Quiénes somos · Cultura · Vida real · Temas · Cartelera · Hazte Anómala
+        Móvil: logo, lupa, "Hazte Anómala" y menú desplegable (Instagram baja al menú).
+        Los formatos (columna, entrevista, crónica…) ya no van en el header: identifican cada contenido y filtran en Temas.
+      -->
+      <header class="mid-nav sticky-top" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg" aria-label="Navegación principal">
+          <div class="container-fluid gap-2">
+            <a class="navbar-brand me-0" href="home-page.html" aria-label="Anómala, ir al inicio">
+              <svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44.97 7.2" aria-hidden="true">
+                <path fill="#f8f8f8" d="M42.38.25h-2.67l-1.86,4.87h-1.82V.25h-2.38v4.75s-1.77-4.75-1.77-4.75h-2.68l-1.83,4.76V.25h-2.47l-1.29,2.27v-.02s-1.44-2.25-1.44-2.25h0s-2.54,0-2.54,0v.94c.52.67.84,1.52.84,2.44s-.32,1.78-.85,2.46v.98s2.56,0,2.56,0v-1.94l1.38,1.94,1.5-1.94v1.94s1.42,0,1.42,0h2.62l.32-.84h2.21l.32.83h1.71s2.4,0,2.4,0h3.61l.32-.84h2.2l.32.83h2.47l-2.59-6.81ZM29.84,4.6l.67-2.11.63,2.11h-1.31ZM40.41,4.6l.66-2.09.66,2.09h-1.32Z" />
+                <path fill="#f8f8f8" d="M11.06,2.9l-1.81-2.65h-2.04l-.08,4.68L5.35.25h-2.61L0,7.07h2.62l.32-.84h2.21l.32.83h3.93s0-2.79,0-2.79l1.85,2.79h2.18v-.91c-.57-.69-.92-1.57-.92-2.54s.34-1.85.92-2.54V.25h-2.35v2.65ZM3.38,4.6l.66-2.09.65,2.09h-1.3Z" />
+                <path fill="#a020f0" d="M19.54,1.69c-.64-1.01-1.76-1.69-3.05-1.69s-2.33.62-2.98,1.57c-.39.58-.63,1.28-.63,2.03s.23,1.45.63,2.03c.65.95,1.74,1.57,2.98,1.57s2.4-.67,3.04-1.67c.36-.56.56-1.22.56-1.93s-.21-1.36-.55-1.91" />
+              </svg>
+              <span class="lema d-block mt-1">Intensa · <span class="c-pink">Dispersa</span> · <span class="c-lime">Distinta</span></span>
+            </a>
+            <!-- Completar con la URL real de la cuenta de Instagram -->
+            <a class="nav-link d-none d-lg-block ms-lg-4" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Anómala en Instagram">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" /></svg>
+            </a>
+            <button class="nav-link ms-auto ms-lg-0" type="button" data-bs-toggle="collapse" data-bs-target="#buscador" aria-controls="buscador" aria-expanded="false" aria-label="Abrir buscador">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m15.5 15.5 5 5" /></svg>
+            </button>
+            <!-- Cuenta: sin sesión lleva a ingresar.html; con sesión muestra la foto o las iniciales y lleva a mi-cuenta.html:
+                 <a class="nav-link" href="mi-cuenta.html" aria-label="Mi cuenta"><span class="avatar" style="--avatar: 30px" aria-hidden="true">CR</span></a> -->
+            <a class="nav-link" href="ingresar.html" aria-label="Ingresar a tu cuenta">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4" /><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" /></svg>
+            </a>
+            <button class="btn-pink order-lg-last" type="button" data-bs-toggle="offcanvas" data-bs-target="#hazte-anomala" aria-controls="hazte-anomala">Hazte Anómala</button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menú">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu-principal">
+              <!-- wp_nav_menu( 'principal' ). Cultura y Vida real son las dos grandes categorías; Temas reúne las etiquetas (disciplinas y temas) -->
+              <ul class="navbar-nav ms-lg-auto">
+                <li class="nav-item"><a class="nav-link" href="quienes-somos.html">Quiénes somos</a></li>
+                <li class="nav-item"><a class="nav-link" href="eje.html">Cultura</a></li>
+                <li class="nav-item"><a class="nav-link" href="vida-real.html">Vida real</a></li>
+                <li class="nav-item"><a class="nav-link" href="temas.html">Temas</a></li>
+                <li class="nav-item"><a class="nav-link" href="cartelera.html">Cartelera</a></li>
+                <li class="nav-item d-lg-none"><a class="nav-link" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram ↗</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- Buscador (get_search_form): busca por título, tema y autor. El parámetro "s" es el de WordPress -->
+        <div class="collapse" id="buscador">
+          <div class="container-fluid pb-3">
+            <form class="form-fila" role="search" action="busqueda.html">
+              <label class="visually-hidden" for="buscar">Buscar</label>
+              <input id="buscar" name="s" type="search" placeholder="Busca por título, tema o autor" />
+              <button class="btn-brand" type="submit">Buscar</button>
+            </form>
+          </div>
+        </div>
+      </header>
+
+      <!--
+        CORREOS DEL SISTEMA (página de referencia, no se publica). Textos de los correos automáticos que recibe
+        la persona: asunto, cuerpo y botón. En WordPress cada uno es la plantilla de quien lo envía:
+        · WordPress (cuentas y contraseña): wp_mail, con un plugin SMTP o de correo transaccional (Brevo, Postmark…)
+          para que no lleguen a spam. Plantillas con los filtros retrieve_password_message, wp_new_user_notification_email…
+        · Plugin de membresías / suscripciones: pagos, renovaciones, cobros fallidos, cambios de plan y cancelación.
+        · Proveedor de newsletter: confirmación del newsletter (doble opt-in) e invitaciones a eventos de Anómala.
+        Todos usan el mismo diseño: logo, texto, un solo botón y el pie con los enlaces legales.
+        Los datos entre corchetes vienen del sistema.
+      -->
+      <section class="pt-5">
+        <div class="container-fluid">
+          <span class="etiqueta">Referencia · no se publica</span>
+          <h1>Correos del sistema</h1>
+          <p class="lead col-lg-8">Los correos automáticos que envía el sitio: qué dicen, cuándo se envían y quién los envía. Sirven para escribir las plantillas del plugin de cuentas, de suscripciones y del newsletter.</p>
+
+          <div class="row g-5 mt-1">
+            <nav class="col-12 col-lg-3" aria-label="Correos">
+              <ul class="tematicas sticky-lg-top" style="top: 120px">
+                <li><a href="#correo-bienvenida">Bienvenida</a></li>
+                <li><a href="#correo-recuperar">Recuperar contraseña</a></li>
+                <li><a href="#correo-clave-cambiada">Contraseña cambiada</a></li>
+                <li><a href="#correo-pago">Suscripción confirmada</a></li>
+                <li><a href="#correo-renovacion">Cobro mensual</a></li>
+                <li><a href="#correo-fallido">Cobro fallido</a></li>
+                <li><a href="#correo-suspendida">Suscripción suspendida</a></li>
+                <li><a href="#correo-cambio-plan">Cambio de plan</a></li>
+                <li><a href="#correo-cancelacion">Cancelación</a></li>
+                <li><a href="#correo-aporte">Aporte único</a></li>
+                <li><a href="#correo-newsletter">Confirmar newsletter</a></li>
+                <li><a href="#correo-invitacion">Invitación Encuentro</a></li>
+                <li><a href="#correo-respuesta">Respuesta a un comentario</a></li>
+              </ul>
+            </nav>
+
+            <div class="col-12 col-lg-9 col-xl-7 vstack gap-4">
+
+              <!-- CUENTAS · WordPress -->
+              <article class="border p-4" id="correo-bienvenida">
+                <div class="entry-info mt-0"><span class="etiqueta">Cuentas · WordPress</span><span>Al crear la cuenta</span></div>
+                <h2 class="h3">Te damos la bienvenida a Anómala</h2>
+                <p>Hola, [nombre público]:</p>
+                <p>Tu cuenta quedó creada con el correo [correo]. Con ella puedes administrar tu suscripción y tus preferencias del newsletter, y, si tienes Anómala Conversa o Encuentro, leer los comentarios y participar.</p>
+                <a class="btn-brand" href="mi-cuenta.html">Ir a Mi cuenta</a>
+                <p class="entry-info mb-0">Si no creaste esta cuenta, escríbenos a hola@anomala.org.</p>
+              </article>
+
+              <article class="border p-4" id="correo-recuperar">
+                <div class="entry-info mt-0"><span class="etiqueta">Cuentas · WordPress</span><span>Al pedirla en Ingresar</span></div>
+                <h2 class="h3">Crea una contraseña nueva</h2>
+                <p>Hola, [nombre público]:</p>
+                <p>Recibimos una solicitud para cambiar la contraseña de tu cuenta. El enlace dura 24 horas y sirve una sola vez.</p>
+                <a class="btn-brand" href="nueva-contrasena.html">Crear contraseña nueva</a>
+                <p class="entry-info mb-0">Si no lo pediste, ignora este correo: tu contraseña no cambia.</p>
+              </article>
+
+              <article class="border p-4" id="correo-clave-cambiada">
+                <div class="entry-info mt-0"><span class="etiqueta">Cuentas · WordPress</span><span>Al cambiar la contraseña o el correo</span></div>
+                <h2 class="h3">Tu contraseña se cambió</h2>
+                <p>Hola, [nombre público]:</p>
+                <p>La contraseña de tu cuenta Anómala se cambió el [fecha] a las [hora].</p>
+                <p class="entry-info mb-0"><span>Si no fuiste tú, <a href="ingresar.html#recuperar">recupera tu cuenta</a> y escríbenos a hola@anomala.org.</span></p>
+              </article>
+
+              <!-- SUSCRIPCIONES · plugin de membresías -->
+              <article class="border p-4" id="correo-pago">
+                <div class="entry-info mt-0"><span class="etiqueta" style="--d: var(--ui-highlight)">Suscripciones · plugin</span><span>Tras el primer pago aprobado</span></div>
+                <h2 class="h3">Ya eres Anómala [Conversa]</h2>
+                <p>Hola, [nombre público]:</p>
+                <p>Gracias por sostener un medio independiente. Tu suscripción quedó activa.</p>
+                <dl class="row mb-3">
+                  <dt class="col-6 col-md-4 fw-normal c-muted">Plan</dt>
+                  <dd class="col-6 col-md-8">Anómala [Conversa] · [$5.000] CLP mensuales</dd>
+                  <dt class="col-6 col-md-4 fw-normal c-muted">Próximo cobro</dt>
+                  <dd class="col-6 col-md-8">[15/11/26]</dd>
+                  <dt class="col-6 col-md-4 fw-normal c-muted">N.º de comprobante</dt>
+                  <dd class="col-6 col-md-8">[AN-2026-004812]</dd>
+                </dl>
+                <a class="btn-brand" href="single.html#conversacion">Ir a la conversación</a>
+                <p class="entry-info mb-0">Puedes cambiar de plan o cancelar cuando quieras desde Mi cuenta.</p>
+              </article>
+
+              <article class="border p-4" id="correo-renovacion">
+                <div class="entry-info mt-0"><span class="etiqueta" style="--d: var(--ui-highlight)">Suscripciones · plugin</span><span>Cada mes, tras el cobro</span></div>
+                <h2 class="h3">Recibimos tu pago de [octubre]</h2>
+                <p>Hola, [nombre público]:</p>
+                <p>Cobramos [$5.000] CLP de tu suscripción Anómala [Conversa] en la tarjeta terminada en [4821]. El próximo cobro será el [15/12/26].</p>
+                <a class="btn-dark border" href="mi-cuenta.html#pagos">Ver mis pagos</a>
+              </article>
+
+              <article class="border p-4" id="correo-fallido">
+                <div class="entry-info mt-0"><span class="etiqueta" style="--d: var(--ui-highlight)">Suscripciones · plugin</span><span>Cuando falla un cobro mensual</span></div>
+                <h2 class="h3">No pudimos cobrar tu suscripción</h2>
+                <p>Hola, [nombre público]:</p>
+                <p>El cobro de [$5.000] CLP de tu suscripción Anómala [Conversa] fue rechazado. Volveremos a intentarlo el [18/11/26]. Para no perder tus beneficios, revisa o actualiza tu medio de pago.</p>
+                <a class="btn-pink" href="mi-cuenta.html#suscripcion">Actualizar medio de pago</a>
+                <!-- Reintentos: los define el plugin o la pasarela (p. ej. 3 intentos en 7 días). Este correo se envía en cada intento fallido -->
+              </article>
+
+              <article class="border p-4" id="correo-suspendida">
+                <div class="entry-info mt-0"><span class="etiqueta" style="--d: var(--ui-highlight)">Suscripciones · plugin</span><span>Tras el último reintento fallido</span></div>
+                <h2 class="h3">Tu suscripción quedó en pausa</h2>
+                <p>Hola, [nombre público]:</p>
+                <p>No pudimos cobrar tu suscripción después de varios intentos, así que la pausamos. Ya no tienes acceso a los comentarios, pero tu cuenta y el newsletter siguen activos. Puedes reactivarla cuando quieras.</p>
+                <a class="btn-pink" href="mi-cuenta.html#suscripcion">Reactivar mi suscripción</a>
+              </article>
+
+              <article class="border p-4" id="correo-cambio-plan">
+                <div class="entry-info mt-0"><span class="etiqueta" style="--d: var(--ui-highlight)">Suscripciones · plugin</span><span>Al cambiar de plan</span></div>
+                <h2 class="h3">Cambiaste a Anómala [Encuentro]</h2>
+                <p>Hola, [nombre público]:</p>
+                <p>Desde ahora tu plan es Anómala [Encuentro], por [$10.000] CLP mensuales. El nuevo monto se cobra desde el [15/11/26].</p>
+                <!-- Si el cambio es a Encuentro, se agrega este párrafo -->
+                <p>Te avisaremos por correo cuando abramos inscripciones para un evento de Anómala.</p>
+                <a class="btn-dark border" href="mi-cuenta.html#suscripcion">Ver mi suscripción</a>
+              </article>
+
+              <article class="border p-4" id="correo-cancelacion">
+                <div class="entry-info mt-0"><span class="etiqueta" style="--d: var(--ui-highlight)">Suscripciones · plugin</span><span>Al cancelar</span></div>
+                <h2 class="h3">Cancelaste tu suscripción</h2>
+                <p>Hola, [nombre público]:</p>
+                <p>No haremos más cobros. Seguirás con Anómala [Conversa] hasta el [15/11/26]; después, tu cuenta pasa a Anómala Abierta y sigues recibiendo el newsletter.</p>
+                <p>Gracias por haber sido parte. Si quieres volver, te esperamos.</p>
+                <a class="btn-dark border" href="mi-cuenta.html#suscripcion">Volver a suscribirme</a>
+              </article>
+
+              <article class="border p-4" id="correo-aporte">
+                <div class="entry-info mt-0"><span class="etiqueta" style="--d: var(--ui-highlight)">Aportes · plugin</span><span>Tras un aporte único</span></div>
+                <h2 class="h3">Gracias por tu aporte</h2>
+                <p>Hola, [nombre]:</p>
+                <p>Recibimos tu aporte de [$10.000] CLP. Nos ayuda a seguir publicando contenidos gratuitos para todo el mundo.</p>
+                <dl class="row mb-3">
+                  <dt class="col-6 col-md-4 fw-normal c-muted">Fecha</dt>
+                  <dd class="col-6 col-md-8">[02/10/26]</dd>
+                  <dt class="col-6 col-md-4 fw-normal c-muted">N.º de comprobante</dt>
+                  <dd class="col-6 col-md-8">[AN-2026-004790]</dd>
+                </dl>
+                <p class="entry-info mb-0">Un aporte único no cambia tu plan ni habilita beneficios de suscripción.</p>
+              </article>
+
+              <!-- NEWSLETTER · proveedor de correo -->
+              <article class="border p-4" id="correo-newsletter">
+                <div class="entry-info mt-0"><span class="etiqueta" style="--d: var(--ui-success)">Newsletter · proveedor</span><span>Al suscribirse al newsletter</span></div>
+                <h2 class="h3">Confirma tu correo</h2>
+                <p>Hola:</p>
+                <p>Para empezar a recibir Anómala en tu correo, confirma que esta dirección es tuya. Historias, ideas y panoramas para mirar la cultura desde otros lugares.</p>
+                <a class="btn-brand" href="newsletter-confirmar.html">Confirmar mi correo</a>
+                <p class="entry-info mb-0">Si no te suscribiste, ignora este correo: no te enviaremos nada.</p>
+              </article>
+
+              <!--
+                INVITACIÓN ENCUENTRO: se envía solo al segmento "Encuentro activo" del proveedor de newsletter
+                (la lista se sincroniza desde el plugin de membresías). El enlace de inscripción va solo en este correo
+                y en Mi cuenta; no se publica en la ficha del evento.
+              -->
+              <article class="border border-2 p-4" style="--bs-border-color: var(--brand)" id="correo-invitacion">
+                <div class="entry-info mt-0"><span class="etiqueta" style="--d: var(--ui-success)">Newsletter · proveedor</span><span>Solo a suscriptores Encuentro</span></div>
+                <h2 class="h3">Tienes una invitación: [Las voces del sur]</h2>
+                <p>Hola, [nombre público]:</p>
+                <p>Abrimos las inscripciones para un nuevo evento de Anómala, sin costo para quienes tienen Anómala Encuentro.</p>
+                <dl class="row mb-3">
+                  <dt class="col-6 col-md-4 fw-normal c-muted">Evento</dt>
+                  <dd class="col-6 col-md-8">[Las voces del sur: lectura dramatizada]</dd>
+                  <dt class="col-6 col-md-4 fw-normal c-muted">Fecha</dt>
+                  <dd class="col-6 col-md-8">[Sábado 14 de noviembre · 19:00]</dd>
+                  <dt class="col-6 col-md-4 fw-normal c-muted">Lugar</dt>
+                  <dd class="col-6 col-md-8">[Biblioteca Regional, Valdivia]</dd>
+                  <dt class="col-6 col-md-4 fw-normal c-muted">Inscripciones hasta</dt>
+                  <dd class="col-6 col-md-8">[10/11/26] o hasta completar el aforo</dd>
+                </dl>
+                <a class="btn-brand" href="#">Inscribirme ↗</a>
+                <p class="entry-info mb-0">La invitación es personal. Tu cupo queda asegurado cuando recibes la confirmación de la inscripción.</p>
+              </article>
+
+              <!-- COMENTARIOS · WordPress (opcional: la persona puede desactivarlo en Mi cuenta) -->
+              <article class="border p-4" id="correo-respuesta">
+                <div class="entry-info mt-0"><span class="etiqueta">Comentarios · WordPress</span><span>Cuando responden un comentario tuyo</span></div>
+                <h2 class="h3">[valeria.m] respondió tu comentario</h2>
+                <p>Hola, [nombre público]:</p>
+                <p>En «[Fuera del mapa: la cultura que se sostiene sin fondos ni foco]», [valeria.m] respondió:</p>
+                <blockquote class="border-start ps-3 c-muted">[Me sumo a la pregunta. En mi región pasa algo muy parecido.]</blockquote>
+                <a class="btn-brand" href="single.html#comentario-2">Ver la conversación</a>
+                <p class="entry-info mb-0">Puedes dejar de recibir estos avisos desde Mi cuenta.</p>
+              </article>
+
+              <!-- PIE COMÚN de todos los correos -->
+              <div class="border border-2 p-4 c-muted" style="border-style: dashed !important">
+                <p class="etiqueta mb-2">Pie de todos los correos</p>
+                <p class="mb-2">Anómala · Conectamos voces, disciplinas, territorios y públicos de la cultura.</p>
+                <p class="mb-0">hola@anomala.org · <a href="privacidad.html">Privacidad</a> · <a href="condiciones-suscripcion.html">Condiciones de suscripción</a> · <a href="mi-cuenta.html#newsletter-preferencias">Preferencias de correo</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER (footer.php) -->
+      <footer class="footer">
+        <div class="container-fluid">
+          <div class="row g-5">
+            <div class="col-12 col-lg-3">
+              <a class="d-block" href="home-page.html" aria-label="Anómala, ir al inicio">
+              <svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44.97 7.2" role="img" aria-label="Anómala">
+                <path fill="#f8f8f8" d="M42.38.25h-2.67l-1.86,4.87h-1.82V.25h-2.38v4.75s-1.77-4.75-1.77-4.75h-2.68l-1.83,4.76V.25h-2.47l-1.29,2.27v-.02s-1.44-2.25-1.44-2.25h0s-2.54,0-2.54,0v.94c.52.67.84,1.52.84,2.44s-.32,1.78-.85,2.46v.98s2.56,0,2.56,0v-1.94l1.38,1.94,1.5-1.94v1.94s1.42,0,1.42,0h2.62l.32-.84h2.21l.32.83h1.71s2.4,0,2.4,0h3.61l.32-.84h2.2l.32.83h2.47l-2.59-6.81ZM29.84,4.6l.67-2.11.63,2.11h-1.31ZM40.41,4.6l.66-2.09.66,2.09h-1.32Z" />
+                <path fill="#f8f8f8" d="M11.06,2.9l-1.81-2.65h-2.04l-.08,4.68L5.35.25h-2.61L0,7.07h2.62l.32-.84h2.21l.32.83h3.93s0-2.79,0-2.79l1.85,2.79h2.18v-.91c-.57-.69-.92-1.57-.92-2.54s.34-1.85.92-2.54V.25h-2.35v2.65ZM3.38,4.6l.66-2.09.65,2.09h-1.3Z" />
+                <path fill="#a020f0" d="M19.54,1.69c-.64-1.01-1.76-1.69-3.05-1.69s-2.33.62-2.98,1.57c-.39.58-.63,1.28-.63,2.03s.23,1.45.63,2.03c.65.95,1.74,1.57,2.98,1.57s2.4-.67,3.04-1.67c.36-.56.56-1.22.56-1.93s-.21-1.36-.55-1.91" />
+              </svg>
+              </a>
+              <p class="h3">Intensa • <span class="c-pink">Dispersa</span> • <span class="c-lime">Distinta</span></p>
+              <p>Conectamos voces, disciplinas, territorios y públicos de la cultura.</p>
+              <a href="mailto:hola@anomala.org">hola@anomala.org</a>
+            </div>
+            <nav class="col-6 col-md-4 col-lg-2 offset-lg-3" aria-label="Contenidos">
+              <h2 class="h3">Contenidos</h2>
+              <ul class="tematicas">
+                <li><a href="eje.html">Cultura</a></li>
+                <li><a href="vida-real.html">Vida real</a></li>
+                <li><a href="temas.html">Temas</a></li>
+                <li><a href="cartelera.html">Cartelera</a></li>
+              </ul>
+            </nav>
+            <nav class="col-6 col-md-4 col-lg-2" aria-label="Anómala">
+              <h2 class="h3">Anómala</h2>
+              <ul class="tematicas">
+                <li><a href="quienes-somos.html">Quiénes somos</a></li>
+                <li><a href="#hazte-anomala" data-bs-toggle="offcanvas">Hazte Anómala</a></li>
+                <li><a href="mi-cuenta.html">Mi cuenta</a></li>
+                <li><a href="page.html">Transparencia</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+              </ul>
+            </nav>
+            <nav class="col-6 col-md-4 col-lg-2" aria-label="Síguenos">
+              <h2 class="h3">Síguenos</h2>
+              <!-- Completar con las redes y canales reales del medio -->
+              <ul class="tematicas">
+                <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+                <li><a href="home-page.html#newsletter">Newsletter</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="entry-info border-top pt-3 mt-5">
+            <span>© 2026 Anómala</span>
+            <span><a href="privacidad.html">Privacidad</a> · <a href="condiciones-suscripcion.html">Condiciones de suscripción</a> · <a href="normas-participacion.html">Normas de participación</a> · <a href="#">Créditos</a></span>
+            <span>Desarrollado por <a href="https://maggiore.cl" target="_blank" rel="noopener">Maggiore</a></span>
+          </div>
+        </div>
+      </footer>
+
+      <!--
+        PANEL HAZTE ANÓMALA (footer.php, una vez por página). Lo abre el botón del header y cualquier enlace
+        con data-bs-toggle="offcanvas" hacia #hazte-anomala. Explica los beneficios ANTES de pedir registro o pago.
+        Los contenidos editoriales son gratuitos: los planes pagos habilitan los comentarios (y Encuentro, invitaciones).
+        Los botones de plan llevan a ingresar.html#registro (registro + pago); el cobro recurrente lo resuelve la pasarela.
+      -->
+      <aside class="offcanvas offcanvas-end" tabindex="-1" id="hazte-anomala" aria-labelledby="hazte-anomala-titulo" data-bs-theme="dark">
+        <div class="offcanvas-header">
+          <h2 class="offcanvas-title" id="hazte-anomala-titulo">Hazte Anómala</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+        </div>
+        <div class="offcanvas-body">
+          <p class="lead">Todo lo que publicamos es y seguirá siendo gratis. Suscribiéndote sostienes el medio y te sumas a la conversación.</p>
+
+          <!-- Términos: los botones de plan se habilitan al aceptar (en WP, además, se valida en el registro) -->
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="acepto-terminos" data-terminos />
+            <label class="form-check-label" for="acepto-terminos">Acepto los <a href="condiciones-suscripcion.html">términos y condiciones de suscripción</a> y las <a href="normas-participacion.html">normas de participación</a>.</label>
+          </div>
+          <div class="d-grid gap-3 my-4">
+            <article class="border p-3">
+              <span class="etiqueta">Gratis</span>
+              <h3>Anómala Abierta</h3>
+              <p>Recibe el newsletter con lo que publicamos.</p>
+              <a class="btn-dark border" href="home-page.html#newsletter" data-requiere-terminos>Suscribirme gratis</a>
+            </article>
+            <article class="border p-3">
+              <span class="etiqueta" style="--d: var(--ui-highlight)">$5.000 CLP mensuales</span>
+              <h3>Anómala Conversa</h3>
+              <p>Newsletter, lectura de los comentarios y posibilidad de comentar y participar del debate.</p>
+              <a class="btn-pink" href="ingresar.html?plan=conversa#registro" data-requiere-terminos>Elegir Conversa</a>
+            </article>
+            <article class="border border-2 p-3" style="--bs-border-color: var(--brand)">
+              <span class="etiqueta" style="--d: var(--ui-success)">$10.000 CLP mensuales</span>
+              <h3>Anómala Encuentro</h3>
+              <p>Todos los beneficios de Conversa, más invitaciones sin costo a los eventos propios de Anómala incluidos en el programa de suscriptores, con inscripción previa y sujetas a aforo.</p>
+              <a class="btn-brand" href="ingresar.html?plan=encuentro#registro" data-requiere-terminos>Elegir Encuentro</a>
+            </article>
+          </div>
+          <p class="entry-info"><span>¿Ya tienes cuenta? <a href="ingresar.html">Inicia sesión</a></span> <a href="condiciones-suscripcion.html">Condiciones de suscripción</a></p>
+
+          <hr />
+          <!-- Aporte único: no cambia el plan ni habilita beneficios. Es una operación distinta de la suscripción -->
+          <h3>Quiero hacer un aporte único</h3>
+          <form action="aporte-gracias.html">
+            <div class="filtros" role="group" aria-label="Monto del aporte">
+              <button type="button" aria-pressed="false">$3.000</button>
+              <button type="button" class="is-active" aria-pressed="true">$5.000</button>
+              <button type="button" aria-pressed="false">$10.000</button>
+              <button type="button" aria-pressed="false">$20.000</button>
+            </div>
+            <div class="form-fila">
+              <label class="visually-hidden" for="aporte-otro">Otro monto</label>
+              <input id="aporte-otro" type="number" min="1000" step="500" placeholder="Otro monto" />
+              <button class="btn-brand" type="submit">Aportar</button>
+            </div>
+            <p class="entry-info">Un aporte único no cambia tu plan ni habilita beneficios de suscripción.</p>
+          </form>
+
+          <hr />
+          <h3>Donaciones y alianzas</h3>
+          <p>Si eres empresa o persona y quieres realizar un aporte mayor o gestionar una donación cultural, conversemos.</p>
+          <a class="btn-dark border" href="contacto.html?asunto=donar">Escríbenos</a>
+        </div>
+      </aside>
+    </main>
+
+    <!--
+      AVISO DE COOKIES. En WordPress lo pone un plugin de consentimiento (Complianz, CookieYes…), que además
+      bloquea la analítica hasta que se acepta: por defecto no se carga nada que no sea necesario.
+      En la maqueta, script.js lo muestra si no hay elección guardada y la recuerda en localStorage.
+    -->
+    <div class="position-fixed bottom-0 start-0 end-0 py-3 border-top" style="z-index: 1030; background: var(--bg-deep)" role="region" aria-label="Aviso de cookies" data-cookies hidden>
+      <div class="container-fluid d-flex flex-wrap align-items-center gap-3">
+        <p class="mb-0 me-auto">Usamos cookies propias y de analítica para saber qué se lee y mejorar el sitio. <a href="privacidad.html">Política de privacidad</a>.</p>
+        <div class="d-flex flex-wrap gap-2">
+          <button class="btn-dark border" type="button" data-cookies-opcion="necesarias">Solo necesarias</button>
+          <button class="btn-brand" type="button" data-cookies-opcion="todas">Aceptar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

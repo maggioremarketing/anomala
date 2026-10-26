@@ -138,6 +138,29 @@
                 </div>
                 <!-- Hasta aquí: the_content() -->
 
+                <!--
+                  COMPARTIR (template-parts/compartir.php, igual en todos los singles y en la ficha de evento).
+                  Enlaces simples, sin plugins ni scripts de terceros (no cargan rastreadores). URL = get_permalink() y
+                  texto = get_the_title(), ambos con rawurlencode():
+                  · WhatsApp: https://wa.me/?text=TÍTULO%20URL (en el teléfono abre la app; en el computador, WhatsApp Web)
+                  · Facebook: https://www.facebook.com/sharer/sharer.php?u=URL
+                  · X: https://x.com/intent/post?text=TÍTULO&url=URL
+                  · Correo: mailto:?subject=TÍTULO&body=URL
+                  · Instagram no permite compartir enlaces desde la web. En el teléfono, "Compartir…" abre el menú del sistema
+                    (navigator.share), con Instagram, WhatsApp, Telegram, etc.; solo aparece donde el navegador lo permite.
+                    En el computador queda "Copiar enlace" (para historias o la biografía de Instagram).
+                  La vista previa (imagen, título y bajada) la dan las etiquetas Open Graph que pone el tema o el plugin de SEO.
+                -->
+                <h2 class="h3 mt-5">Compartir</h2>
+                <div class="filtros" role="group" aria-label="Compartir esta nota" data-compartir data-url="https://anomala.org/fuera-del-mapa/" data-titulo="Fuera del mapa: la cultura que se sostiene sin fondos ni foco">
+                  <button type="button" data-compartir-nativo hidden>Compartir…</button>
+                  <a href="https://wa.me/?text=Fuera%20del%20mapa%3A%20la%20cultura%20que%20se%20sostiene%20sin%20fondos%20ni%20foco%20https%3A%2F%2Fanomala.org%2Ffuera-del-mapa%2F" target="_blank" rel="noopener">WhatsApp</a>
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fanomala.org%2Ffuera-del-mapa%2F" target="_blank" rel="noopener">Facebook</a>
+                  <a href="https://x.com/intent/post?text=Fuera%20del%20mapa%3A%20la%20cultura%20que%20se%20sostiene%20sin%20fondos%20ni%20foco&amp;url=https%3A%2F%2Fanomala.org%2Ffuera-del-mapa%2F" target="_blank" rel="noopener">X</a>
+                  <a href="mailto:?subject=Fuera%20del%20mapa%3A%20la%20cultura%20que%20se%20sostiene%20sin%20fondos%20ni%20foco&amp;body=https%3A%2F%2Fanomala.org%2Ffuera-del-mapa%2F">Correo</a>
+                  <button type="button" data-copiar-enlace>Copiar enlace</button>
+                </div>
+
                 <h2 class="h3 mt-5">Temas</h2>
                 <nav class="filtros" aria-label="Temas de esta nota">
                   <a href="tema.html">Patrimonio y memoria</a><a href="tema.html">Política cultural</a><a href="tema.html">Territorios</a>
@@ -263,7 +286,44 @@
                       <p>Muy necesario contarlo. ¿Habrá una segunda parte?</p>
                       <div class="d-flex gap-3">
                         <button class="etiqueta bg-transparent border-0 p-0" type="button">Responder</button>
-                        <button class="etiqueta bg-transparent border-0 p-0" type="button" style="--d: var(--text-muted)">Reportar</button>
+                        <button class="etiqueta bg-transparent border-0 p-0" type="button" style="--d: var(--text-muted)" data-bs-toggle="collapse" data-bs-target="#reportar-1" aria-expanded="false" aria-controls="reportar-1">Reportar</button>
+                      </div>
+                      <!--
+                        REPORTAR (igual en todos los comentarios; en la maqueta solo funciona en este, de ejemplo).
+                        Se envía por AJAX y guarda el motivo como metadato del comentario. Al llegar a N reportes, el comentario
+                        pasa a moderación (wp_set_comment_status 'hold') y se avisa a quien modera.
+                        Cada persona puede reportar un comentario una sola vez. No se avisa a quien lo escribió.
+                      -->
+                      <div class="collapse" id="reportar-1">
+                        <form class="border p-3 mt-3" onsubmit="return false">
+                          <fieldset>
+                            <legend class="etiqueta mb-2">¿Por qué reportas este comentario?</legend>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="motivo-1" id="motivo-1-ofensivo" value="ofensivo" required />
+                              <label class="form-check-label" for="motivo-1-ofensivo">Es ofensivo, discriminatorio o un ataque personal</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="motivo-1" id="motivo-1-spam" value="spam" />
+                              <label class="form-check-label" for="motivo-1-spam">Es spam o publicidad</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="motivo-1" id="motivo-1-falso" value="desinformacion" />
+                              <label class="form-check-label" for="motivo-1-falso">Difunde información falsa</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="motivo-1" id="motivo-1-otro" value="otro" />
+                              <label class="form-check-label" for="motivo-1-otro">Otro motivo</label>
+                            </div>
+                          </fieldset>
+                          <label class="form-label mt-3" for="motivo-1-detalle">Detalle <span class="c-muted">(opcional)</span></label>
+                          <textarea class="form-control" id="motivo-1-detalle" rows="2" maxlength="300"></textarea>
+                          <div class="d-flex flex-wrap align-items-center gap-3 mt-3">
+                            <button class="btn-brand" type="submit">Enviar reporte</button>
+                            <button class="btn-dark border" type="button" data-bs-toggle="collapse" data-bs-target="#reportar-1">Cancelar</button>
+                          </div>
+                          <!-- Al enviarlo, el formulario se reemplaza por este mensaje -->
+                          <p class="entry-info mb-0"><span>Al enviarlo verás: «Gracias. Revisaremos este comentario según las <a href="normas-participacion.html">normas de participación</a>».</span></p>
+                        </form>
                       </div>
                     </article>
 
@@ -301,7 +361,46 @@
                       </div>
                     </article>
                   </li>
+                  <!--
+                    COMENTARIO EN REVISIÓN: solo lo ve quien lo escribió, con este aviso (comment_approved = 0 en el
+                    callback de wp_list_comments); no cuenta en el total. Aparece si la moderación es previa o si el
+                    comentario recibió varios reportes. Con moderación posterior, los comentarios se publican de inmediato.
+                  -->
+                  <li class="py-3 border-bottom" id="comentario-5">
+                    <article>
+                      <div class="entry-info mt-0 align-items-center"><span class="d-inline-flex align-items-center gap-2"><span class="avatar" aria-hidden="true">CR</span><b>camila.r</b></span><span class="c-pink">En revisión · solo lo ves tú</span></div>
+                      <p>Me gustaría saber cómo se financian hoy los centros que aparecen en la nota.</p>
+                      <p class="entry-info mb-0">Tu comentario se publicará cuando lo revisemos.</p>
+                    </article>
+                  </li>
                 </ol>
+              </div>
+
+              <!--
+                OTROS ESTADOS DE LA CONVERSACIÓN (SOLO MAQUETA: se muestran aquí para verlos; en WordPress cada uno
+                reemplaza al formulario de comentario).
+                · Comentarios cerrados: comments_open() es falso (se cierra por nota en el editor, o automáticamente
+                  tras N días). Los comentarios existentes siguen visibles para suscriptores; solo se quita el formulario.
+                · Cuenta bloqueada para comentar: quien modera bloqueó a la persona (metadato del usuario).
+                  Mantiene su suscripción y puede leer la conversación, pero no comentar ni responder.
+              -->
+              <div class="mt-5 pt-4 border-top">
+                <p class="etiqueta">Otros estados · solo maqueta</p>
+                <div class="row g-4">
+                  <div class="col-12 col-md-6">
+                    <div class="border p-4 h-100">
+                      <p class="etiqueta mb-2" style="--d: var(--text-muted)">Comentarios cerrados</p>
+                      <p class="mb-0">Los comentarios están cerrados en esta publicación. Puedes seguir leyendo la conversación.</p>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="border p-4 h-100">
+                      <p class="etiqueta mb-2" style="--d: var(--text-muted)">Cuenta bloqueada para comentar</p>
+                      <p>Tu cuenta no puede comentar por ahora porque no respetó las <a href="normas-participacion.html">normas de participación</a>. Tu suscripción sigue activa y puedes leer la conversación.</p>
+                      <p class="entry-info mb-0"><span>¿Crees que es un error? <a href="contacto.html">Escríbenos</a>.</span></p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

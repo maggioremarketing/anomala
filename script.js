@@ -239,3 +239,44 @@
   const select = document.querySelector("#registro-plan");
   if (plan && select && [...select.options].some((o) => o.value === plan)) select.value = plan;
 })();
+
+/* Compartir (singles y ficha de evento): "Compartir…" usa el menú nativo del sistema (incluye Instagram en el
+   teléfono) y solo se muestra si el navegador lo permite; "Copiar enlace" copia la URL de la nota */
+(function () {
+  document.querySelectorAll("[data-compartir]").forEach((grupo) => {
+    const url = grupo.dataset.url || location.href;
+    const titulo = grupo.dataset.titulo || document.title;
+    const nativo = grupo.querySelector("[data-compartir-nativo]");
+    if (nativo && navigator.share) {
+      nativo.hidden = false;
+      nativo.addEventListener("click", () => navigator.share({ title: titulo, url }).catch(() => {}));
+    }
+    const copiar = grupo.querySelector("[data-copiar-enlace]");
+    if (!copiar) return;
+    const texto = copiar.textContent;
+    // Respaldo para navegadores sin permiso al portapapeles: copia desde un campo temporal
+    const copiarConCampo = () => {
+      const campo = document.createElement("textarea");
+      campo.value = url;
+      campo.setAttribute("readonly", "");
+      campo.style.position = "fixed";
+      campo.style.opacity = "0";
+      document.body.appendChild(campo);
+      campo.select();
+      const ok = document.execCommand("copy");
+      campo.remove();
+      return ok;
+    };
+    copiar.addEventListener("click", async () => {
+      let ok = false;
+      try {
+        await navigator.clipboard.writeText(url);
+        ok = true;
+      } catch (e) {
+        ok = copiarConCampo();
+      }
+      copiar.textContent = ok ? "Enlace copiado" : "No se pudo copiar";
+      setTimeout(() => (copiar.textContent = texto), 2000);
+    });
+  });
+})();

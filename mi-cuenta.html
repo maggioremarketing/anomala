@@ -96,6 +96,7 @@
               <ul class="tematicas sticky-lg-top" style="top: 120px">
                 <li><a href="#perfil">Perfil</a></li>
                 <li><a href="#suscripcion">Suscripción</a></li>
+                <li><a href="#invitaciones">Invitaciones</a></li>
                 <li><a href="#pagos">Pagos</a></li>
                 <li><a href="#newsletter-preferencias">Newsletter</a></li>
                 <li><a href="#seguridad">Seguridad</a></li>
@@ -154,9 +155,66 @@
                 <div class="d-flex flex-wrap gap-2">
                   <a class="btn-brand" href="#hazte-anomala" data-bs-toggle="offcanvas">Cambiar de plan</a>
                   <!-- Cancelar: pide confirmación; la suscripción sigue activa hasta el fin del período pagado -->
-                  <button class="btn-dark border" type="button">Cancelar suscripción</button>
+                  <button class="btn-dark border" type="button" data-bs-toggle="collapse" data-bs-target="#cancelar-confirmar" aria-expanded="false" aria-controls="cancelar-confirmar">Cancelar suscripción</button>
                 </div>
+                <!--
+                  CONFIRMAR CANCELACIÓN. Al confirmar, el plugin cancela la renovación (no hay más cobros), la suscripción
+                  sigue activa hasta el fin del período pagado y luego la cuenta pasa a Anómala Abierta.
+                  Se envía el correo "Cancelaste tu suscripción" (correos.html). El motivo es opcional y solo se usa para estadísticas.
+                -->
+                <div class="collapse" id="cancelar-confirmar">
+                  <form class="border p-4 mt-4" onsubmit="return false">
+                    <h3>¿Quieres cancelar tu suscripción?</h3>
+                    <p>No haremos más cobros. Seguirás con Anómala Conversa hasta el <b>15/11/26</b>; después, tu cuenta pasa a Anómala Abierta: sigues recibiendo el newsletter, pero ya no podrás leer ni escribir comentarios.</p>
+                    <label class="form-label" for="cancelar-motivo">¿Nos cuentas por qué? <span class="c-muted">(opcional)</span></label>
+                    <select class="form-select" id="cancelar-motivo">
+                      <option value="">Prefiero no decirlo</option>
+                      <option>Es mucho dinero para mí ahora</option>
+                      <option>No uso los comentarios</option>
+                      <option>Tuve problemas con el pago</option>
+                      <option>Otro motivo</option>
+                    </select>
+                    <div class="d-flex flex-wrap gap-2 mt-3">
+                      <button class="btn-pink" type="submit">Sí, cancelar</button>
+                      <button class="btn-dark border" type="button" data-bs-toggle="collapse" data-bs-target="#cancelar-confirmar">Mantener mi suscripción</button>
+                    </div>
+                  </form>
+                </div>
+                <!-- Ya cancelada, en lugar de "Activa" se muestra "Activa hasta el 15/11/26", y el botón cambia a "Reactivar suscripción" -->
                 <p class="entry-info mt-3 mb-0"><a href="condiciones-suscripcion.html">Condiciones de suscripción</a></p>
+              </div>
+
+              <!--
+                INVITACIONES (solo plan Encuentro): eventos de Anómala con inscripción abierta (tipo Evento con
+                "Evento de Anómala" = sí y fecha futura). El enlace de inscripción solo se imprime para quien tiene
+                Encuentro activo; por eso no se publica en la ficha del evento.
+                Con Conversa o Abierta, en lugar de la lista va solo el párrafo de "Otro estado".
+                SOLO MAQUETA: esta cuenta es Conversa, pero se muestra la vista Encuentro para ver cómo queda.
+              -->
+              <div class="border p-4" id="invitaciones">
+                <h2 class="h3">Invitaciones</h2>
+                <p class="etiqueta">Vista con Anómala Encuentro</p>
+                <p class="c-muted">Eventos de Anómala sin costo para ti. La invitación es personal, con inscripción previa y sujeta a aforo.</p>
+                <ul class="tematicas">
+                  <li>
+                    <div class="entry-info w-100 my-0 fs-6">
+                      <span><a href="single-evento.html">Las voces del sur: lectura dramatizada</a><br />Sáb 14 nov · 19:00 · Valdivia · inscripciones hasta el 10/11</span>
+                      <a href="#" target="_blank" rel="noopener">Inscribirme ↗</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="entry-info w-100 my-0 fs-6">
+                      <span><a href="single-evento.html">Conversatorio: escribir desde regiones</a><br />Jue 3 dic · 19:30 · Santiago · inscripciones desde el 15/11</span>
+                      <span class="c-muted">Pronto</span>
+                    </div>
+                  </li>
+                </ul>
+                <p class="entry-info mb-0">Tu cupo queda asegurado cuando recibes la confirmación de la inscripción.</p>
+
+                <div class="border-top pt-3 mt-4">
+                  <p class="etiqueta mb-2">Otro estado · con Conversa o Abierta</p>
+                  <p class="mb-0">Las invitaciones a eventos de Anómala son parte del plan Anómala Encuentro. <a href="#hazte-anomala" data-bs-toggle="offcanvas">Conoce los planes</a>.</p>
+                </div>
               </div>
 
               <!-- PAGOS: historial de cobros de la suscripción y aportes únicos (datos de la pasarela) -->
@@ -185,6 +243,11 @@
                   <div class="form-check">
                     <input class="form-check-input" id="pref-invitaciones" type="checkbox" />
                     <label class="form-check-label" for="pref-invitaciones">Avisos de invitaciones a eventos de Anómala</label>
+                  </div>
+                  <!-- Este aviso no es del newsletter: lo envía WordPress (metadato del usuario), ver correos.html -->
+                  <div class="form-check">
+                    <input class="form-check-input" id="pref-respuestas" type="checkbox" checked />
+                    <label class="form-check-label" for="pref-respuestas">Avisarme cuando respondan mis comentarios</label>
                   </div>
                   <button class="btn-brand mt-3" type="submit">Guardar preferencias</button>
                 </form>

@@ -92,7 +92,7 @@
           <tr>
             <td class="text-body-secondary">Artículos</td>
             <td><a href="single.html">Reportaje</a></td>
-            <td>Artículo estándar con autor, comentarios y relacionadas.</td>
+            <td>Artículo estándar con autor, comentarios y relacionadas. La conversación muestra también reportar un comentario, comentario en revisión, comentarios cerrados y cuenta bloqueada.</td>
             <td><code>single.php</code></td>
           </tr>
           <tr>
@@ -170,8 +170,14 @@
           <tr>
             <td class="text-body-secondary"></td>
             <td><a href="mi-cuenta.html">Mi cuenta</a></td>
-            <td>Panel con sesión iniciada: perfil (foto y nombre público de los comentarios), suscripción, pagos, newsletter y seguridad.</td>
+            <td>Panel con sesión iniciada: perfil (foto y nombre público de los comentarios), suscripción (con confirmación de cancelación), invitaciones de Encuentro, pagos, newsletter y seguridad.</td>
             <td>Plantilla «mi cuenta» + integración propia con la pasarela</td>
+          </tr>
+          <tr>
+            <td class="text-body-secondary"></td>
+            <td><a href="nueva-contrasena.html">Nueva contraseña</a></td>
+            <td>Página del enlace del correo de recuperación: crear contraseña nueva y, al lado, el aviso de enlace vencido.</td>
+            <td>Plantilla de acceso del plugin de cuentas (<code>wp-login.php?action=rp</code>)</td>
           </tr>
           <tr>
             <td class="text-body-secondary">Flujos de suscripción</td>
@@ -184,6 +190,12 @@
             <td><a href="suscripcion-confirmada.html">Suscripción confirmada</a></td>
             <td>Mensaje tras un pago exitoso, con los beneficios del plan.</td>
             <td>Plugin de membresías (confirmación)</td>
+          </tr>
+          <tr>
+            <td class="text-body-secondary"></td>
+            <td><a href="pago-rechazado.html">Pago no completado</a></td>
+            <td>Vuelta desde la pasarela cuando el pago se rechaza o se cancela: motivo, qué hacer e intentar de nuevo.</td>
+            <td>Plugin de membresías (pedido fallido)</td>
           </tr>
           <tr>
             <td class="text-body-secondary"></td>
@@ -204,6 +216,12 @@
             <td>Proveedor de newsletter</td>
           </tr>
           <tr>
+            <td class="text-body-secondary"></td>
+            <td><a href="correos.html">Correos del sistema</a></td>
+            <td>Textos de los correos automáticos: cuenta, contraseña, pagos, cobro fallido, cancelación, aporte, newsletter, invitación Encuentro y respuestas a comentarios.</td>
+            <td>Plantillas de WordPress, del plugin de membresías y del proveedor de newsletter (referencia, no se publica)</td>
+          </tr>
+          <tr>
             <td class="text-body-secondary">Referencia</td>
             <td><a href="referencia-v1/index.html">Versión anterior (referencia)</a></td>
             <td>Maqueta previa con el header de formatos y ejes, solo para comparar.</td>
@@ -213,7 +231,7 @@
         </table>
       </div>
 
-      <p class="small text-body-secondary mt-4">Salvo «Quiénes somos», los textos, nombres e imágenes de las notas son de ejemplo. Actualizado el 15 de octubre de 2026.</p>
+      <p class="small text-body-secondary mt-4">Salvo «Quiénes somos», los textos, nombres e imágenes de las notas son de ejemplo. Actualizado el 26 de octubre de 2026.</p>
     </main>
   </body>
 </html>
