@@ -59,7 +59,7 @@
                 <li class="nav-item"><a class="nav-link" href="vida-real.html">Vida real</a></li>
                 <li class="nav-item"><a class="nav-link" href="temas.html">Temas</a></li>
                 <li class="nav-item"><a class="nav-link" href="cartelera.html">Cartelera</a></li>
-                <li class="nav-item d-lg-none"><a class="nav-link" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram ↗</a></li>
+                <li class="nav-item d-lg-none"><a class="nav-link" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
               </ul>
             </div>
           </div>
@@ -88,7 +88,7 @@
               <h1 class="c-pink">Vida real</h1>
               <p class="lead">La cultura en lo cotidiano: barrios, trabajos, rutinas y las formas en que vivimos, nos juntamos y recordamos.</p>
 
-              <!-- Formato (taxonomía) y medio (Texto/Video/Audio): se combinan como parámetros de la consulta -->
+              <!-- Formato (taxonomía) y medio: nadie lo marca; al guardar (save_post) WordPress revisa el contenido (has_block de core/video, core/audio o embeds de YouTube, Vimeo y Spotify) y asigna solo el término Video o Audio de la taxonomía «medio», oculta en el editor. «Texto e imagen» reúne las notas sin ninguno de los dos (tax_query con NOT EXISTS). Cada término tiene su archivo (/medio/video/, /medio/audio/) y su conteo. Se combinan como parámetros de la consulta -->
               <nav class="filtros" aria-label="Filtrar por formato">
                 <a class="is-active" href="#" aria-current="page">Todos los formatos</a>
                 <a href="#">Columnas</a>
@@ -98,8 +98,8 @@
                 <a href="#">Ensayos</a>
               </nav>
               <nav class="filtros" aria-label="Filtrar por medio">
-                <a class="is-active" href="#" aria-current="page">Todos los medios</a>
-                <a href="#">Texto</a>
+                <a class="is-active" href="#" aria-current="page">Todos</a>
+                <a href="#">Texto e imagen</a>
                 <a href="#">Video</a>
                 <a href="#">Audio</a>
               </nav>
@@ -319,11 +319,11 @@
             <aside class="col-12 col-lg-3" aria-label="Más para explorar">
               <h2 class="h3">Lo más leído</h2>
               <ol class="tematicas mb-5">
-                <li><span class="c-violet me-2">1.</span><a href="single-columna.html">El fútbol también es cultura (y deberíamos tratarlo así)</a></li>
-                <li><span class="c-violet me-2">2.</span><a href="single.html">Fondos concursables: lo que cambia en la próxima convocatoria</a></li>
-                <li><span class="c-violet me-2">3.</span><a href="single.html">Fuera del mapa: la cultura que se sostiene sin fondos ni foco</a></li>
-                <li><span class="c-violet me-2">4.</span><a href="single-entrevista.html">Lo que la IA no sabe sobre ilustrar</a></li>
-                <li><span class="c-violet me-2">5.</span><a href="single-ensayo.html">Bailar para quedarse: una noche en la fiesta del barrio</a></li>
+                <li><span class="c-violet me-2">1.</span><a href="single.html">Cómo Alejandro Jodorowsky inventó el cine de ciencia ficción sin filmar un solo minuto de Dune</a></li>
+                <li><span class="c-violet me-2">2.</span><a href="single-entrevista-orlandini.html">¿De quién es la música?</a></li>
+                <li><span class="c-violet me-2">3.</span><a href="single-columna-boxeo.html">Boxeo en Chile y Club México</a></li>
+                <li><span class="c-violet me-2">4.</span><a href="single-columna-meme.html">Meme, humor digital y sátira política</a></li>
+                <li><span class="c-violet me-2">5.</span><a href="single-entrevista.html">Nadie te pidió que escribieras: Romina Pistolas</a></li>
               </ol>
 
               <h2 class="h3">Próximamente en cartelera</h2>
@@ -350,14 +350,23 @@
               <h2 class="h3">Secciones</h2>
               <ul class="tematicas mb-5">
                 <li><a class="c-lime" href="eje.html">Cultura</a></li>
-                <li><a class="c-pink fw-bold" href="vida-real.html" aria-current="page">Vida real ←</a></li>
+                <li><a class="c-pink fw-bold" href="vida-real.html" aria-current="page">Vida real</a></li>
               </ul>
+
+              <!-- Series: get_terms( 'serie' ), cada una enlaza a su archivo (taxonomy-serie.php) -->
+              <h2 class="h3">Series</h2>
+              <ul class="tematicas mb-2">
+                <li><a href="serie.html">Spoiler Alert!</a></li>
+                <li><a href="serie.html">Coleccionistas psiquiátricos</a></li>
+                <li><a href="serie.html">Nadie te pidió que escribieras</a></li>
+              </ul>
+              <a class="link-mas mt-0 mb-5" href="series.html">Ver todas las series</a>
 
               <h2 class="h3">Temas</h2>
               <nav class="filtros" aria-label="Temas">
                 <a href="tema.html">Música</a><a href="tema.html">Artes visuales</a><a href="tema.html">Cine</a><a href="tema.html">Teatro</a><a href="tema.html">Literatura</a><a href="tema.html">Danza</a><a href="tema.html">Fotografía</a><a href="tema.html">Diseño</a><a href="tema.html">Patrimonio y memoria</a><a href="tema.html">Oficios</a><a href="tema.html">Deporte</a><a href="tema.html">Gastronomía</a>
               </nav>
-              <a class="link-mas" href="temas.html">Ver todos los temas →</a>
+              <a class="link-mas" href="temas.html">Ver todos los temas</a>
             </aside>
           </div>
         </div>

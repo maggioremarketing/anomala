@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>¿Cuándo dejamos de imaginar un futuro mejor? · Anómala</title>
+    <!-- Fuentes: Typekit (títulos) y Google Fonts (texto). preconnect adelanta la conexión -->
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://use.typekit.net/aie8ork.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,400..700;1,14..32,400..700&display=swap" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body class="single">
+    <main>
+      <!--
+        HEADER (header.php): una sola huincha, fija arriba.
+        Orden: Logo · Instagram · Lupa · Cuenta · Quiénes somos · Cultura · Vida real · Temas · Cartelera · Hazte Anómala
+        Móvil: logo, lupa, "Hazte Anómala" y menú desplegable (Instagram baja al menú).
+        Los formatos (columna, entrevista, crónica…) ya no van en el header: identifican cada contenido y filtran en Temas.
+      -->
+      <header class="mid-nav sticky-top" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg" aria-label="Navegación principal">
+          <div class="container-fluid gap-2">
+            <a class="navbar-brand me-0" href="home-page.html" aria-label="Anómala, ir al inicio">
+              <svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44.97 7.2" aria-hidden="true">
+                <path fill="#f8f8f8" d="M42.38.25h-2.67l-1.86,4.87h-1.82V.25h-2.38v4.75s-1.77-4.75-1.77-4.75h-2.68l-1.83,4.76V.25h-2.47l-1.29,2.27v-.02s-1.44-2.25-1.44-2.25h0s-2.54,0-2.54,0v.94c.52.67.84,1.52.84,2.44s-.32,1.78-.85,2.46v.98s2.56,0,2.56,0v-1.94l1.38,1.94,1.5-1.94v1.94s1.42,0,1.42,0h2.62l.32-.84h2.21l.32.83h1.71s2.4,0,2.4,0h3.61l.32-.84h2.2l.32.83h2.47l-2.59-6.81ZM29.84,4.6l.67-2.11.63,2.11h-1.31ZM40.41,4.6l.66-2.09.66,2.09h-1.32Z" />
+                <path fill="#f8f8f8" d="M11.06,2.9l-1.81-2.65h-2.04l-.08,4.68L5.35.25h-2.61L0,7.07h2.62l.32-.84h2.21l.32.83h3.93s0-2.79,0-2.79l1.85,2.79h2.18v-.91c-.57-.69-.92-1.57-.92-2.54s.34-1.85.92-2.54V.25h-2.35v2.65ZM3.38,4.6l.66-2.09.65,2.09h-1.3Z" />
+                <path fill="#a020f0" d="M19.54,1.69c-.64-1.01-1.76-1.69-3.05-1.69s-2.33.62-2.98,1.57c-.39.58-.63,1.28-.63,2.03s.23,1.45.63,2.03c.65.95,1.74,1.57,2.98,1.57s2.4-.67,3.04-1.67c.36-.56.56-1.22.56-1.93s-.21-1.36-.55-1.91" />
+              </svg>
+              <span class="lema d-block mt-1">Intensa · <span class="c-pink">Dispersa</span> · <span class="c-lime">Distinta</span></span>
+            </a>
+            <!-- Completar con la URL real de la cuenta de Instagram -->
+            <a class="nav-link d-none d-lg-block ms-lg-4" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Anómala en Instagram">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" /></svg>
+            </a>
+            <button class="nav-link ms-auto ms-lg-0" type="button" data-bs-toggle="collapse" data-bs-target="#buscador" aria-controls="buscador" aria-expanded="false" aria-label="Abrir buscador">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m15.5 15.5 5 5" /></svg>
+            </button>
+            <!-- Cuenta: sin sesión lleva a ingresar.html; con sesión muestra la foto o las iniciales y lleva a mi-cuenta.html:
+                 <a class="nav-link" href="mi-cuenta.html" aria-label="Mi cuenta"><span class="avatar" style="--avatar: 30px" aria-hidden="true">CR</span></a> -->
+            <a class="nav-link" href="ingresar.html" aria-label="Ingresar a tu cuenta">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4" /><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" /></svg>
+            </a>
+            <button class="btn-pink order-lg-last" type="button" data-bs-toggle="offcanvas" data-bs-target="#hazte-anomala" aria-controls="hazte-anomala">Hazte Anómala</button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menú">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu-principal">
+              <!-- wp_nav_menu( 'principal' ). Cultura y Vida real son las dos grandes categorías; Temas reúne las etiquetas (disciplinas y temas) -->
+              <ul class="navbar-nav ms-lg-auto">
+                <li class="nav-item"><a class="nav-link" href="quienes-somos.html">Quiénes somos</a></li>
+                <li class="nav-item"><a class="nav-link" href="eje.html">Cultura</a></li>
+                <li class="nav-item"><a class="nav-link" href="vida-real.html">Vida real</a></li>
+                <li class="nav-item"><a class="nav-link" href="temas.html">Temas</a></li>
+                <li class="nav-item"><a class="nav-link" href="cartelera.html">Cartelera</a></li>
+                <li class="nav-item d-lg-none"><a class="nav-link" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- Buscador (get_search_form): busca por título, tema y autor. El parámetro "s" es el de WordPress -->
+        <div class="collapse" id="buscador">
+          <div class="container-fluid pb-3">
+            <form class="form-fila" role="search" action="busqueda.html">
+              <label class="visually-hidden" for="buscar">Buscar</label>
+              <input id="buscar" name="s" type="search" placeholder="Busca por título, tema o autor" />
+              <button class="btn-brand" type="submit">Buscar</button>
+            </form>
+          </div>
+        </div>
+      </header>
+
+      <!--
+        COLUMNA (en WordPress: single.php cuando el formato es "Columna").
+        La firma va junto al título y no hay imagen principal. Aviso de opinión según la Brújula:
+        información, interpretación y opinión aparecen diferenciadas.
+      -->
+      <article class="pt-5">
+        <div class="container-fluid">
+          <div class="row g-5">
+            <div class="col-12 col-lg-8">
+              <header class="pb-4 mb-4 border-bottom">
+                <!-- Formato · medio (Video/Audio, deducido del contenido; solo si la nota tiene) · tema -->
+                <p class="mb-2"><a class="etiqueta" href="publicaciones.html">Columna</a> · <a class="etiqueta" href="tema.html">Cine</a></p>
+                <h1>¿Cuándo dejamos de imaginar un futuro mejor?</h1>
+                <p class="lead">Cómo la ciencia, el cine, las series y la tecnología moldean nuestras ideas sobre el futuro, y qué puede hacer la cultura para imaginar una vida mejor.</p>
+                <div class="d-flex align-items-center gap-3 mt-4">
+                  <span class="avatar" style="--avatar: 72px" aria-hidden="true">PA</span>
+                  <div>
+                    <p class="h3 mb-0"><a class="text-reset" href="autor.html">Paloma Ávila Barrera</a></p>
+                    <div class="entry-info my-0 justify-content-start">
+                      <span>Columnista</span>
+                      <span><time datetime="2026-10-23">23 de octubre de 2026</time> · 6 min de lectura</span>
+                    </div>
+                  </div>
+                </div>
+              </header>
+
+              <!-- Desde aquí: the_content() -->
+              <div class="cuerpo">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus, posuere velit aliquet. Donec ullamcorper nulla non metus auctor fringilla, vestibulum id ligula porta felis euismod semper.</p>
+                <p>Curabitur blandit tempus porttitor. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo. Cras mattis consectetur purus sit amet fermentum.</p>
+
+                <h2 class="wp-block-heading">Lorem ipsum dolor sit amet</h2>
+                <p>Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+
+                <blockquote class="wp-block-quote">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                </blockquote>
+
+                <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Etiam porta sem malesuada magna mollis euismod.</p>
+                <p>Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+              </div>
+              <!-- Hasta aquí: the_content() -->
+
+              <p class="entry-info mt-5 pt-3 border-top">Las columnas expresan la opinión de sus autores y no necesariamente la de Anómala.</p>
+
+              <!--
+                COMPARTIR (template-parts/compartir.php, igual en todos los singles y en la ficha de evento).
+                Enlaces simples, sin plugins ni scripts de terceros (no cargan rastreadores). URL = get_permalink() y
+                texto = get_the_title(), ambos con rawurlencode():
+                · WhatsApp: https://wa.me/?text=TÍTULO%20URL (en el teléfono abre la app; en el computador, WhatsApp Web)
+                · Facebook: https://www.facebook.com/sharer/sharer.php?u=URL
+                · X: https://x.com/intent/post?text=TÍTULO&url=URL
+                · Correo: mailto:?subject=TÍTULO&body=URL
+                · Instagram no permite compartir enlaces desde la web. En el teléfono, "Compartir…" abre el menú del sistema
+                  (navigator.share), con Instagram, WhatsApp, Telegram, etc.; solo aparece donde el navegador lo permite.
+                  En el computador queda "Copiar enlace" (para historias o la biografía de Instagram).
+                La vista previa (imagen, título y bajada) la dan las etiquetas Open Graph que pone el tema o el plugin de SEO.
+              -->
+              <h2 class="h3 mt-5">Compartir</h2>
+              <div class="filtros" role="group" aria-label="Compartir esta columna" data-compartir data-url="https://anomala.org/cuando-dejamos-de-imaginar-un-futuro-mejor/" data-titulo="¿Cuándo dejamos de imaginar un futuro mejor?">
+                <button type="button" data-compartir-nativo hidden>Compartir…</button>
+                <a href="https://wa.me/?text=%C2%BFCu%C3%A1ndo%20dejamos%20de%20imaginar%20un%20futuro%20mejor%3F%20https%3A%2F%2Fanomala.org%2Fcuando-dejamos-de-imaginar-un-futuro-mejor%2F" target="_blank" rel="noopener">WhatsApp</a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fanomala.org%2Fcuando-dejamos-de-imaginar-un-futuro-mejor%2F" target="_blank" rel="noopener">Facebook</a>
+                <a href="https://x.com/intent/post?text=%C2%BFCu%C3%A1ndo%20dejamos%20de%20imaginar%20un%20futuro%20mejor%3F&amp;url=https%3A%2F%2Fanomala.org%2Fcuando-dejamos-de-imaginar-un-futuro-mejor%2F" target="_blank" rel="noopener">X</a>
+                <a href="mailto:?subject=%C2%BFCu%C3%A1ndo%20dejamos%20de%20imaginar%20un%20futuro%20mejor%3F&amp;body=https%3A%2F%2Fanomala.org%2Fcuando-dejamos-de-imaginar-un-futuro-mejor%2F">Correo</a>
+                <button type="button" data-copiar-enlace>Copiar enlace</button>
+              </div>
+
+              <h2 class="h3 mt-5">Temas</h2>
+              <nav class="filtros" aria-label="Temas de esta nota">
+                <a href="tema.html">Cine</a><a href="tema.html">Televisión</a><a href="tema.html">Cultura digital</a>
+              </nav>
+
+                <!--
+                  CRÉDITOS: campos separados de la nota (p. ej. ACF): autores (Co-Authors Plus o campo de usuarios),
+                  entrevistado (solo entrevistas), fotografía y un repetidor de "otros créditos" (rol + nombre).
+                -->
+                <h2 class="h3 mt-5">Créditos</h2>
+                <dl class="row mb-0 pt-3 border-top">
+                  <dt class="col-4 col-sm-3 etiqueta">Columna</dt>
+                  <dd class="col-8 col-sm-9"><a href="autor.html">Paloma Ávila Barrera</a></dd>
+                  <dt class="col-4 col-sm-3 etiqueta">Corrección</dt>
+                  <dd class="col-8 col-sm-9">Equipo Anómala</dd>
+                  <dt class="col-4 col-sm-3 etiqueta">Edición</dt>
+                  <dd class="col-8 col-sm-9">Equipo Anómala</dd>
+                </dl>
+
+                <!-- FICHA DE AUTOR: una por autor (get_avatar, get_the_author_meta('description'), get_author_posts_url). Sin foto: iniciales (.avatar) -->
+                <section class="mt-5" aria-labelledby="sobre-autor">
+                  <h2 id="sobre-autor" class="h3">Sobre el autor</h2>
+                  <div class="d-flex align-items-center gap-3 py-3 border-bottom">
+                    <span class="avatar" style="--avatar: 80px" aria-hidden="true">PA</span>
+                    <div>
+                      <p class="h3 mb-1"><a class="text-reset" href="autor.html">Paloma Ávila Barrera</a></p>
+                      <p class="c-muted mb-1">Exconductora de Futuro360 en CNN.</p>
+                      <a class="link-mas mt-0" href="autor.html">Ver más de este autor</a>
+                    </div>
+                  </div>
+                </section>
+            </div>
+
+            <aside class="col-12 col-lg-4" aria-label="Más para explorar">
+              <!-- Otras columnas (mismo formato). Cuando el autor tenga más de una, "Otras columnas de [autor]" -->
+              <h2 class="h3">Más columnas</h2>
+              <ul class="tematicas mb-5">
+                <li><a href="single-columna.html">La cultura cambia: ¿cómo deben cambiar sus instituciones?</a></li>
+                <li><a href="single-columna-ia.html">Cuando una IA aprende nuestros modismos, ¿qué aprende realmente de nosotros?</a></li>
+                <li><a href="single-columna-boxeo.html">Boxeo en Chile y Club México</a></li>
+                <li><a href="single-columna-meme.html">Meme, humor digital y sátira política</a></li>
+              </ul>
+
+              <h2 class="h3">Lo más leído</h2>
+              <ol class="tematicas mb-5">
+                <li><span class="c-violet me-2">1.</span><a href="single.html">Cómo Alejandro Jodorowsky inventó el cine de ciencia ficción sin filmar un solo minuto de Dune</a></li>
+                <li><span class="c-violet me-2">2.</span><a href="single-entrevista-orlandini.html">¿De quién es la música?</a></li>
+                <li><span class="c-violet me-2">3.</span><a href="single-columna-boxeo.html">Boxeo en Chile y Club México</a></li>
+                <li><span class="c-violet me-2">4.</span><a href="single-columna-meme.html">Meme, humor digital y sátira política</a></li>
+                <li><span class="c-violet me-2">5.</span><a href="single-entrevista.html">Nadie te pidió que escribieras: Romina Pistolas</a></li>
+              </ol>
+            </aside>
+          </div>
+        </div>
+      </article>
+
+      <!--
+        CONVERSACIÓN (en WordPress: comments_template() → comments.php). Bloque idéntico en todos los singles.
+        · Permisos REALES en el servidor: comments.php revisa el plan del usuario (Conversa o Encuentro, p. ej. con
+          current_user_can() o la membresía) y a quien no lo tiene NO se le envían los comentarios en el HTML.
+          No basta con ocultarlos. En la maqueta se muestran los dos bloques, uno debajo del otro.
+      -->
+      <section id="conversacion" aria-labelledby="conversacion-titulo">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12 col-lg-8">
+              <h2 id="conversacion-titulo">Conversación</h2>
+
+              <!-- Visitantes y suscriptores gratuitos (Anómala Abierta): solo la invitación, sin comentarios -->
+              <div data-acceso="visitante">
+                <p class="lead">La conversación sigue aquí. Suscríbete a Anómala Conversa para leer los comentarios y participar.</p>
+                <div class="d-flex flex-wrap align-items-center gap-3">
+                  <a class="btn-pink" href="#hazte-anomala" data-bs-toggle="offcanvas">Suscribirme</a>
+                  <a href="ingresar.html">Ya tengo cuenta: iniciar sesión</a>
+                </div>
+              </div>
+
+              <!-- Suscriptores Conversa y Encuentro: normas, formulario y comentarios.
+                   SOLO MAQUETA: se muestra debajo de la invitación para ver cómo quedará; en WordPress se imprime uno u otro. -->
+              <div data-acceso="suscriptor" class="mt-5 pt-4 border-top">
+                <p class="etiqueta">Vista de suscriptor · así se ve con Anómala Conversa</p>
+                <p class="c-muted">Comenta con respeto y sobre el tema de la nota. Lee las <a href="normas-participacion.html">normas de participación</a>.</p>
+
+                <!--
+                  Formulario: comment_form(). Sin campos de nombre ni correo: el comentario se publica con el
+                  nombre público de la cuenta (display_name). Si comments_open() es falso, en su lugar va:
+                  <p class="c-muted">Los comentarios están cerrados en esta publicación.</p>
+                -->
+                <form class="mb-5" action="#" method="post" onsubmit="return false">
+                  <label class="form-label" for="comentario">Tu comentario</label>
+                  <textarea class="form-control" id="comentario" name="comment" rows="4" required></textarea>
+                  <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mt-3">
+                    <span class="c-muted">Comentas como: <b>camila.r</b></span>
+                    <button class="btn-brand" type="submit">Publicar comentario</button>
+                  </div>
+                </form>
+
+                <!-- Lista: wp_list_comments() con un callback que imprime este marcado. Respuestas anidadas en un <ol> interno -->
+                <h3>4 comentarios</h3>
+                <ol class="list-unstyled">
+                  <li class="py-3 border-bottom" id="comentario-1">
+                    <article>
+                      <div class="entry-info mt-0 align-items-center"><span class="d-inline-flex align-items-center gap-2"><span class="avatar" aria-hidden="true">TF</span><b>tomas.fuentes</b></span><time datetime="2026-10-07T09:40">7 oct 2026, 09:40</time></div>
+                      <p>Muy necesario contarlo. ¿Habrá una segunda parte?</p>
+                      <div class="d-flex gap-3">
+                        <button class="etiqueta bg-transparent border-0 p-0" type="button">Responder</button>
+                        <button class="etiqueta bg-transparent border-0 p-0" type="button" style="--d: var(--text-muted)">Reportar</button>
+                      </div>
+                    </article>
+
+                    <!-- Respuesta (comentario anidado) -->
+                    <ol class="list-unstyled ms-4 ms-md-5 mt-3 border-start ps-3">
+                      <li id="comentario-2">
+                        <article>
+                          <div class="entry-info mt-0 align-items-center"><span class="d-inline-flex align-items-center gap-2"><span class="avatar" aria-hidden="true">VM</span><b>valeria.m</b></span><time datetime="2026-10-07T11:15">7 oct 2026, 11:15</time></div>
+                          <p>Me sumo a la pregunta. En mi región pasa algo muy parecido.</p>
+                          <div class="d-flex gap-3">
+                            <button class="etiqueta bg-transparent border-0 p-0" type="button">Responder</button>
+                            <button class="etiqueta bg-transparent border-0 p-0" type="button" style="--d: var(--text-muted)">Reportar</button>
+                          </div>
+                        </article>
+                      </li>
+                    </ol>
+                  </li>
+                  <li class="py-3 border-bottom" id="comentario-3">
+                    <article>
+                      <div class="entry-info mt-0 align-items-center"><span class="d-inline-flex align-items-center gap-2"><span class="avatar" aria-hidden="true">JS</span><b>jp.soto</b></span><time datetime="2026-10-08T20:02">8 oct 2026, 20:02</time></div>
+                      <p>Lo compartí con la gente de mi centro cultural. Nos sentimos muy reflejados.</p>
+                      <div class="d-flex gap-3">
+                        <button class="etiqueta bg-transparent border-0 p-0" type="button">Responder</button>
+                        <button class="etiqueta bg-transparent border-0 p-0" type="button" style="--d: var(--text-muted)">Reportar</button>
+                      </div>
+                    </article>
+                  </li>
+                  <li class="py-3 border-bottom" id="comentario-4">
+                    <article>
+                      <div class="entry-info mt-0 align-items-center"><span class="d-inline-flex align-items-center gap-2"><span class="avatar" aria-hidden="true">AL</span><b>ana.lucia</b></span><time datetime="2026-10-09T08:30">9 oct 2026, 08:30</time></div>
+                      <p>Gracias por mirar donde casi nadie mira. Ojalá sigan con esta línea.</p>
+                      <div class="d-flex gap-3">
+                        <button class="etiqueta bg-transparent border-0 p-0" type="button">Responder</button>
+                        <button class="etiqueta bg-transparent border-0 p-0" type="button" style="--d: var(--text-muted)">Reportar</button>
+                      </div>
+                    </article>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+        <!-- SIGUE LEYENDO: notas relacionadas (mismo eje o formato) -->
+        <section>
+          <div class="container-fluid">
+            <h2>Sigue leyendo</h2>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 entry-grid">
+              <div class="col">
+                <article class="entry-card">
+                  <a class="stretched-link" href="single-columna-match.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                  <div class="entry-cat"><a href="publicaciones.html">Columna</a><a href="publicaciones.html">Cultura digital</a></div>
+                  <div class="entry-img">
+                    <img class="entry-photo" src="https://images.unsplash.com/photo-1711346105258-bbb9136592d7?auto=format&fit=crop&w=800&q=70" alt="Computador antiguo sobre un escritorio" loading="lazy" />
+                    <img src="papel-rasgado2.webp" class="rasgado-total" alt="" />
+                  </div>
+                  <div class="entry-content">
+                    <span class="anomala-icon" aria-hidden="true"></span>
+                    <h3><a class="text-reset" href="single-columna-match.html">Del Messenger al match</a></h3>
+                    <p>Cómo han cambiado los códigos del coqueteo, desde Messenger hasta las aplicaciones de citas.</p>
+                    <div class="entry-info mt-auto"><span>por Javier Manríquez</span><span>22/10/26</span></div>
+                  </div>
+                </article>
+              </div>
+              <div class="col">
+                <article class="entry-card">
+                  <a class="stretched-link" href="single-columna-relato.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                  <div class="entry-cat"><a href="publicaciones.html">Columna</a><a href="publicaciones.html">Cultura digital</a></div>
+                  <div class="entry-img">
+                    <img class="entry-photo" src="https://images.unsplash.com/photo-1760892165556-a109903281c6?auto=format&fit=crop&w=800&q=70" alt="Hombre con un megáfono hablándole a una multitud" loading="lazy" />
+                    <img src="papel-rasgado3.webp" class="rasgado-total" alt="" />
+                  </div>
+                  <div class="entry-content">
+                    <span class="anomala-icon" aria-hidden="true"></span>
+                    <h3><a class="text-reset" href="single-columna-relato.html">El colapso del relato político y la era del poder autoproducido</a></h3>
+                    <p>Cómo se desplaza el poder desde la política y las instituciones hacia las narrativas individuales.</p>
+                    <div class="entry-info mt-auto"><span>por Mirko Macari</span><span>22/10/26</span></div>
+                  </div>
+                </article>
+              </div>
+              <div class="col">
+                <article class="entry-card">
+                  <a class="stretched-link" href="single.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                  <div class="entry-cat"><a href="publicaciones.html">Reportaje</a><a href="publicaciones.html">Cine</a></div>
+                  <div class="entry-img">
+                    <img class="entry-photo" src="https://images.unsplash.com/photo-1638732984528-f255c9714619?auto=format&fit=crop&w=800&q=70" alt="Campo de dunas en el desierto" loading="lazy" />
+                    <img src="papel-rasgado.webp" class="rasgado-total" alt="" />
+                  </div>
+                  <div class="entry-content">
+                    <span class="anomala-icon" aria-hidden="true"></span>
+                    <p class="etiqueta mb-1" style="--d: var(--ui-info)">Spoiler Alert!</p>
+                    <h3><a class="text-reset" href="single.html">Cómo Alejandro Jodorowsky inventó el cine de ciencia ficción sin filmar un solo minuto de Dune</a></h3>
+                    <p>A propósito del estreno de Dune 3, desarmamos la historia del fracaso más influyente de Hollywood.</p>
+                    <div class="entry-info mt-auto"><span>por Isabel Agurto</span><span>27/10/26</span></div>
+                  </div>
+                </article>
+              </div>
+</div>
+          </div>
+        </section>
+
+      <!-- Newsletter. Conectar el formulario al proveedor de correo que usen (Mailchimp, Substack, etc.) -->
+      <section>
+        <div class="container-fluid">
+          <div class="s-rasgada">
+            <div class="row g-4 align-items-center">
+              <div class="col-12 col-lg-7">
+                <h2>Recibe Anómala en tu correo</h2>
+                <p class="mb-0">Historias, ideas y panoramas para mirar la cultura desde otros lugares.</p>
+              </div>
+              <div class="col-12 col-lg-5">
+                <form action="newsletter-confirmar.html">
+                  <div class="form-fila">
+                    <label class="visually-hidden" for="newsletter-mail">Tu correo</label>
+                    <input id="newsletter-mail" type="email" placeholder="tu@correo.cl" required />
+                    <button class="btn-dark" type="submit">Suscribirme gratis</button>
+                  </div>
+                  <div class="form-check mt-2 mb-0">
+                    <input class="form-check-input" type="checkbox" id="newsletter-terminos" required />
+                    <label class="form-check-label" for="newsletter-terminos">Acepto los <a class="text-reset text-decoration-underline" href="condiciones-suscripcion.html">términos y condiciones</a> y la <a class="text-reset text-decoration-underline" href="privacidad.html">política de privacidad</a>.</label>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- FOOTER (footer.php) -->
+      <footer class="footer">
+        <div class="container-fluid">
+          <div class="row g-5">
+            <div class="col-12 col-lg-3">
+              <a class="d-block" href="home-page.html" aria-label="Anómala, ir al inicio">
+              <svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44.97 7.2" role="img" aria-label="Anómala">
+                <path fill="#f8f8f8" d="M42.38.25h-2.67l-1.86,4.87h-1.82V.25h-2.38v4.75s-1.77-4.75-1.77-4.75h-2.68l-1.83,4.76V.25h-2.47l-1.29,2.27v-.02s-1.44-2.25-1.44-2.25h0s-2.54,0-2.54,0v.94c.52.67.84,1.52.84,2.44s-.32,1.78-.85,2.46v.98s2.56,0,2.56,0v-1.94l1.38,1.94,1.5-1.94v1.94s1.42,0,1.42,0h2.62l.32-.84h2.21l.32.83h1.71s2.4,0,2.4,0h3.61l.32-.84h2.2l.32.83h2.47l-2.59-6.81ZM29.84,4.6l.67-2.11.63,2.11h-1.31ZM40.41,4.6l.66-2.09.66,2.09h-1.32Z" />
+                <path fill="#f8f8f8" d="M11.06,2.9l-1.81-2.65h-2.04l-.08,4.68L5.35.25h-2.61L0,7.07h2.62l.32-.84h2.21l.32.83h3.93s0-2.79,0-2.79l1.85,2.79h2.18v-.91c-.57-.69-.92-1.57-.92-2.54s.34-1.85.92-2.54V.25h-2.35v2.65ZM3.38,4.6l.66-2.09.65,2.09h-1.3Z" />
+                <path fill="#a020f0" d="M19.54,1.69c-.64-1.01-1.76-1.69-3.05-1.69s-2.33.62-2.98,1.57c-.39.58-.63,1.28-.63,2.03s.23,1.45.63,2.03c.65.95,1.74,1.57,2.98,1.57s2.4-.67,3.04-1.67c.36-.56.56-1.22.56-1.93s-.21-1.36-.55-1.91" />
+              </svg>
+              </a>
+              <p class="h3">Intensa • <span class="c-pink">Dispersa</span> • <span class="c-lime">Distinta</span></p>
+              <p>Conectamos voces, disciplinas, territorios y públicos de la cultura.</p>
+              <a href="mailto:hola@anomala.org">hola@anomala.org</a>
+            </div>
+            <nav class="col-6 col-md-4 col-lg-2 offset-lg-3" aria-label="Contenidos">
+              <h2 class="h3">Contenidos</h2>
+              <ul class="tematicas">
+                <li><a href="eje.html">Cultura</a></li>
+                <li><a href="vida-real.html">Vida real</a></li>
+                <li><a href="temas.html">Temas</a></li>
+                <li><a href="cartelera.html">Cartelera</a></li>
+              </ul>
+            </nav>
+            <nav class="col-6 col-md-4 col-lg-2" aria-label="Anómala">
+              <h2 class="h3">Anómala</h2>
+              <ul class="tematicas">
+                <li><a href="quienes-somos.html">Quiénes somos</a></li>
+                <li><a href="#hazte-anomala" data-bs-toggle="offcanvas">Hazte Anómala</a></li>
+                <li><a href="mi-cuenta.html">Mi cuenta</a></li>
+                <li><a href="page.html">Transparencia</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+              </ul>
+            </nav>
+            <nav class="col-6 col-md-4 col-lg-2" aria-label="Síguenos">
+              <h2 class="h3">Síguenos</h2>
+              <!-- Completar con las redes y canales reales del medio -->
+              <ul class="tematicas">
+                <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+                <li><a href="home-page.html#newsletter">Newsletter</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="entry-info border-top pt-3 mt-5">
+            <span>© 2026 Anómala</span>
+            <span><a href="privacidad.html">Privacidad</a> · <a href="condiciones-suscripcion.html">Condiciones de suscripción</a> · <a href="normas-participacion.html">Normas de participación</a> · <a href="#">Créditos</a></span>
+            <span>Desarrollado por <a href="https://maggiore.cl" target="_blank" rel="noopener">Maggiore</a></span>
+          </div>
+        </div>
+      </footer>
+
+      <!--
+        PANEL HAZTE ANÓMALA (footer.php, una vez por página). Lo abre el botón del header y cualquier enlace
+        con data-bs-toggle="offcanvas" hacia #hazte-anomala. Explica los beneficios ANTES de pedir registro o pago.
+        Los contenidos editoriales son gratuitos: los planes pagos habilitan los comentarios (y Encuentro, invitaciones).
+        Los botones de plan llevan a ingresar.html#registro (registro + pago); el cobro recurrente lo resuelve la pasarela.
+      -->
+      <aside class="offcanvas offcanvas-end" tabindex="-1" id="hazte-anomala" aria-labelledby="hazte-anomala-titulo" data-bs-theme="dark">
+        <div class="offcanvas-header">
+          <h2 class="offcanvas-title" id="hazte-anomala-titulo">Hazte Anómala</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+        </div>
+        <div class="offcanvas-body">
+          <p class="lead">Todo lo que publicamos es y seguirá siendo gratis. Suscribiéndote sostienes el medio y te sumas a la conversación.</p>
+
+          <!-- Términos: los botones de plan se habilitan al aceptar (en WP, además, se valida en el registro) -->
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="acepto-terminos" data-terminos />
+            <label class="form-check-label" for="acepto-terminos">Acepto los <a href="condiciones-suscripcion.html">términos y condiciones de suscripción</a> y las <a href="normas-participacion.html">normas de participación</a>.</label>
+          </div>
+          <div class="d-grid gap-3 my-4">
+            <article class="border p-3">
+              <span class="etiqueta">Gratis</span>
+              <h3>Anómala Abierta</h3>
+              <p>Recibe el newsletter con lo que publicamos.</p>
+              <a class="btn-dark border" href="home-page.html#newsletter" data-requiere-terminos>Suscribirme gratis</a>
+            </article>
+            <article class="border p-3">
+              <span class="etiqueta" style="--d: var(--ui-highlight)">$5.000 CLP mensuales</span>
+              <h3>Anómala Conversa</h3>
+              <p>Newsletter, lectura de los comentarios y posibilidad de comentar y participar del debate.</p>
+              <a class="btn-pink" href="ingresar.html?plan=conversa#registro" data-requiere-terminos>Elegir Conversa</a>
+            </article>
+            <article class="border border-2 p-3" style="--bs-border-color: var(--brand)">
+              <span class="etiqueta" style="--d: var(--ui-success)">$10.000 CLP mensuales</span>
+              <h3>Anómala Encuentro</h3>
+              <p>Todos los beneficios de Conversa, más invitaciones sin costo a los eventos propios de Anómala incluidos en el programa de suscriptores, con inscripción previa y sujetas a aforo.</p>
+              <a class="btn-brand" href="ingresar.html?plan=encuentro#registro" data-requiere-terminos>Elegir Encuentro</a>
+            </article>
+          </div>
+          <p class="entry-info"><span>¿Ya tienes cuenta? <a href="ingresar.html">Inicia sesión</a></span> <a href="condiciones-suscripcion.html">Condiciones de suscripción</a></p>
+
+          <hr />
+          <!-- Aporte único: no cambia el plan ni habilita beneficios. Es una operación distinta de la suscripción -->
+          <h3>Quiero hacer un aporte único</h3>
+          <form action="aporte-gracias.html">
+            <div class="filtros" role="group" aria-label="Monto del aporte">
+              <button type="button" aria-pressed="false">$3.000</button>
+              <button type="button" class="is-active" aria-pressed="true">$5.000</button>
+              <button type="button" aria-pressed="false">$10.000</button>
+              <button type="button" aria-pressed="false">$20.000</button>
+            </div>
+            <div class="form-fila">
+              <label class="visually-hidden" for="aporte-otro">Otro monto</label>
+              <input id="aporte-otro" type="number" min="1000" step="500" placeholder="Otro monto" />
+              <button class="btn-brand" type="submit">Aportar</button>
+            </div>
+            <p class="entry-info">Un aporte único no cambia tu plan ni habilita beneficios de suscripción.</p>
+          </form>
+
+          <hr />
+          <h3>Donaciones y alianzas</h3>
+          <p>Si eres empresa o persona y quieres realizar un aporte mayor o gestionar una donación cultural, conversemos.</p>
+          <a class="btn-dark border" href="contacto.html?asunto=donar">Escríbenos</a>
+        </div>
+      </aside>
+    </main>
+
+    <!--
+      AVISO DE COOKIES. En WordPress lo pone un plugin de consentimiento (Complianz, CookieYes…), que además
+      bloquea la analítica hasta que se acepta: por defecto no se carga nada que no sea necesario.
+      En la maqueta, script.js lo muestra si no hay elección guardada y la recuerda en localStorage.
+    -->
+    <div class="position-fixed bottom-0 start-0 end-0 py-3 border-top" style="z-index: 1030; background: var(--bg-deep)" role="region" aria-label="Aviso de cookies" data-cookies hidden>
+      <div class="container-fluid d-flex flex-wrap align-items-center gap-3">
+        <p class="mb-0 me-auto">Usamos cookies propias y de analítica para saber qué se lee y mejorar el sitio. <a href="privacidad.html">Política de privacidad</a>.</p>
+        <div class="d-flex flex-wrap gap-2">
+          <button class="btn-dark border" type="button" data-cookies-opcion="necesarias">Solo necesarias</button>
+          <button class="btn-brand" type="button" data-cookies-opcion="todas">Aceptar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

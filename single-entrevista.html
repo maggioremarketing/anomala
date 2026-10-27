@@ -3,20 +3,20 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>“El archivo también es un lugar de disputa” · Anómala</title>
+    <title>Nadie te pidió que escribieras: Romina Pistolas · Anómala</title>
     <!-- Fuentes: Typekit (títulos) y Google Fonts (texto). preconnect adelanta la conexión -->
     <link rel="preconnect" href="https://use.typekit.net" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://use.typekit.net/aie8ork.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,400..700;1,14..32,400..700&display=swap" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <link href="style.css" rel="stylesheet" />
   </head>
-  <body>
+  <body class="single">
     <main>
       <!--
         HEADER (header.php): una sola huincha, fija arriba.
@@ -59,7 +59,7 @@
                 <li class="nav-item"><a class="nav-link" href="vida-real.html">Vida real</a></li>
                 <li class="nav-item"><a class="nav-link" href="temas.html">Temas</a></li>
                 <li class="nav-item"><a class="nav-link" href="cartelera.html">Cartelera</a></li>
-                <li class="nav-item d-lg-none"><a class="nav-link" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram ↗</a></li>
+                <li class="nav-item d-lg-none"><a class="nav-link" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
               </ul>
             </div>
           </div>
@@ -88,95 +88,91 @@
             <div class="row g-5">
               <div class="col-12 col-lg-8">
                 <header>
-                  <!-- Formato · medio (taxonomía "medio": Texto, Video o Audio) · eje -->
-                  <p class="mb-2"><a class="etiqueta" href="publicaciones.html">Entrevista</a> · <a class="etiqueta" href="tema.html" style="--d: var(--ui-info)">Sociedad y vida cotidiana</a></p>
-                  <h1>“El archivo también es un lugar de disputa”</h1>
-                  <p class="lead">Conversamos con una archivera sobre qué se guarda, qué se pierde y quién decide la memoria de una ciudad.</p>
-                  <!-- Autor enlazado a su perfil (the_author_posts_link) y entrevistada (campo personalizado) -->
+                  <!-- Formato · medio (Video/Audio, deducido del contenido; solo si la nota tiene) · tema -->
+                  <p class="mb-2"><a class="etiqueta" href="publicaciones.html">Entrevista</a> · <span class="etiqueta" style="--d: var(--text-main)"><span class="visually-hidden">Medio: </span>Video</span> · <a class="etiqueta" href="tema.html">Literatura</a></p>
+                  <!-- Sección permanente (taxonomía "serie"): nombre y lema -->
+                  <p class="entry-info justify-content-start mt-0 mb-2"><span><b><a class="text-reset" href="serie.html">Nadie te pidió que escribieras</a></b> · Diálogos con escritores latinoamericanos sobre la maravillosa inutilidad de contar historias.</span></p>
+                  <h1>Nadie te pidió que escribieras: Romina Pistolas</h1>
+                  <p class="lead">Conversación con Romina Pistolas sobre sus comienzos, obstáculos y procesos de escritura. Primera entrega de la serie de entrevistas a escritores latinoamericanos.</p>
+                  <!-- Autores: cada uno enlazado a su perfil (get_author_posts_url; con varios, Co-Authors Plus). Entrevistado: campo personalizado -->
                   <div class="entry-info">
-                    <span>por <a href="autor.html">Ricardo González</a> · Entrevista a Valentina Araya</span>
-                    <span><time datetime="2026-10-01">1 de octubre de 2026</time> · 12 min de lectura</span>
+                    <span>por <a href="autor.html">Alonso</a> · Entrevista a Romina Pistolas</span>
+                    <span><time datetime="2026-10-26">26 de octubre de 2026</time> · video 15 min</span>
                   </div>
                 </header>
 
                 <!-- Imagen destacada (the_post_thumbnail), sin marco -->
                 <figure class="my-4">
                   <div class="entry-img">
-                    <img class="entry-photo" src="https://images.unsplash.com/photo-1583521214690-73421a1829a9?auto=format&fit=crop&w=1600&q=70" alt="Pilas de documentos y carpetas en un archivo" />
+                    <img class="entry-photo" src="https://images.unsplash.com/photo-1586943759341-be5595944989?auto=format&fit=crop&w=1600&q=70" alt="Máquina de escribir con una hoja que dice «Write something»" />
                   </div>
-                  <figcaption class="entry-info">Documentos en espera de ser catalogados. Foto: Unsplash</figcaption>
+                  <figcaption class="entry-info">Imagen referencial. Foto: Unsplash</figcaption>
                 </figure>
 
                 <!--
                   PERFIL DEL ENTREVISTADO (solo en entrevistas).
                   En WordPress: campos personalizados de la nota (p. ej. con ACF): foto, nombre, cargo y descripción.
                 -->
-                <section class="mb-4 py-4 border-top border-bottom" aria-label="Perfil del entrevistado">
+                <section class="mb-4 py-4 border-top border-bottom" aria-label="Perfil de la persona entrevistada">
                   <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-4">
-                    <img class="rounded-circle flex-shrink-0" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&h=300&q=70" alt="Valentina Araya" width="120" height="120" />
+                    <span class="avatar" style="--avatar: 120px" aria-hidden="true">RP</span>
                     <div>
-                      <p class="etiqueta mb-1">Entrevistada</p>
-                      <h2 class="h3 mb-1">Valentina Araya</h2>
-                      <p class="mb-0">Archivera e historiadora. Coordina un archivo comunitario que reúne fotografías, cartas y registros sonoros de barrios populares. Ha trabajado en proyectos de memoria en Valparaíso y Concepción.</p>
+                      <p class="etiqueta mb-1">Entrevista a</p>
+                      <h2 class="h3 mb-1">Romina Pistolas</h2>
+                      <p class="mb-0">Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
                     </div>
                   </div>
                 </section>
 
                 <!-- Desde aquí: salida de the_content() (marcado típico del editor de bloques de WordPress) -->
                 <div class="cuerpo">
-                  <p>Llegamos al archivo un martes por la mañana. Entre cajas rotuladas a mano y escáneres que no paran, Valentina Araya explica por qué guardar también es una forma de tomar partido.</p>
-
-                  <p><strong>¿Qué es lo primero que se pierde cuando nadie archiva?</strong></p>
-                  <p>Lo cotidiano. Los documentos oficiales casi siempre sobreviven, pero las fotos de un cumpleaños en la sede vecinal o el afiche de una tocata desaparecen en una mudanza. Y justamente ahí está la vida de un barrio.</p>
-
-                  <p><strong>¿Por qué dice que el archivo es un lugar de disputa?</strong></p>
-                  <p>Porque alguien decide qué entra y qué no, cómo se describe y quién puede consultarlo. Esas decisiones construyen una versión de la historia. Si solo archivan las instituciones, la memoria queda contada desde un solo lugar.</p>
-
-                  <blockquote class="wp-block-quote">
-                    <p>Guardar no es un gesto neutro: cada caja es una decisión sobre qué vale la pena recordar.</p>
-                    <cite>Valentina Araya</cite>
-                  </blockquote>
-
-                  <p><strong>¿Cómo trabajan con la comunidad?</strong></p>
-                  <p>Hacemos jornadas abiertas: la gente trae sus fotos, las digitalizamos ahí mismo y se las lleva de vuelta. Lo importante es que cuenten quién aparece y qué estaba pasando. Sin ese relato, la imagen pierde la mitad de su valor.</p>
-
-                  <figure class="wp-block-image">
-                    <img src="https://images.unsplash.com/photo-1569783721854-33a99b4c0bae?auto=format&fit=crop&w=1400&q=70" alt="Personas mirando una exposición" loading="lazy" />
-                    <figcaption class="wp-element-caption">Una de las muestras abiertas que organiza el archivo. Foto: Unsplash</figcaption>
+                  <figure class="wp-block-video">
+                    <video controls preload="none" poster="https://images.unsplash.com/photo-1517971071642-34a2d3ecc9cd?auto=format&fit=crop&w=1600&q=70"></video>
+                    <figcaption class="wp-element-caption">Video: la conversación completa (15 min).</figcaption>
                   </figure>
 
-                  <p><strong>¿Qué le pediría a quienes tienen cajas con fotos en la casa?</strong></p>
-                  <p>Que no las boten sin preguntar antes. Y que escriban detrás de cada foto quién está, dónde y cuándo. Ese gesto mínimo es el comienzo de un archivo.</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus, posuere velit aliquet. Donec ullamcorper nulla non metus auctor fringilla, vestibulum id ligula porta felis euismod semper.</p>
+
+                  <p><strong>¿Cómo empezaste a escribir?</strong></p>
+                  <p>Curabitur blandit tempus porttitor. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo. Cras mattis consectetur purus sit amet fermentum.</p>
+
+                  <p><strong>¿Cuáles fueron los obstáculos?</strong></p>
+                  <p>Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+
+                  <blockquote class="wp-block-quote">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                    <cite>Romina Pistolas</cite>
+                  </blockquote>
+
+                  <p><strong>¿De qué vivías mientras escribías?</strong></p>
+                  <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Etiam porta sem malesuada magna mollis euismod.</p>
+
+                  <p><strong>¿Cómo es tu proceso de trabajo?</strong></p>
+                  <p>Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+
+                  <p><strong>¿Qué le dirías a quien quiere empezar?</strong></p>
+                  <p>Donec sed odio dui. Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum. Etiam porta sem malesuada magna mollis euismod, nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+
+                  <p><em>Nadie te pidió que escribieras es una serie de entrevistas para quienes quieren dar sus primeros pasos en la escritura. A partir de los comienzos, obstáculos, motivaciones y procesos de trabajo de cada autor o autora, aborda el oficio de contar historias de manera cercana, práctica y desmitificada.</em></p>
                 </div>
                 <!-- Hasta aquí: the_content() -->
 
-                <!--
-                  COMPARTIR (template-parts/compartir.php, igual en todos los singles y en la ficha de evento).
-                  Enlaces simples, sin plugins ni scripts de terceros (no cargan rastreadores). URL = get_permalink() y
-                  texto = get_the_title(), ambos con rawurlencode():
-                  · WhatsApp: https://wa.me/?text=TÍTULO%20URL (en el teléfono abre la app; en el computador, WhatsApp Web)
-                  · Facebook: https://www.facebook.com/sharer/sharer.php?u=URL
-                  · X: https://x.com/intent/post?text=TÍTULO&url=URL
-                  · Correo: mailto:?subject=TÍTULO&body=URL
-                  · Instagram no permite compartir enlaces desde la web. En el teléfono, "Compartir…" abre el menú del sistema
-                    (navigator.share), con Instagram, WhatsApp, Telegram, etc.; solo aparece donde el navegador lo permite.
-                    En el computador queda "Copiar enlace" (para historias o la biografía de Instagram).
-                  La vista previa (imagen, título y bajada) la dan las etiquetas Open Graph que pone el tema o el plugin de SEO.
-                -->
+                <!-- COMPARTIR (template-parts/compartir.php): ver la explicación en single-columna.html -->
                 <h2 class="h3 mt-5">Compartir</h2>
-                <div class="filtros" role="group" aria-label="Compartir esta entrevista" data-compartir data-url="https://anomala.org/el-archivo-tambien-es-un-lugar-de-disputa/" data-titulo="“El archivo también es un lugar de disputa”">
+                <div class="filtros" role="group" aria-label="Compartir esta entrevista" data-compartir data-url="https://anomala.org/nadie-te-pidio-que-escribieras-romina-pistolas/" data-titulo="Nadie te pidió que escribieras: Romina Pistolas">
                   <button type="button" data-compartir-nativo hidden>Compartir…</button>
-                  <a href="https://wa.me/?text=%E2%80%9CEl%20archivo%20tambi%C3%A9n%20es%20un%20lugar%20de%20disputa%E2%80%9D%20https%3A%2F%2Fanomala.org%2Fel-archivo-tambien-es-un-lugar-de-disputa%2F" target="_blank" rel="noopener">WhatsApp</a>
-                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fanomala.org%2Fel-archivo-tambien-es-un-lugar-de-disputa%2F" target="_blank" rel="noopener">Facebook</a>
-                  <a href="https://x.com/intent/post?text=%E2%80%9CEl%20archivo%20tambi%C3%A9n%20es%20un%20lugar%20de%20disputa%E2%80%9D&amp;url=https%3A%2F%2Fanomala.org%2Fel-archivo-tambien-es-un-lugar-de-disputa%2F" target="_blank" rel="noopener">X</a>
-                  <a href="mailto:?subject=%E2%80%9CEl%20archivo%20tambi%C3%A9n%20es%20un%20lugar%20de%20disputa%E2%80%9D&amp;body=https%3A%2F%2Fanomala.org%2Fel-archivo-tambien-es-un-lugar-de-disputa%2F">Correo</a>
+                  <a href="https://wa.me/?text=Nadie%20te%20pidi%C3%B3%20que%20escribieras%3A%20Romina%20Pistolas%20https%3A%2F%2Fanomala.org%2Fnadie-te-pidio-que-escribieras-romina-pistolas%2F" target="_blank" rel="noopener">WhatsApp</a>
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fanomala.org%2Fnadie-te-pidio-que-escribieras-romina-pistolas%2F" target="_blank" rel="noopener">Facebook</a>
+                  <a href="https://x.com/intent/post?text=Nadie%20te%20pidi%C3%B3%20que%20escribieras%3A%20Romina%20Pistolas&amp;url=https%3A%2F%2Fanomala.org%2Fnadie-te-pidio-que-escribieras-romina-pistolas%2F" target="_blank" rel="noopener">X</a>
+                  <a href="mailto:?subject=Nadie%20te%20pidi%C3%B3%20que%20escribieras%3A%20Romina%20Pistolas&amp;body=https%3A%2F%2Fanomala.org%2Fnadie-te-pidio-que-escribieras-romina-pistolas%2F">Correo</a>
                   <button type="button" data-copiar-enlace>Copiar enlace</button>
                 </div>
 
                 <h2 class="h3 mt-5">Temas</h2>
                 <nav class="filtros" aria-label="Temas de esta nota">
-                  <a href="tema.html">Patrimonio y memoria</a><a href="tema.html">Fotografía</a><a href="tema.html">Territorios</a>
+                  <a href="tema.html">Literatura</a><a href="tema.html">Trabajo cultural</a>
                 </nav>
+
                 <!--
                   CRÉDITOS: campos separados de la nota (p. ej. ACF): autores (Co-Authors Plus o campo de usuarios),
                   entrevistado (solo entrevistas), fotografía y un repetidor de "otros créditos" (rol + nombre).
@@ -184,24 +180,24 @@
                 <h2 class="h3 mt-5">Créditos</h2>
                 <dl class="row mb-0 pt-3 border-top">
                   <dt class="col-4 col-sm-3 etiqueta">Entrevista</dt>
-                  <dd class="col-8 col-sm-9"><a href="autor.html">Ricardo González</a></dd>
-                  <dt class="col-4 col-sm-3 etiqueta">Entrevistada</dt>
-                  <dd class="col-8 col-sm-9">Valentina Araya</dd>
+                  <dd class="col-8 col-sm-9"><a href="autor.html">Alonso</a></dd>
+                  <dt class="col-4 col-sm-3 etiqueta">Entrevista a</dt>
+                  <dd class="col-8 col-sm-9">Romina Pistolas</dd>
                   <dt class="col-4 col-sm-3 etiqueta">Fotografía</dt>
-                  <dd class="col-8 col-sm-9">Unsplash</dd>
+                  <dd class="col-8 col-sm-9">Unsplash (referencial)</dd>
                   <dt class="col-4 col-sm-3 etiqueta">Edición</dt>
-                  <dd class="col-8 col-sm-9">Paula Méndez</dd>
+                  <dd class="col-8 col-sm-9">Equipo Anómala</dd>
                 </dl>
 
-                <!-- FICHA DE AUTOR: una por autor (get_avatar, get_the_author_meta('description'), get_author_posts_url) -->
+                <!-- FICHA DE AUTOR: una por autor (get_avatar, get_the_author_meta('description'), get_author_posts_url). Sin foto: iniciales (.avatar) -->
                 <section class="mt-5" aria-labelledby="sobre-autor">
                   <h2 id="sobre-autor" class="h3">Sobre el autor</h2>
                   <div class="d-flex align-items-center gap-3 py-3 border-bottom">
-                    <img class="rounded-circle flex-shrink-0" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=320&h=320&q=70" alt="" width="80" height="80" loading="lazy" />
+                    <span class="avatar" style="--avatar: 80px" aria-hidden="true">A</span>
                     <div>
-                      <p class="h3 mb-1"><a class="text-reset" href="autor.html">Ricardo González</a></p>
-                      <p class="c-muted mb-1">Periodista cultural. Escribe sobre territorios y gestión comunitaria.</p>
-                      <a class="link-mas mt-0" href="autor.html">Ver más de este autor →</a>
+                      <p class="h3 mb-1"><a class="text-reset" href="autor.html">Alonso</a></p>
+                      <p class="c-muted mb-1">Equipo de contenidos de Anómala.</p>
+                      <a class="link-mas mt-0" href="autor.html">Ver más de este autor</a>
                     </div>
                   </div>
                 </section>
@@ -210,11 +206,11 @@
               <aside class="col-12 col-lg-4" aria-label="Más para explorar">
               <h2 class="h3">Lo más leído</h2>
               <ol class="tematicas mb-5">
-                <li><span class="c-violet me-2">1.</span><a href="single-columna.html">El fútbol también es cultura (y deberíamos tratarlo así)</a></li>
-                <li><span class="c-violet me-2">2.</span><a href="single.html">Fondos concursables: lo que cambia en la próxima convocatoria</a></li>
-                <li><span class="c-violet me-2">3.</span><a href="single.html">Fuera del mapa: la cultura que se sostiene sin fondos ni foco</a></li>
-                <li><span class="c-violet me-2">4.</span><a href="single-entrevista.html">Lo que la IA no sabe sobre ilustrar</a></li>
-                <li><span class="c-violet me-2">5.</span><a href="single-ensayo.html">Bailar para quedarse: una noche en la fiesta del barrio</a></li>
+                <li><span class="c-violet me-2">1.</span><a href="single.html">Cómo Alejandro Jodorowsky inventó el cine de ciencia ficción sin filmar un solo minuto de Dune</a></li>
+                <li><span class="c-violet me-2">2.</span><a href="single-entrevista-orlandini.html">¿De quién es la música?</a></li>
+                <li><span class="c-violet me-2">3.</span><a href="single-columna-boxeo.html">Boxeo en Chile y Club México</a></li>
+                <li><span class="c-violet me-2">4.</span><a href="single-columna-meme.html">Meme, humor digital y sátira política</a></li>
+                <li><span class="c-violet me-2">5.</span><a href="single-entrevista.html">Nadie te pidió que escribieras: Romina Pistolas</a></li>
               </ol>
 
               <h2 class="h3">Próximamente en cartelera</h2>
@@ -344,51 +340,49 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 entry-grid">
               <div class="col">
                 <article class="entry-card">
-                  <a class="stretched-link" href="single-ensayo.html" tabindex="-1" aria-hidden="true" data-cubre></a>
-                  <div class="entry-cat"><a href="publicaciones.html">Crónica</a><a href="publicaciones.html">Danza</a></div>
+                  <a class="stretched-link" href="single-cronica.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                  <div class="entry-cat"><a href="publicaciones.html">Crónica</a><a href="publicaciones.html">Teatro</a></div>
                   <div class="entry-img">
-                    <img class="entry-photo" src="https://images.unsplash.com/photo-1504609813442-a8924e83f76e?auto=format&fit=crop&w=800&q=70" alt="Personas bailando de noche" loading="lazy" />
-                    <span class="icono-medio"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" fill="currentColor"><path d="M8 5v14l11-7z" /></svg><span class="visually-hidden">Video</span></span>
+                    <img class="entry-photo" src="https://images.unsplash.com/photo-1763962274119-1a0a0d418520?auto=format&fit=crop&w=800&q=70" alt="Público mirando una función en un teatro a oscuras" loading="lazy" />
                     <img src="papel-rasgado2.webp" class="rasgado-total" alt="" />
                   </div>
                   <div class="entry-content">
                     <span class="anomala-icon" aria-hidden="true"></span>
-                    <h3><a class="text-reset" href="single-ensayo.html">Bailar para quedarse: una noche en la fiesta del barrio</a></h3>
-                    <p>Cumbia, cueca y cocina compartida: los espacios donde la comunidad se encuentra cuando cae el sol.</p>
-                    <div class="entry-info mt-auto"><span>por Ricardo González</span><span>05/10/26</span></div>
+                    <h3><a class="text-reset" href="single-cronica.html">Anti-Manual del buen espectador</a></h3>
+                    <p>Crónica sarcástica y absurda sobre los rituales de ir al teatro.</p>
+                    <div class="entry-info mt-auto"><span>por Isabel Agurto</span><span>25/10/26</span></div>
                   </div>
                 </article>
               </div>
               <div class="col">
                 <article class="entry-card">
-                  <a class="stretched-link" href="single.html" tabindex="-1" aria-hidden="true" data-cubre></a>
-                  <div class="entry-cat"><a href="publicaciones.html">Reportaje</a><a href="publicaciones.html">Artes visuales</a></div>
+                  <a class="stretched-link" href="single-columna.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                  <div class="entry-cat"><a href="publicaciones.html">Columna</a><a href="publicaciones.html">Política cultural</a></div>
                   <div class="entry-img">
-                    <img class="entry-photo" src="https://images.unsplash.com/photo-1572887069547-4b5b4771a069?auto=format&fit=crop&w=800&q=70" alt="Edificio con un mural junto a la calle" loading="lazy" />
+                    <img class="entry-photo" src="https://images.unsplash.com/photo-1696694139314-e0e5962b8dc0?auto=format&fit=crop&w=800&q=70" alt="Pasillo en penumbra de un museo con una vitrina" loading="lazy" />
                     <img src="papel-rasgado3.webp" class="rasgado-total" alt="" />
                   </div>
                   <div class="entry-content">
                     <span class="anomala-icon" aria-hidden="true"></span>
-                    <h3><a class="text-reset" href="single.html">Muros que hablan: quién decide el arte en la calle</a></h3>
-                    <p>Permisos, colectivos y municipios: cómo se negocia (y se borra) el muralismo en las ciudades.</p>
-                    <div class="entry-info mt-auto"><span>por Ricardo González</span><span>03/10/26</span></div>
+                    <h3><a class="text-reset" href="single-columna.html">La cultura cambia: ¿cómo deben cambiar sus instituciones?</a></h3>
+                    <p>Reflexión sobre cómo deben adaptarse las instituciones culturales a nuevas formas de crear, participar y acceder a la cultura.</p>
+                    <div class="entry-info mt-auto"><span>por Juan Carlos Silva</span><span>25/10/26</span></div>
                   </div>
                 </article>
               </div>
               <div class="col">
                 <article class="entry-card">
-                  <a class="stretched-link" href="single-ensayo.html" tabindex="-1" aria-hidden="true" data-cubre></a>
-                  <div class="entry-cat"><a href="publicaciones.html">Crónica</a><a href="publicaciones.html">Oficios y artesanía</a></div>
+                  <a class="stretched-link" href="single-columna-ia.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                  <div class="entry-cat"><a href="publicaciones.html">Columna</a><a href="publicaciones.html">Cultura digital</a></div>
                   <div class="entry-img">
-                    <img class="entry-photo" src="https://images.unsplash.com/photo-1671535108620-d169ce916f09?auto=format&fit=crop&w=800&q=70" alt="Bordado sobre tela negra" loading="lazy" />
-                    <span class="icono-medio"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" fill="currentColor"><path d="M8 5v14l11-7z" /></svg><span class="visually-hidden">Video</span></span>
+                    <img class="entry-photo" src="https://images.unsplash.com/photo-1662974770404-468fd9660389?auto=format&fit=crop&w=800&q=70" alt="Globos de diálogo sobre una pantalla translúcida" loading="lazy" />
                     <img src="papel-rasgado.webp" class="rasgado-total" alt="" />
                   </div>
                   <div class="entry-content">
                     <span class="anomala-icon" aria-hidden="true"></span>
-                    <h3><a class="text-reset" href="single-ensayo.html">Bordar para no olvidar</a></h3>
-                    <p>Un recorrido en imágenes por talleres de bordado que registran historias familiares y comunitarias.</p>
-                    <div class="entry-info mt-auto"><span>por Ricardo González</span><span>24/09/26</span></div>
+                    <h3><a class="text-reset" href="single-columna-ia.html">Cuando una IA aprende nuestros modismos, ¿qué aprende realmente de nosotros?</a></h3>
+                    <p>Qué aprende una IA cuando imita nuestros modismos y qué queda fuera de esa imitación.</p>
+                    <div class="entry-info mt-auto"><span>por Sebastián Ferrada Aliaga</span><span>24/10/26</span></div>
                   </div>
                 </article>
               </div>

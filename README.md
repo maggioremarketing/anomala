@@ -23,6 +23,6 @@ y luego abrir `http://localhost:5173`.
 
 La versión anterior de la maqueta (v1) está en el historial de git, en el commit «Agregar la ficha de evento de la cartelera».
 
-Las fotos de las notas se cargan desde Unsplash. Salvo «Quiénes somos», los textos, nombres e imágenes de las notas son de ejemplo.
+Las notas son los 12 contenidos de lanzamiento (Anomala_Contenidos_Maggiore.xlsx y el acta del 19 de octubre de 2026): títulos, bajadas, autores y secciones vienen de esos documentos; el cuerpo de cada nota es lorem ipsum y las fotos son referenciales, cargadas desde Unsplash. Los autores aparecen con sus iniciales mientras no haya fotos.
 
 Desarrollado por [Maggiore](https://maggiore.cl).

@@ -32,7 +32,7 @@
           <tr>
             <td class="text-body-secondary">Listados</td>
             <td><a href="publicaciones.html">Publicaciones</a></td>
-            <td>Todas las notas con filtros por formato y por medio (texto, video, audio), paginación y barra lateral.</td>
+            <td>Todas las notas con filtros por formato y medio, paginación y barra lateral.</td>
             <td><code>archive.php</code></td>
           </tr>
           <tr>
@@ -61,6 +61,18 @@
           </tr>
           <tr>
             <td class="text-body-secondary"></td>
+            <td><a href="series.html">Índice de series</a></td>
+            <td>Las series (secciones con nombre propio y entregas): imagen, nombre, lema, resumen y cantidad de entregas.</td>
+            <td><code>page-series.php</code> (<code>get_terms( 'serie' )</code>)</td>
+          </tr>
+          <tr>
+            <td class="text-body-secondary"></td>
+            <td><a href="serie.html">Archivo de serie</a></td>
+            <td>Ejemplo con «Spoiler Alert!»: lema, descripción, entregas y otras series.</td>
+            <td><code>taxonomy-serie.php</code></td>
+          </tr>
+          <tr>
+            <td class="text-body-secondary"></td>
             <td><a href="cartelera.html">Cartelera completa</a></td>
             <td>Eventos externos agrupados por mes, con filtro por disciplina.</td>
             <td><code>archive-evento.php</code></td>
@@ -74,7 +86,7 @@
           <tr>
             <td class="text-body-secondary"></td>
             <td><a href="autor.html">Autor</a></td>
-            <td>Ficha del autor y sus publicaciones.</td>
+            <td>Ficha del autor y sus publicaciones (ejemplo: Isabel Agurto).</td>
             <td><code>author.php</code></td>
           </tr>
           <tr>
@@ -86,32 +98,80 @@
           <tr>
             <td class="text-body-secondary"></td>
             <td><a href="busqueda.html">Búsqueda</a></td>
-            <td>Resultados y, debajo, una búsqueda sin resultados.</td>
+            <td>Resultados (ejemplo: «Agurto») y, debajo, una búsqueda sin resultados.</td>
             <td><code>search.php</code></td>
           </tr>
           <tr>
             <td class="text-body-secondary">Artículos</td>
             <td><a href="single.html">Reportaje</a></td>
-            <td>Artículo estándar con autor, comentarios y relacionadas. La conversación muestra también reportar un comentario, comentario en revisión, comentarios cerrados y cuenta bloqueada.</td>
+            <td>Spoiler Alert!: el Dune de Jodorowsky. Artículo estándar con autor, comentarios y relacionadas. La conversación muestra también reportar un comentario, comentario en revisión, comentarios cerrados y cuenta bloqueada.</td>
             <td><code>single.php</code></td>
           </tr>
           <tr>
             <td class="text-body-secondary"></td>
             <td><a href="single-entrevista.html">Entrevista</a></td>
-            <td>Artículo con perfil de la persona entrevistada.</td>
+            <td>Nadie te pidió que escribieras: Romina Pistolas. Entrevista en video con perfil de la persona entrevistada.</td>
             <td><code>single.php (Entrevista)</code></td>
           </tr>
           <tr>
             <td class="text-body-secondary"></td>
             <td><a href="single-columna.html">Columna</a></td>
-            <td>Firma junto al título, sin imagen principal.</td>
+            <td>La cultura cambia (Juan Carlos Silva). Firma junto al título, sin imagen principal.</td>
             <td><code>single.php (Columna)</code></td>
           </tr>
           <tr>
             <td class="text-body-secondary"></td>
-            <td><a href="single-ensayo.html">Contenido audiovisual / sonoro</a></td>
-            <td>Audio, imágenes en secuencia y video, sin barra lateral.</td>
-            <td><code>single.php (medio video/audio)</code></td>
+            <td><a href="single-ensayo.html">Ensayo fotográfico</a></td>
+            <td>Coleccionistas psiquiátricos: imágenes en secuencia con texto de perfil, sin barra lateral. Admite también bloques de audio y video.</td>
+            <td><code>single.php (Ensayo)</code></td>
+          </tr>
+          <tr>
+            <td class="text-body-secondary"></td>
+            <td><a href="single-entrevista-orlandini.html">Entrevista: ¿De quién es la música?</a></td>
+            <td>Entrevista en video a Luis Orlandini.</td>
+            <td><code>single.php (Entrevista)</code></td>
+          </tr>
+          <tr>
+            <td class="text-body-secondary"></td>
+            <td><a href="single-cronica.html">Crónica: Anti-Manual del buen espectador</a></td>
+            <td>Crónica escrita. Misma plantilla que el reportaje.</td>
+            <td><code>single.php</code></td>
+          </tr>
+          <tr>
+            <td class="text-body-secondary"></td>
+            <td><a href="single-columna-boxeo.html">Columna: Boxeo en Chile y Club México</a></td>
+            <td>Columna de Camilo Espinoza.</td>
+            <td><code>single.php (Columna)</code></td>
+          </tr>
+          <tr>
+            <td class="text-body-secondary"></td>
+            <td><a href="single-columna-meme.html">Columna: Meme, humor digital y sátira política</a></td>
+            <td>Columna de Matías Hermosilla.</td>
+            <td><code>single.php (Columna)</code></td>
+          </tr>
+          <tr>
+            <td class="text-body-secondary"></td>
+            <td><a href="single-columna-futuro.html">Columna: ¿Cuándo dejamos de imaginar un futuro mejor?</a></td>
+            <td>Columna de Paloma Ávila Barrera.</td>
+            <td><code>single.php (Columna)</code></td>
+          </tr>
+          <tr>
+            <td class="text-body-secondary"></td>
+            <td><a href="single-columna-ia.html">Columna: Cuando una IA aprende nuestros modismos…</a></td>
+            <td>Columna de Sebastián Ferrada Aliaga.</td>
+            <td><code>single.php (Columna)</code></td>
+          </tr>
+          <tr>
+            <td class="text-body-secondary"></td>
+            <td><a href="single-columna-match.html">Columna: Del Messenger al match</a></td>
+            <td>Columna de Javier Manríquez.</td>
+            <td><code>single.php (Columna)</code></td>
+          </tr>
+          <tr>
+            <td class="text-body-secondary"></td>
+            <td><a href="single-columna-relato.html">Columna: El colapso del relato político…</a></td>
+            <td>Columna de Mirko Macari.</td>
+            <td><code>single.php (Columna)</code></td>
           </tr>
           <tr>
             <td class="text-body-secondary">Páginas</td>
@@ -231,7 +291,7 @@
         </table>
       </div>
 
-      <p class="small text-body-secondary mt-4">Salvo «Quiénes somos», los textos, nombres e imágenes de las notas son de ejemplo. Actualizado el 26 de octubre de 2026.</p>
+      <p class="small text-body-secondary mt-4">Las notas son los 12 contenidos de lanzamiento (acta del 19 de octubre de 2026): títulos, bajadas, autores y secciones vienen de ahí; el cuerpo es lorem ipsum y las fotos son referenciales de Unsplash. Actualizado el 27 de octubre de 2026.</p>
     </main>
   </body>
 </html>

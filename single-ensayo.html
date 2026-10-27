@@ -3,20 +3,20 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bordar para no olvidar · Anómala</title>
+    <title>Coleccionistas psiquiátricos: primera entrega · Anómala</title>
     <!-- Fuentes: Typekit (títulos) y Google Fonts (texto). preconnect adelanta la conexión -->
     <link rel="preconnect" href="https://use.typekit.net" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://use.typekit.net/aie8ork.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,400..700;1,14..32,400..700&display=swap" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <link href="style.css" rel="stylesheet" />
   </head>
-  <body>
+  <body class="single">
     <main>
       <!--
         HEADER (header.php): una sola huincha, fija arriba.
@@ -59,7 +59,7 @@
                 <li class="nav-item"><a class="nav-link" href="vida-real.html">Vida real</a></li>
                 <li class="nav-item"><a class="nav-link" href="temas.html">Temas</a></li>
                 <li class="nav-item"><a class="nav-link" href="cartelera.html">Cartelera</a></li>
-                <li class="nav-item d-lg-none"><a class="nav-link" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram ↗</a></li>
+                <li class="nav-item d-lg-none"><a class="nav-link" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
               </ul>
             </div>
           </div>
@@ -77,7 +77,7 @@
       </header>
 
       <!--
-        CONTENIDO AUDIOVISUAL / SONORO (en WordPress: single.php cuando el medio es video o audio,
+        CONTENIDO AUDIOVISUAL / SONORO (en WordPress: single.php cuando la nota tiene video o audio,
         o una plantilla de formato propia). Misma columna que el resto de los singles, sin barra lateral.
         En el editor: bloques de audio, video e imagen en secuencia, cada uno con su pie.
       -->
@@ -86,81 +86,82 @@
           <div class="row g-5">
             <div class="col-12 col-lg-8">
               <header>
-                <!-- Formato · medio (taxonomía "medio": Texto, Video o Audio; aquí dos) · eje -->
-                <p class="mb-2"><a class="etiqueta" href="publicaciones.html">Crónica</a> · <span class="etiqueta" style="--d: var(--text-main)"><span class="visually-hidden">Medio: </span>Video + Audio</span> · <a class="etiqueta" href="tema.html" style="--d: var(--ui-success)">Cultura y creación</a></p>
-                <h1>Bordar para no olvidar</h1>
-                <p class="lead">Un recorrido en imágenes y sonido por talleres de bordado que registran historias familiares y comunitarias.</p>
-                <!-- Autor enlazado a su perfil (the_author_posts_link). Los créditos de foto van en "Créditos" -->
+                <!-- Formato · medio (Video/Audio, deducido del contenido; solo si la nota tiene) · tema -->
+                <p class="mb-2"><a class="etiqueta" href="publicaciones.html">Ensayo</a> · <a class="etiqueta" href="tema.html">Fotografía</a></p>
+                <!-- Sección permanente (taxonomía "serie"): nombre y lema -->
+                <p class="entry-info justify-content-start mt-0 mb-2"><span><b><a class="text-reset" href="serie.html">Coleccionistas psiquiátricos</a></b> · Viaje visual al corazón de las obsesiones.</span></p>
+                <h1>Coleccionistas psiquiátricos: primera entrega</h1>
+                <p class="lead">Retrato de un coleccionista y su relación con los objetos. Una secuencia de fotografías de la persona y su entorno, acompañada de un texto de perfil.</p>
+                <!-- Autores enlazados a su perfil (Co-Authors Plus). Los créditos de foto van en "Créditos" -->
                 <div class="entry-info">
-                  <span>por <a href="autor.html">Ricardo González</a></span>
-                  <span><time datetime="2026-09-24">24 de septiembre de 2026</time> · 8 imágenes · audio 6 min</span>
+                  <span>por <a href="autor.html">Carlos Sepúlveda</a>, <a href="autor.html">Camila Ibáñez</a> y <a href="autor.html">Catalina</a></span>
+                  <span><time datetime="2026-10-26">26 de octubre de 2026</time> · 6 imágenes · 8 min de lectura</span>
                 </div>
               </header>
 
               <!-- Desde aquí: the_content() -->
               <div class="cuerpo">
-                <figure class="wp-block-audio">
-                  <audio controls preload="none"></audio>
-                  <figcaption class="wp-element-caption">Escucha: las bordadoras cuentan, mientras trabajan, de dónde viene cada historia (6 min).</figcaption>
-                </figure>
-
-                <p>En el taller, nadie borda en silencio. Mientras la aguja avanza, se cuentan las historias que después quedan fijas en la tela: una casa que ya no existe, un río, los nombres de quienes se fueron.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus, posuere velit aliquet. Donec ullamcorper nulla non metus auctor fringilla, vestibulum id ligula porta felis euismod semper.</p>
 
                 <figure class="wp-block-image">
-                  <img src="https://images.unsplash.com/photo-1671535108620-d169ce916f09?auto=format&fit=crop&w=1600&q=70" alt="Bordado sobre tela negra junto a unas tijeras" loading="lazy" />
-                  <figcaption class="wp-element-caption">Cada bordado parte de un recuerdo que alguien del grupo trae a la mesa.</figcaption>
+                  <img src="https://images.unsplash.com/photo-1788145749232-9373a45863b0?auto=format&fit=crop&w=1400&q=70" alt="Cráneos, un modelo anatómico y una máquina de escribir sobre una mesa de madera" loading="lazy" />
+                  <figcaption class="wp-element-caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</figcaption>
+                </figure>
+
+                <p>Curabitur blandit tempus porttitor. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo. Cras mattis consectetur purus sit amet fermentum.</p>
+
+                <figure class="wp-block-image">
+                  <img src="https://images.unsplash.com/photo-1750300536886-44625826b669?auto=format&fit=crop&w=1400&q=70" alt="Especímenes bajo campanas de vidrio" loading="lazy" />
+                  <figcaption class="wp-element-caption">Lorem ipsum dolor sit amet: pie de foto por definir.</figcaption>
                 </figure>
 
                 <figure class="wp-block-image">
-                  <img src="https://images.unsplash.com/photo-1757085242652-f8cd4d3de889?auto=format&fit=crop&w=1600&q=70" alt="Personas trabajando alrededor de una mesa en un taller" loading="lazy" />
-                  <figcaption class="wp-element-caption">El taller funciona una vez por semana en una sede vecinal.</figcaption>
+                  <img src="https://images.unsplash.com/photo-1646921305696-8448b037c33a?auto=format&fit=crop&w=1400&q=70" alt="Figuras de madera talladas en una vitrina" loading="lazy" />
+                  <figcaption class="wp-element-caption">Lorem ipsum dolor sit amet: pie de foto por definir.</figcaption>
                 </figure>
 
                 <blockquote class="wp-block-quote">
-                  <p>Lo que no se cuenta se olvida. Lo que se borda, se queda.</p>
-                  <cite>Integrante del taller</cite>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                  <cite>Coleccionista por definir</cite>
                 </blockquote>
 
                 <figure class="wp-block-image">
-                  <img src="https://images.unsplash.com/photo-1569783721854-33a99b4c0bae?auto=format&fit=crop&w=1600&q=70" alt="Público mirando obras en una exposición" loading="lazy" />
-                  <figcaption class="wp-element-caption">La muestra de fin de año reunió los trabajos de tres generaciones.</figcaption>
+                  <img src="https://images.unsplash.com/photo-1764748661961-a13958151502?auto=format&fit=crop&w=1400&q=70" alt="Objetos ordenados en repisas junto a una ventana" loading="lazy" />
+                  <figcaption class="wp-element-caption">Lorem ipsum dolor sit amet: pie de foto por definir.</figcaption>
                 </figure>
 
-                <figure class="wp-block-video">
-                  <video controls preload="none" poster="https://images.unsplash.com/photo-1504609813442-a8924e83f76e?auto=format&fit=crop&w=1600&q=70"></video>
-                  <figcaption class="wp-element-caption">Video: la inauguración de la muestra (2 min).</figcaption>
+                <p>Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+
+                <figure class="wp-block-image">
+                  <img src="https://images.unsplash.com/photo-1560697043-f880bb028f1e?auto=format&fit=crop&w=1400&q=70" alt="Conjunto de antigüedades sobre una mesa" loading="lazy" />
+                  <figcaption class="wp-element-caption">Lorem ipsum dolor sit amet: pie de foto por definir.</figcaption>
                 </figure>
 
-                <p>Este ensayo forma parte de una serie sobre oficios que guardan memoria. Las imágenes y el audio se registraron con autorización de las participantes.</p>
+                <figure class="wp-block-image">
+                  <img src="https://images.unsplash.com/photo-1516547375098-9efa2ae4f0c6?auto=format&fit=crop&w=1400&q=70" alt="Frascos de colores alineados" loading="lazy" />
+                  <figcaption class="wp-element-caption">Lorem ipsum dolor sit amet: pie de foto por definir.</figcaption>
+                </figure>
+
+                <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Etiam porta sem malesuada magna mollis euismod.</p>
+
+                <p><em>Coleccionistas psiquiátricos explora la relación entre las personas y sus objetos: qué lugar ocupa una colección en su vida, qué necesidades satisface y por qué se elige una rareza específica. El nombre es una provocación editorial, no un diagnóstico clínico.</em></p>
               </div>
               <!-- Hasta aquí: the_content() -->
 
-              <!--
-                COMPARTIR (template-parts/compartir.php, igual en todos los singles y en la ficha de evento).
-                Enlaces simples, sin plugins ni scripts de terceros (no cargan rastreadores). URL = get_permalink() y
-                texto = get_the_title(), ambos con rawurlencode():
-                · WhatsApp: https://wa.me/?text=TÍTULO%20URL (en el teléfono abre la app; en el computador, WhatsApp Web)
-                · Facebook: https://www.facebook.com/sharer/sharer.php?u=URL
-                · X: https://x.com/intent/post?text=TÍTULO&url=URL
-                · Correo: mailto:?subject=TÍTULO&body=URL
-                · Instagram no permite compartir enlaces desde la web. En el teléfono, "Compartir…" abre el menú del sistema
-                  (navigator.share), con Instagram, WhatsApp, Telegram, etc.; solo aparece donde el navegador lo permite.
-                  En el computador queda "Copiar enlace" (para historias o la biografía de Instagram).
-                La vista previa (imagen, título y bajada) la dan las etiquetas Open Graph que pone el tema o el plugin de SEO.
-              -->
+              <!-- COMPARTIR (template-parts/compartir.php): ver la explicación en single-columna.html -->
               <h2 class="h3 mt-5">Compartir</h2>
-              <div class="filtros" role="group" aria-label="Compartir esta nota" data-compartir data-url="https://anomala.org/bordar-para-no-olvidar/" data-titulo="Bordar para no olvidar">
+              <div class="filtros" role="group" aria-label="Compartir esta nota" data-compartir data-url="https://anomala.org/coleccionistas-psiquiatricos-1/" data-titulo="Coleccionistas psiquiátricos: primera entrega">
                 <button type="button" data-compartir-nativo hidden>Compartir…</button>
-                <a href="https://wa.me/?text=Bordar%20para%20no%20olvidar%20https%3A%2F%2Fanomala.org%2Fbordar-para-no-olvidar%2F" target="_blank" rel="noopener">WhatsApp</a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fanomala.org%2Fbordar-para-no-olvidar%2F" target="_blank" rel="noopener">Facebook</a>
-                <a href="https://x.com/intent/post?text=Bordar%20para%20no%20olvidar&amp;url=https%3A%2F%2Fanomala.org%2Fbordar-para-no-olvidar%2F" target="_blank" rel="noopener">X</a>
-                <a href="mailto:?subject=Bordar%20para%20no%20olvidar&amp;body=https%3A%2F%2Fanomala.org%2Fbordar-para-no-olvidar%2F">Correo</a>
+                <a href="https://wa.me/?text=Coleccionistas%20psiqui%C3%A1tricos%3A%20primera%20entrega%20https%3A%2F%2Fanomala.org%2Fcoleccionistas-psiquiatricos-1%2F" target="_blank" rel="noopener">WhatsApp</a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fanomala.org%2Fcoleccionistas-psiquiatricos-1%2F" target="_blank" rel="noopener">Facebook</a>
+                <a href="https://x.com/intent/post?text=Coleccionistas%20psiqui%C3%A1tricos%3A%20primera%20entrega&amp;url=https%3A%2F%2Fanomala.org%2Fcoleccionistas-psiquiatricos-1%2F" target="_blank" rel="noopener">X</a>
+                <a href="mailto:?subject=Coleccionistas%20psiqui%C3%A1tricos%3A%20primera%20entrega&amp;body=https%3A%2F%2Fanomala.org%2Fcoleccionistas-psiquiatricos-1%2F">Correo</a>
                 <button type="button" data-copiar-enlace>Copiar enlace</button>
               </div>
 
               <h2 class="h3 mt-5">Temas</h2>
               <nav class="filtros" aria-label="Temas de esta nota">
-                <a href="tema.html">Oficios</a><a href="tema.html">Patrimonio y memoria</a><a href="tema.html">Fotografía</a>
+                <a href="tema.html">Fotografía</a><a href="tema.html">Patrimonio y memoria</a>
               </nav>
 
               <!--
@@ -169,25 +170,39 @@
               -->
               <h2 class="h3 mt-5">Créditos</h2>
               <dl class="row mb-0 pt-3 border-top">
-                <dt class="col-4 col-sm-3 etiqueta">Texto y audio</dt>
-                <dd class="col-8 col-sm-9"><a href="autor.html">Ricardo González</a></dd>
                 <dt class="col-4 col-sm-3 etiqueta">Fotografía</dt>
-                <dd class="col-8 col-sm-9">Unsplash</dd>
-                <dt class="col-4 col-sm-3 etiqueta">Video</dt>
-                <dd class="col-8 col-sm-9">Tomás Lagos</dd>
+                <dd class="col-8 col-sm-9">Carlos Sepúlveda</dd>
+                <dt class="col-4 col-sm-3 etiqueta">Texto</dt>
+                <dd class="col-8 col-sm-9">Camila Ibáñez y Catalina</dd>
                 <dt class="col-4 col-sm-3 etiqueta">Edición</dt>
-                <dd class="col-8 col-sm-9">Paula Méndez</dd>
+                <dd class="col-8 col-sm-9">Equipo Anómala</dd>
               </dl>
 
-              <!-- FICHA DE AUTOR: una por autor (get_avatar, get_the_author_meta('description'), get_author_posts_url) -->
+              <!-- FICHA DE AUTOR: una por autor (get_avatar, get_the_author_meta('description'), get_author_posts_url). Sin foto: iniciales (.avatar) -->
               <section class="mt-5" aria-labelledby="sobre-autor">
-                <h2 id="sobre-autor" class="h3">Sobre el autor</h2>
+                <h2 id="sobre-autor" class="h3">Sobre los autores</h2>
                 <div class="d-flex align-items-center gap-3 py-3 border-bottom">
-                  <img class="rounded-circle flex-shrink-0" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=320&h=320&q=70" alt="" width="80" height="80" loading="lazy" />
+                  <span class="avatar" style="--avatar: 80px" aria-hidden="true">CS</span>
                   <div>
-                    <p class="h3 mb-1"><a class="text-reset" href="autor.html">Ricardo González</a></p>
-                    <p class="c-muted mb-1">Periodista cultural. Escribe sobre territorios y gestión comunitaria.</p>
-                    <a class="link-mas mt-0" href="autor.html">Ver más de este autor →</a>
+                    <p class="h3 mb-1"><a class="text-reset" href="autor.html">Carlos Sepúlveda</a></p>
+                    <p class="c-muted mb-1">Equipo de contenidos de Anómala.</p>
+                    <a class="link-mas mt-0" href="autor.html">Ver más de este autor</a>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center gap-3 py-3 border-bottom">
+                  <span class="avatar" style="--avatar: 80px" aria-hidden="true">CI</span>
+                  <div>
+                    <p class="h3 mb-1"><a class="text-reset" href="autor.html">Camila Ibáñez</a></p>
+                    <p class="c-muted mb-1">Equipo de contenidos de Anómala.</p>
+                    <a class="link-mas mt-0" href="autor.html">Ver más de este autor</a>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center gap-3 py-3 border-bottom">
+                  <span class="avatar" style="--avatar: 80px" aria-hidden="true">C</span>
+                  <div>
+                    <p class="h3 mb-1"><a class="text-reset" href="autor.html">Catalina</a></p>
+                    <p class="c-muted mb-1">Equipo de contenidos de Anómala.</p>
+                    <a class="link-mas mt-0" href="autor.html">Ver más de este autor</a>
                   </div>
                 </div>
               </section>
@@ -298,51 +313,50 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 entry-grid">
               <div class="col">
                 <article class="entry-card">
-                  <a class="stretched-link" href="single-ensayo.html" tabindex="-1" aria-hidden="true" data-cubre></a>
-                  <div class="entry-cat"><a href="publicaciones.html">Crónica</a><a href="publicaciones.html">Danza</a></div>
+                  <a class="stretched-link" href="single-entrevista.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                  <div class="entry-cat"><a href="publicaciones.html">Entrevista</a><a href="publicaciones.html">Literatura</a></div>
                   <div class="entry-img">
-                    <img class="entry-photo" src="https://images.unsplash.com/photo-1504609813442-a8924e83f76e?auto=format&fit=crop&w=800&q=70" alt="Personas bailando de noche" loading="lazy" />
+                    <img class="entry-photo" src="https://images.unsplash.com/photo-1586943759341-be5595944989?auto=format&fit=crop&w=800&q=70" alt="Máquina de escribir con una hoja que dice «Write something»" loading="lazy" />
                     <span class="icono-medio"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" fill="currentColor"><path d="M8 5v14l11-7z" /></svg><span class="visually-hidden">Video</span></span>
                     <img src="papel-rasgado2.webp" class="rasgado-total" alt="" />
                   </div>
                   <div class="entry-content">
                     <span class="anomala-icon" aria-hidden="true"></span>
-                    <h3><a class="text-reset" href="single-ensayo.html">Bailar para quedarse: una noche en la fiesta del barrio</a></h3>
-                    <p>Cumbia, cueca y cocina compartida: los espacios donde la comunidad se encuentra cuando cae el sol.</p>
-                    <div class="entry-info mt-auto"><span>por Ricardo González</span><span>05/10/26</span></div>
+                    <h3><a class="text-reset" href="single-entrevista.html">Nadie te pidió que escribieras: Romina Pistolas</a></h3>
+                    <p>Romina Pistolas sobre sus comienzos, obstáculos y procesos de escritura.</p>
+                    <div class="entry-info mt-auto"><span>por Alonso</span><span>26/10/26</span></div>
                   </div>
                 </article>
               </div>
               <div class="col">
                 <article class="entry-card">
-                  <a class="stretched-link" href="single.html" tabindex="-1" aria-hidden="true" data-cubre></a>
-                  <div class="entry-cat"><a href="publicaciones.html">Reportaje</a><a href="publicaciones.html">Artes visuales</a></div>
+                  <a class="stretched-link" href="single-cronica.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                  <div class="entry-cat"><a href="publicaciones.html">Crónica</a><a href="publicaciones.html">Teatro</a></div>
                   <div class="entry-img">
-                    <img class="entry-photo" src="https://images.unsplash.com/photo-1572887069547-4b5b4771a069?auto=format&fit=crop&w=800&q=70" alt="Edificio con un mural junto a la calle" loading="lazy" />
+                    <img class="entry-photo" src="https://images.unsplash.com/photo-1763962274119-1a0a0d418520?auto=format&fit=crop&w=800&q=70" alt="Público mirando una función en un teatro a oscuras" loading="lazy" />
                     <img src="papel-rasgado3.webp" class="rasgado-total" alt="" />
                   </div>
                   <div class="entry-content">
                     <span class="anomala-icon" aria-hidden="true"></span>
-                    <h3><a class="text-reset" href="single.html">Muros que hablan: quién decide el arte en la calle</a></h3>
-                    <p>Permisos, colectivos y municipios: cómo se negocia (y se borra) el muralismo en las ciudades.</p>
-                    <div class="entry-info mt-auto"><span>por Ricardo González</span><span>03/10/26</span></div>
+                    <h3><a class="text-reset" href="single-cronica.html">Anti-Manual del buen espectador</a></h3>
+                    <p>Crónica sarcástica y absurda sobre los rituales de ir al teatro.</p>
+                    <div class="entry-info mt-auto"><span>por Isabel Agurto</span><span>25/10/26</span></div>
                   </div>
                 </article>
               </div>
               <div class="col">
                 <article class="entry-card">
-                  <a class="stretched-link" href="single-ensayo.html" tabindex="-1" aria-hidden="true" data-cubre></a>
-                  <div class="entry-cat"><a href="publicaciones.html">Entrevista</a><a href="publicaciones.html">Patrimonio y memoria</a></div>
+                  <a class="stretched-link" href="single-columna.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                  <div class="entry-cat"><a href="publicaciones.html">Columna</a><a href="publicaciones.html">Política cultural</a></div>
                   <div class="entry-img">
-                    <img class="entry-photo" src="https://images.unsplash.com/photo-1583521214690-73421a1829a9?auto=format&fit=crop&w=800&q=70" alt="Pilas de documentos de archivo" loading="lazy" />
-                    <span class="icono-medio"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 10v4M8 7v10M12 4v16M16 8v8M20 11v2" /></svg><span class="visually-hidden">Audio</span></span>
+                    <img class="entry-photo" src="https://images.unsplash.com/photo-1696694139314-e0e5962b8dc0?auto=format&fit=crop&w=800&q=70" alt="Pasillo en penumbra de un museo con una vitrina" loading="lazy" />
                     <img src="papel-rasgado.webp" class="rasgado-total" alt="" />
                   </div>
                   <div class="entry-content">
                     <span class="anomala-icon" aria-hidden="true"></span>
-                    <h3><a class="text-reset" href="single-ensayo.html">“El archivo también es un lugar de disputa”</a></h3>
-                    <p>Una archivera sobre qué se guarda, qué se pierde y quién decide la memoria de una ciudad.</p>
-                    <div class="entry-info mt-auto"><span>por Ricardo González</span><span>01/10/26</span></div>
+                    <h3><a class="text-reset" href="single-columna.html">La cultura cambia: ¿cómo deben cambiar sus instituciones?</a></h3>
+                    <p>Reflexión sobre cómo deben adaptarse las instituciones culturales a nuevas formas de crear, participar y acceder a la cultura.</p>
+                    <div class="entry-info mt-auto"><span>por Juan Carlos Silva</span><span>25/10/26</span></div>
                   </div>
                 </article>
               </div>
