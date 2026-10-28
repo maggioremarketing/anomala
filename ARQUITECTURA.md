@@ -23,7 +23,7 @@ Estado: **borrador**. Lo marcado como *Pendiente* falta decidirlo con el cliente
 
 **Por qué `autor` es un CPT y no un usuario:** los usuarios de WordPress son los suscriptores de los planes pagos (Conversa, Encuentro), y separarlos evita mezclar firmas con cuentas. Además, los columnistas invitados no necesitan una cuenta. Quien edita en el panel sigue siendo un usuario; quien firma es una ficha `autor`.
 
-**Por qué los formatos no son CPT:** se evaluó y se descartó. Casi todos los listados mezclan formatos (Lo nuevo, Publicaciones, Cultura, Vida real, temas, series, autor, búsqueda, RSS). Como taxonomía, cada formato conserva su menú propio en el panel (ver §6) y sus campos específicos (ver §3) sin complicar las consultas.
+**Por qué los formatos no son CPT:** se evaluó y se descartó. Casi todos los listados mezclan formatos (Lo nuevo, Publicaciones, Cultura, Vida real, temas, secciones, autor, búsqueda, RSS). Como taxonomía, cada formato conserva su menú propio en el panel (ver §6) y sus campos específicos (ver §3) sin complicar las consultas.
 
 ### Registro del CPT `autor`
 
@@ -59,9 +59,9 @@ register_post_type( 'evento', [
 
 | Taxonomía | Slug | Aplica a | Valores | Por elemento | Editor | URL |
 |---|---|---|---|---|---|---|
-| Categoría | `category` (nativa) | post | Cultura · Vida real | **1, obligatoria** | Selector único propio | `/cultura/`, `/vida-real/` *(ver §5)* |
+| Macrocategoría | `category` (nativa; en el panel se llama «Macrocategorías» y en el sitio «Categorías») | post | Cultura · Vida real | **1, obligatoria** | Selector único propio | `/cultura/`, `/vida-real/` *(ver §5)* |
 | Formato | `formato` | post | Columna · Entrevista · Reportaje · Crónica · Ensayo | **1, obligatoria** | Selector único propio | `/formato/entrevista/` |
-| Serie | `serie` | post | Spoiler Alert! · Coleccionistas psiquiátricos · Nadie te pidió que escribieras | **0 o 1** | Selector único propio | `/serie/spoiler-alert/` |
+| Sección | `seccion` | post | Spoiler Alert! · Coleccionistas psiquiátricos · Nadie te pidió que escribieras | **0 o 1** | Selector único propio | `/seccion/spoiler-alert/` |
 | Temas | `post_tag` (nativa) | post | Abierta, se va sumando | Varios | Panel nativo de etiquetas | `/tema/musica/` |
 | Medio | `medio` | post | Video · Audio | **Automático** | Oculta | `/medio/video/` |
 | Tipo de autor | `tipo_autor` | autor | Permanente · Invitado | 1 | Selector único propio | No pública |
@@ -70,11 +70,11 @@ register_post_type( 'evento', [
 **Reglas:**
 
 - **Formato y Medio no se mezclan.** El formato es cómo está contada la nota; el medio dice si trae video o audio. Los nombres del acta del tipo «Entrevista audiovisual» se registran como Formato = Entrevista, y el medio Video lo asigna el sistema.
-- **Una serie se suma al formato, no lo reemplaza.** Si una serie usa siempre el mismo formato (Nadie te pidió… = Entrevista), el editor puede preseleccionarlo al elegir la serie, pero el formato queda guardado igual.
+- **Una sección se suma al formato, no lo reemplaza.** Si una sección usa siempre el mismo formato (Nadie te pidió… = Entrevista), el editor puede preseleccionarlo al elegir la sección, pero el formato queda guardado igual.
 - **Temas:** pueden crearlos solo Editor y Administrador, para evitar duplicados («Música», «música»). Los autores eligen entre los existentes: `assign_terms` para todos y `manage_terms` / `edit_terms` solo para editores.
 - **Medio no tiene término «Texto».** «Texto e imagen» es la consulta de las notas sin Video ni Audio: `tax_query` con `operator => 'NOT EXISTS'`.
 
-### Registro (ejemplo `formato`; `serie`, `medio`, `tipo_autor` y `disciplina` siguen el mismo patrón)
+### Registro (ejemplo `formato`; `seccion`, `medio`, `tipo_autor` y `disciplina` siguen el mismo patrón)
 
 ```php
 register_taxonomy( 'formato', 'post', [
@@ -116,20 +116,20 @@ Desde el medio se resuelven: el ícono verde de las tarjetas, la etiqueta «Vide
 
 ### 2.2 Selector único (sin plugins)
 
-El panel nativo de taxonomías jerárquicas usa casillas y permite marcar varias. Para Categoría, Formato, Serie, Tipo de autor y Disciplina:
+El panel nativo de taxonomías jerárquicas usa casillas y permite marcar varias. Para Macrocategoría, Formato, Sección, Tipo de autor y Disciplina:
 
 1. Se oculta el panel nativo: `meta_box_cb => false`, y para `category` se filtra `rest_prepare_taxonomy` o se quita el panel en el editor.
 2. El tema registra un panel propio en la barra lateral del editor de bloques (`PluginDocumentSettingPanel`, un archivo JS del mu-plugin sin dependencias externas) con un `<select>` por taxonomía.
-3. Se valida en el servidor en `save_post`: si llegan varios términos, queda solo uno, y si Categoría o Formato vienen vacíos, la nota no se puede publicar (vuelve a borrador con aviso en `admin_notices`).
+3. Se valida en el servidor en `save_post`: si llegan varios términos, queda solo uno, y si Macrocategoría o Formato vienen vacíos, la nota no se puede publicar (vuelve a borrador con aviso en `admin_notices`).
 
 ### 2.3 Datos de los términos (term meta, sin plugins)
 
 | Taxonomía | Campo | Meta key | Uso |
 |---|---|---|---|
-| serie | Lema | *descripción nativa del término* | «Secretos y accidentes de la cultura pop.» |
-| serie | Resumen | `anm_resumen` | Texto de la tarjeta en Temas y en el índice de series |
-| serie | Imagen | `anm_imagen` (ID de adjunto) | Foto de la tarjeta y OG del archivo |
-| serie | Formato por defecto | `anm_formato_defecto` (term ID) | Preselección en el editor |
+| seccion | Lema | *descripción nativa del término* | «Secretos y accidentes de la cultura pop.» |
+| seccion | Resumen | `anm_resumen` | Texto de la tarjeta en Temas y en el índice de secciones |
+| seccion | Imagen | `anm_imagen` (ID de adjunto) | Foto de la tarjeta y OG del archivo |
+| seccion | Formato por defecto | `anm_formato_defecto` (term ID) | Preselección en el editor |
 | category | Color | `anm_color` | Cultura = `--ui-success`, Vida real = `--ui-highlight` |
 | formato, post_tag | Imagen | `anm_imagen` | Mosaicos de Temas |
 
@@ -196,9 +196,9 @@ Todos se registran con `register_post_meta()` (`show_in_rest => true`, `sanitize
 |---|---|
 | Nota → Autores | `anm_autor` en la nota (una fila por autor) |
 | Autor → Notas | `WP_Query` con `meta_query` sobre `anm_autor`, en `single-autor.php` |
-| Nota → Serie | Taxonomía `serie` |
-| Serie → Notas | Archivo `taxonomy-serie.php` (más reciente primero) |
-| Nota → Relacionadas («Sigue leyendo») | Misma serie, luego mismo tema y luego misma categoría, sin repetir la actual |
+| Nota → Sección | Taxonomía `seccion` |
+| Sección → Notas | Archivo `taxonomy-seccion.php` (más reciente primero) |
+| Nota → Relacionadas («Sigue leyendo») | Misma sección, luego mismo tema y luego misma categoría, sin repetir la actual |
 
 ---
 
@@ -207,10 +207,10 @@ Todos se registran con `register_post_meta()` (`show_in_rest => true`, `sanitize
 | Contenido | URL |
 |---|---|
 | Nota | `/%category%/%postname%/` → `/cultura/jodorowsky-dune/` |
-| Categoría | `/cultura/`, `/vida-real/`. Se quita la base `category/` con reglas propias (`category_rewrite_rules`) |
+| Macrocategoría | `/cultura/`, `/vida-real/`. Se quita la base `category/` con reglas propias (`category_rewrite_rules`) |
 | Formato | `/formato/columna/` |
-| Serie | `/serie/spoiler-alert/` |
-| Índice de series | `/series/` (página con plantilla `page-series.php`) |
+| Sección | `/seccion/spoiler-alert/` |
+| Índice de secciones | `/secciones/` (página con plantilla `page-secciones.php`) |
 | Tema | `/tema/musica/` (base de etiquetas en Ajustes → Enlaces permanentes) |
 | Temas (índice) | `/temas/` (`page-temas.php`) |
 | Medio | `/medio/video/`, `/medio/audio/` |
@@ -225,7 +225,7 @@ Todos se registran con `register_post_meta()` (`show_in_rest => true`, `sanitize
 ## 6. Panel de administración
 
 - **Notas:** submenús filtrados bajo «Entradas»: Columnas, Entrevistas, Reportajes, Crónicas y Ensayos. Son enlaces a `edit.php?formato=columna`, etc., con `add_submenu_page`, y dan el mismo orden que tendrían los CPT.
-- **Columnas del listado:** Formato, Serie, Categoría, Autores y un ícono de video o audio (`manage_posts_columns`), con filtro por formato y serie (`restrict_manage_posts`).
+- **Columnas del listado:** Formato, Sección, Macrocategoría, Autores y un ícono de video o audio (`manage_posts_columns`), con filtro por formato y sección (`restrict_manage_posts`).
 - **Autores:** columna Tipo (Permanente / Invitado) y filtro por tipo.
 - **Cartelera:** columnas de próxima función, lugar, tipo y destacado, ordenadas por fecha.
 - **Roles:** Administrador, Editor (crea temas, publica), Autor del equipo (escribe y envía a revisión) y Suscriptor (solo comenta según plan, ver §8).
@@ -240,11 +240,11 @@ Todos se registran con `register_post_meta()` (`show_in_rest => true`, `sanitize
 | `home.php` / `archive.php` | `publicaciones.html` | Filtros por formato y medio como parámetros de consulta |
 | `category.php` | `eje.html`, `vida-real.html` | Color desde `anm_color` |
 | `taxonomy-formato.php` | — | Puede reutilizar `archive.php` |
-| `taxonomy-serie.php` | `serie.html` | Lema, descripción, entregas, otras series |
+| `taxonomy-seccion.php` | `seccion.html` | Lema, descripción, entregas, otras secciones |
 | `taxonomy-medio.php` | — | Reutiliza `archive.php` |
 | `tag.php` | `tema.html` | |
-| `page-temas.php` | `temas.html` | Con más movimiento, Series, Todos los temas, Por formato, Por medio |
-| `page-series.php` | `series.html` | `get_terms( 'serie' )` |
+| `page-temas.php` | `temas.html` | Con más movimiento, Secciones, Todos los temas, Por formato, Por medio |
+| `page-secciones.php` | `secciones.html` | `get_terms( 'seccion' )` |
 | `single.php` | `single*.html` | Partes por formato: `template-parts/perfil-entrevistado.php` (Entrevista), firma junto al título y aviso de opinión (Columna) |
 | `archive-autor.php` | `autores.html` | Filtro por tipo de autor |
 | `single-autor.php` | `autor.html` | Perfil + notas donde aparece |
@@ -328,13 +328,13 @@ Se parte de `circuloautocool/mg-seo-core` (v1.0.0) y se crea una versión para A
 
 **Open Graph:** `og:type=article`, `article:published_time`, `article:modified_time`, `article:author`, `article:section` y `article:tag`.
 
-**Páginas de autores, series y eventos**
+**Páginas de autores, secciones y eventos**
 - Autor: `ProfilePage` con `mainEntity` = `Person` (nombre, bio, foto, `jobTitle` = `anm_cargo`, `sameAs`).
-- Serie: `CollectionPage` + `ItemList` de entregas. Las imágenes y descripciones salen del term meta.
+- Sección: `CollectionPage` + `ItemList` de entregas. Las imágenes y descripciones salen del term meta.
 - Evento: `Event` con `startDate`/`endDate` (de `anm_funciones`), `location` (`Place` + `PostalAddress` desde `anm_lugar`, `anm_direccion` y `anm_comuna`), `offers` (precio en CLP, `isAccessibleForFree` si es 0), `organizer` (Anómala o `anm_organizador`), `image` y `eventStatus`.
 
 **Sitemaps**
-- Índice con notas, páginas, autores, eventos vigentes y taxonomías (`category`, `formato`, `serie`, `post_tag`, `medio`).
+- Índice con notas, páginas, autores, eventos vigentes y taxonomías (`category`, `formato`, `seccion`, `post_tag`, `medio`).
 - `lastmod` real: la nota más reciente de cada término.
 - Sitemap de **Google News** (notas de las últimas 48 horas, espacio `news:`). *Pendiente:* postular a Google Publisher Center.
 
@@ -343,7 +343,7 @@ Se parte de `circuloautocool/mg-seo-core` (v1.0.0) y se crea una versión para A
 - Global: `max-image-preview:large, max-snippet:-1, max-video-preview:-1`.
 - Los feeds quedan indexables.
 
-**Migas de pan:** Inicio › Categoría › Nota; Inicio › Series › Serie; Inicio › Autores › Autor; Inicio › Cartelera › Evento.
+**Migas de pan:** Inicio › Macrocategoría › Nota; Inicio › Secciones › Sección; Inicio › Autores › Autor; Inicio › Cartelera › Evento.
 
 **Qué se mantiene:**
 - metabox SEO (título, descripción, OG, noindex) en notas, autores, eventos y páginas;
@@ -356,7 +356,7 @@ Se parte de `circuloautocool/mg-seo-core` (v1.0.0) y se crea una versión para A
 ## 10. Pendientes con el cliente
 
 1. Criterio entre **Cultura y Vida real**, y la categoría de cada nota del lanzamiento.
-2. **Nombres de las series:** el acta indica que los propuso Alonso después de la reunión y no se acordaron en la sesión. También falta definir «Nadie te pidió que escribieras» frente a «Nadie te pidió que… crearas».
+2. **Nombres de las secciones:** el acta indica que los propuso Alonso después de la reunión y no se acordaron en la sesión. También falta definir «Nadie te pidió que escribieras» frente a «Nadie te pidió que… crearas».
 3. **Formatos:** dónde caben «artículo cultural» (Dune, hoy Reportaje) y «ensayo fotográfico y perfil» (Coleccionistas, hoy Ensayo).
 4. **Disciplinas de la cartelera:** si son una lista aparte de los temas o comparten términos.
 5. **Pasarela de pago.**
@@ -366,5 +366,5 @@ Se parte de `circuloautocool/mg-seo-core` (v1.0.0) y se crea una versión para A
    - la dirección de envío (por ejemplo, hola@anomala.org).
 
    Si no tienen ninguno, la recomendación es Brevo o MailerLite. Substack no sirve porque no tiene una API abierta.
-7. **Categoría en la URL** de las notas (§5).
+7. **Macrocategoría en la URL** de las notas (§5).
 8. Datos de los autores (fotos, bios, redes) y del primer coleccionista.

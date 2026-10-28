@@ -81,11 +81,12 @@
         · "Evento" es un tipo de contenido propio. Campos: fechas/funciones, horario, lugar, dirección, comuna, región,
           precio (0 = gratis), disciplina (taxonomía), enlace de entradas o información y "Evento de Anómala" (sí/no).
         · Los eventos finalizados salen automáticamente: la consulta solo trae eventos cuya última fecha es hoy o después.
-        · Los destacados se eligen desde el administrador (campo "Destacado"); llevan la etiqueta "Destacado".
+        · Los destacados se eligen desde el administrador (campo "Destacado") y aparecen en la portada.
         · Ordenados por fecha y agrupados por mes ([data-grupo]).
-        · Eventos con varias funciones: el talón muestra la primera; la línea de horario resume las fechas.
+        · Tarjeta: imagen, talón con la fecha, título y lugar. El resto (disciplina, horario, precio, entradas) va en la ficha.
+          La disciplina se ve en el color del borde superior (--d). Eventos con varias funciones: el talón muestra la primera.
           Actividades de duración prolongada (muestras, exposiciones): el talón muestra "Hasta" + fecha de cierre.
-        · Afiche (.evento-afiche): imagen destacada del evento, the_post_thumbnail(), vertical 3/4.
+        · Imagen: the_post_thumbnail(), recortada a 3/2 en la tarjeta. Dos tarjetas por fila desde tablet.
       -->
       <section id="cartelera">
         <div class="container-fluid">
@@ -166,123 +167,123 @@
           <div class="mb-5" data-grupo>
             <h2 class="h3">Octubre 2026</h2>
             <!-- Cada evento: data-disciplina (slug) y data-precio (precio mínimo en pesos; 0 = gratis) -->
-            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4" data-cartelera>
+            <div class="row row-cols-1 row-cols-md-2 g-4" data-cartelera>
               <div class="col" data-disciplina="teatro" data-precio="6000">
                 <article class="evento" style="--d: var(--ui-highlight)">
                   <!-- Varias funciones: el talón muestra la primera -->
+                  <a class="stretched-link" href="single-evento.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                  <div class="entry-img">
+                    <img class="entry-photo" src="https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=900&h=600&q=70" alt="Afiche de Las cosas que no dijimos" loading="lazy" />
+                  </div>
                   <time class="evento-fecha" datetime="2026-10-16">Vie<b>16</b>oct</time>
-                  <img class="evento-afiche" src="https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=300&h=400&q=70" alt="Afiche de Las cosas que no dijimos" loading="lazy" />
                   <div class="entry-content">
-                    <p class="mb-1"><span class="etiqueta">Teatro</span> <span class="etiqueta c-lime">· Destacado</span></p>
                     <h3><a class="text-reset" href="single-evento.html">Las cosas que no dijimos</a></h3>
-                    <div class="entry-info"><span>Sala Teatro del Puente</span><span>Santiago, Metropolitana</span></div>
-                    <div class="entry-info"><span>3 funciones · 16, 17 y 18 oct · 20:00</span><span>Desde $6.000</span></div>
-                    <a href="#" target="_blank" rel="noopener">Entradas</a>
+                    <p class="entry-info mb-0"><span>Sala Teatro del Puente · Santiago, Metropolitana</span></p>
                   </div>
                 </article>
               </div>
               <div class="col" data-disciplina="artes-visuales" data-precio="0">
                 <article class="evento" style="--d: var(--ui-info)">
                   <!-- Duración prolongada: el talón muestra la fecha de cierre -->
+                  <a class="stretched-link" href="single-evento.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                  <div class="entry-img">
+                    <img class="entry-photo" src="https://images.unsplash.com/photo-1569783721854-33a99b4c0bae?auto=format&fit=crop&w=900&h=600&q=70" alt="Afiche de Archivo vivo: fotografía popular del sur" loading="lazy" />
+                  </div>
                   <time class="evento-fecha" datetime="2026-11-30">Hasta<b>30</b>nov</time>
-                  <img class="evento-afiche" src="https://images.unsplash.com/photo-1569783721854-33a99b4c0bae?auto=format&fit=crop&w=300&h=400&q=70" alt="Afiche de Archivo vivo: fotografía popular del sur" loading="lazy" />
                   <div class="entry-content">
-                    <span class="etiqueta">Artes visuales</span>
                     <h3><a class="text-reset" href="single-evento.html">Archivo vivo: fotografía popular del sur</a></h3>
-                    <div class="entry-info"><span>Galería Municipal de Arte</span><span>Concepción, Biobío</span></div>
-                    <div class="entry-info"><span>Mar a dom · 10:00 a 18:00</span><span class="c-lime">Gratis</span></div>
-                    <a href="#" target="_blank" rel="noopener">Más información</a>
+                    <p class="entry-info mb-0"><span>Galería Municipal de Arte · Concepción, Biobío</span></p>
                   </div>
                 </article>
               </div>
               <div class="col" data-disciplina="musica" data-precio="5000">
                 <article class="evento" style="--d: var(--ui-success)">
+                  <a class="stretched-link" href="single-evento.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                  <div class="entry-img">
+                    <img class="entry-photo" src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=900&h=600&q=70" alt="Afiche de Cumbia de cerro: noche de bandas locales" loading="lazy" />
+                  </div>
                   <time class="evento-fecha" datetime="2026-10-17">Sáb<b>17</b>oct</time>
-                  <img class="evento-afiche" src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=300&h=400&q=70" alt="Afiche de Cumbia de cerro: noche de bandas locales" loading="lazy" />
                   <div class="entry-content">
-                    <span class="etiqueta">Música</span>
                     <h3><a class="text-reset" href="single-evento.html">Cumbia de cerro: noche de bandas locales</a></h3>
-                    <div class="entry-info"><span>Centro Cultural Playa Ancha</span><span>Valparaíso, Valparaíso</span></div>
-                    <div class="entry-info"><span>21:30</span><span>$5.000</span></div>
-                    <a href="#" target="_blank" rel="noopener">Entradas</a>
+                    <p class="entry-info mb-0"><span>Centro Cultural Playa Ancha · Valparaíso, Valparaíso</span></p>
                   </div>
                 </article>
               </div>
               <div class="col" data-disciplina="danza" data-precio="0">
                 <article class="evento" style="--d: var(--ui-highlight)">
+                  <a class="stretched-link" href="single-evento.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                  <div class="entry-img">
+                    <img class="entry-photo" src="https://images.unsplash.com/photo-1504609813442-a8924e83f76e?auto=format&fit=crop&w=900&h=600&q=70" alt="Afiche de Suelo: danza contemporánea en espacio público" loading="lazy" />
+                  </div>
                   <time class="evento-fecha" datetime="2026-10-17">Sáb<b>17</b>oct</time>
-                  <img class="evento-afiche" src="https://images.unsplash.com/photo-1504609813442-a8924e83f76e?auto=format&fit=crop&w=300&h=400&q=70" alt="Afiche de Suelo: danza contemporánea en espacio público" loading="lazy" />
                   <div class="entry-content">
-                    <span class="etiqueta">Danza</span>
                     <h3><a class="text-reset" href="single-evento.html">Suelo: danza contemporánea en espacio público</a></h3>
-                    <div class="entry-info"><span>Plaza Colón</span><span>Antofagasta, Antofagasta</span></div>
-                    <div class="entry-info"><span>18:00</span><span class="c-lime">Gratis</span></div>
-                    <a href="#" target="_blank" rel="noopener">Más información</a>
+                    <p class="entry-info mb-0"><span>Plaza Colón · Antofagasta, Antofagasta</span></p>
                   </div>
                 </article>
               </div>
               <div class="col" data-disciplina="musica" data-precio="8000">
                 <article class="evento" style="--d: var(--ui-success)">
+                  <a class="stretched-link" href="single-evento.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                  <div class="entry-img">
+                    <img class="entry-photo" src="https://images.unsplash.com/photo-1572887069547-4b5b4771a069?auto=format&fit=crop&w=900&h=600&q=70" alt="Afiche de Cuerdas del norte: guitarra y charango" loading="lazy" />
+                  </div>
                   <time class="evento-fecha" datetime="2026-10-18">Dom<b>18</b>oct</time>
-                  <img class="evento-afiche" src="https://images.unsplash.com/photo-1572887069547-4b5b4771a069?auto=format&fit=crop&w=300&h=400&q=70" alt="Afiche de Cuerdas del norte: guitarra y charango" loading="lazy" />
                   <div class="entry-content">
-                    <span class="etiqueta">Música</span>
                     <h3><a class="text-reset" href="single-evento.html">Cuerdas del norte: guitarra y charango</a></h3>
-                    <div class="entry-info"><span>Teatro Municipal</span><span>La Serena, Coquimbo</span></div>
-                    <div class="entry-info"><span>20:00</span><span>Desde $8.000</span></div>
-                    <a href="#" target="_blank" rel="noopener">Entradas</a>
+                    <p class="entry-info mb-0"><span>Teatro Municipal · La Serena, Coquimbo</span></p>
                   </div>
                 </article>
               </div>
               <div class="col" data-disciplina="cine" data-precio="0">
                 <article class="evento" style="--d: var(--accent)">
+                  <a class="stretched-link" href="single-evento.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                  <div class="entry-img">
+                    <img class="entry-photo" src="https://images.unsplash.com/photo-1757085242652-f8cd4d3de889?auto=format&fit=crop&w=900&h=600&q=70" alt="Afiche de Ciclo de documental chileno: cuerpos y territorio" loading="lazy" />
+                  </div>
                   <time class="evento-fecha" datetime="2026-10-21">Mié<b>21</b>oct</time>
-                  <img class="evento-afiche" src="https://images.unsplash.com/photo-1757085242652-f8cd4d3de889?auto=format&fit=crop&w=300&h=400&q=70" alt="Afiche de Ciclo de documental chileno: cuerpos y territorio" loading="lazy" />
                   <div class="entry-content">
-                    <span class="etiqueta">Cine</span>
                     <h3><a class="text-reset" href="single-evento.html">Ciclo de documental chileno: cuerpos y territorio</a></h3>
-                    <div class="entry-info"><span>Cineclub universitario</span><span>Temuco, La Araucanía</span></div>
-                    <div class="entry-info"><span>3 funciones · 21, 22 y 23 oct · 19:00</span><span class="c-lime">Gratis</span></div>
-                    <a href="#" target="_blank" rel="noopener">Más información</a>
+                    <p class="entry-info mb-0"><span>Cineclub universitario · Temuco, La Araucanía</span></p>
                   </div>
                 </article>
               </div>
               <div class="col" data-disciplina="teatro" data-precio="4000">
                 <article class="evento" style="--d: var(--ui-highlight)">
+                  <a class="stretched-link" href="single-evento.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                  <div class="entry-img">
+                    <img class="entry-photo" src="https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=900&h=600&q=70" alt="Afiche de Cocina de barrio: teatro documental" loading="lazy" />
+                  </div>
                   <time class="evento-fecha" datetime="2026-10-22">Jue<b>22</b>oct</time>
-                  <img class="evento-afiche" src="https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=300&h=400&q=70" alt="Afiche de Cocina de barrio: teatro documental" loading="lazy" />
                   <div class="entry-content">
-                    <span class="etiqueta">Teatro</span>
                     <h3><a class="text-reset" href="single-evento.html">Cocina de barrio: teatro documental</a></h3>
-                    <div class="entry-info"><span>Centro Cultural de Coyhaique</span><span>Coyhaique, Aysén</span></div>
-                    <div class="entry-info"><span>19:30</span><span>$4.000</span></div>
-                    <a href="#" target="_blank" rel="noopener">Entradas</a>
+                    <p class="entry-info mb-0"><span>Centro Cultural de Coyhaique · Coyhaique, Aysén</span></p>
                   </div>
                 </article>
               </div>
               <div class="col" data-disciplina="artes-visuales" data-precio="12000">
                 <article class="evento" style="--d: var(--ui-info)">
+                  <a class="stretched-link" href="single-evento.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                  <div class="entry-img">
+                    <img class="entry-photo" src="https://images.unsplash.com/photo-1569783721854-33a99b4c0bae?auto=format&fit=crop&w=900&h=600&q=70" alt="Afiche de Taller abierto de grabado en madera" loading="lazy" />
+                  </div>
                   <time class="evento-fecha" datetime="2026-10-24">Sáb<b>24</b>oct</time>
-                  <img class="evento-afiche" src="https://images.unsplash.com/photo-1569783721854-33a99b4c0bae?auto=format&fit=crop&w=300&h=400&q=70" alt="Afiche de Taller abierto de grabado en madera" loading="lazy" />
                   <div class="entry-content">
-                    <span class="etiqueta">Artes visuales</span>
                     <h3><a class="text-reset" href="single-evento.html">Taller abierto de grabado en madera</a></h3>
-                    <div class="entry-info"><span>Casa Azul del Arte</span><span>Punta Arenas, Magallanes</span></div>
-                    <div class="entry-info"><span>11:00 a 14:00</span><span>$12.000 · materiales incluidos</span></div>
-                    <a href="#" target="_blank" rel="noopener">Inscripciones</a>
+                    <p class="entry-info mb-0"><span>Casa Azul del Arte · Punta Arenas, Magallanes</span></p>
                   </div>
                 </article>
               </div>
               <div class="col" data-disciplina="musica" data-precio="0">
                 <article class="evento" style="--d: var(--ui-success)">
+                  <a class="stretched-link" href="single-evento.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                  <div class="entry-img">
+                    <img class="entry-photo" src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=900&h=600&q=70" alt="Afiche de Coros populares en el parque" loading="lazy" />
+                  </div>
                   <time class="evento-fecha" datetime="2026-10-25">Dom<b>25</b>oct</time>
-                  <img class="evento-afiche" src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=300&h=400&q=70" alt="Afiche de Coros populares en el parque" loading="lazy" />
                   <div class="entry-content">
-                    <span class="etiqueta">Música</span>
                     <h3><a class="text-reset" href="single-evento.html">Coros populares en el parque</a></h3>
-                    <div class="entry-info"><span>Parque O'Higgins</span><span>Santiago, Metropolitana</span></div>
-                    <div class="entry-info"><span>17:00</span><span class="c-lime">Gratis</span></div>
-                    <a href="#" target="_blank" rel="noopener">Más información</a>
+                    <p class="entry-info mb-0"><span>Parque O'Higgins · Santiago, Metropolitana</span></p>
                   </div>
                 </article>
               </div>
@@ -291,70 +292,69 @@
 
           <div class="mb-5" data-grupo>
             <h2 class="h3">Noviembre 2026</h2>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4" data-cartelera>
+            <div class="row row-cols-1 row-cols-md-2 g-4" data-cartelera>
               <div class="col" data-disciplina="cine" data-precio="0">
                 <article class="evento" style="--d: var(--accent)">
+                  <a class="stretched-link" href="single-evento.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                  <div class="entry-img">
+                    <img class="entry-photo" src="https://images.unsplash.com/photo-1504609813442-a8924e83f76e?auto=format&fit=crop&w=900&h=600&q=70" alt="Afiche de Cine bajo las estrellas: cortometrajes regionales" loading="lazy" />
+                  </div>
                   <time class="evento-fecha" datetime="2026-11-05">Jue<b>05</b>nov</time>
-                  <img class="evento-afiche" src="https://images.unsplash.com/photo-1504609813442-a8924e83f76e?auto=format&fit=crop&w=300&h=400&q=70" alt="Afiche de Cine bajo las estrellas: cortometrajes regionales" loading="lazy" />
                   <div class="entry-content">
-                    <span class="etiqueta">Cine</span>
                     <h3><a class="text-reset" href="single-evento.html">Cine bajo las estrellas: cortometrajes regionales</a></h3>
-                    <div class="entry-info"><span>Explanada del Museo Regional</span><span>Iquique, Tarapacá</span></div>
-                    <div class="entry-info"><span>21:00</span><span class="c-lime">Gratis</span></div>
-                    <a href="#" target="_blank" rel="noopener">Más información</a>
+                    <p class="entry-info mb-0"><span>Explanada del Museo Regional · Iquique, Tarapacá</span></p>
                   </div>
                 </article>
               </div>
               <div class="col" data-disciplina="danza" data-precio="0">
                 <article class="evento" style="--d: var(--ui-highlight)">
+                  <a class="stretched-link" href="single-evento.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                  <div class="entry-img">
+                    <img class="entry-photo" src="https://images.unsplash.com/photo-1572887069547-4b5b4771a069?auto=format&fit=crop&w=900&h=600&q=70" alt="Afiche de Cueca urbana: muestra y baile abierto" loading="lazy" />
+                  </div>
                   <time class="evento-fecha" datetime="2026-11-08">Dom<b>08</b>nov</time>
-                  <img class="evento-afiche" src="https://images.unsplash.com/photo-1572887069547-4b5b4771a069?auto=format&fit=crop&w=300&h=400&q=70" alt="Afiche de Cueca urbana: muestra y baile abierto" loading="lazy" />
                   <div class="entry-content">
-                    <span class="etiqueta">Danza</span>
                     <h3><a class="text-reset" href="single-evento.html">Cueca urbana: muestra y baile abierto</a></h3>
-                    <div class="entry-info"><span>Mercado Puerto</span><span>Valparaíso, Valparaíso</span></div>
-                    <div class="entry-info"><span>18:30</span><span class="c-lime">Gratis</span></div>
-                    <a href="#" target="_blank" rel="noopener">Más información</a>
+                    <p class="entry-info mb-0"><span>Mercado Puerto · Valparaíso, Valparaíso</span></p>
                   </div>
                 </article>
               </div>
               <div class="col" data-disciplina="teatro" data-precio="0">
                 <article class="evento" style="--d: var(--ui-highlight)">
+                  <a class="stretched-link" href="single-evento.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                  <div class="entry-img">
+                    <img class="entry-photo" src="https://images.unsplash.com/photo-1757085242652-f8cd4d3de889?auto=format&fit=crop&w=900&h=600&q=70" alt="Afiche de Las voces del sur: lectura dramatizada" loading="lazy" />
+                  </div>
                   <time class="evento-fecha" datetime="2026-11-14">Sáb<b>14</b>nov</time>
-                  <img class="evento-afiche" src="https://images.unsplash.com/photo-1757085242652-f8cd4d3de889?auto=format&fit=crop&w=300&h=400&q=70" alt="Afiche de Las voces del sur: lectura dramatizada" loading="lazy" />
                   <div class="entry-content">
-                    <!-- Campo "Evento de Anómala" = sí: lo organiza el medio (invitaciones para suscriptores Encuentro) -->
-                    <p class="mb-1"><span class="etiqueta">Teatro</span> <span class="etiqueta c-pink">· Evento de Anómala</span></p>
                     <h3><a class="text-reset" href="single-evento.html">Las voces del sur: lectura dramatizada</a></h3>
-                    <div class="entry-info"><span>Biblioteca Regional</span><span>Valdivia, Los Ríos</span></div>
-                    <div class="entry-info"><span>19:00 · inscripción previa</span><span class="c-lime">Gratis</span></div>
-                    <a href="single-evento.html">Ver invitación Encuentro</a>
+                    <p class="entry-info mb-0"><span>Biblioteca Regional · Valdivia, Los Ríos</span></p>
                   </div>
                 </article>
               </div>
               <div class="col" data-disciplina="artes-visuales" data-precio="0">
                 <article class="evento" style="--d: var(--ui-info)">
+                  <a class="stretched-link" href="single-evento.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                  <div class="entry-img">
+                    <img class="entry-photo" src="https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=900&h=600&q=70" alt="Afiche de Bordados de memoria: muestra colectiva" loading="lazy" />
+                  </div>
                   <time class="evento-fecha" datetime="2026-11-21">Sáb<b>21</b>nov</time>
-                  <img class="evento-afiche" src="https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=300&h=400&q=70" alt="Afiche de Bordados de memoria: muestra colectiva" loading="lazy" />
                   <div class="entry-content">
-                    <span class="etiqueta">Artes visuales</span>
                     <h3><a class="text-reset" href="single-evento.html">Bordados de memoria: muestra colectiva</a></h3>
-                    <div class="entry-info"><span>Centro Cultural de Talca</span><span>Talca, Maule</span></div>
-                    <div class="entry-info"><span>Hasta 20 dic · Mié a dom · 11:00 a 19:00</span><span class="c-lime">Gratis</span></div>
-                    <a href="#" target="_blank" rel="noopener">Más información</a>
+                    <p class="entry-info mb-0"><span>Centro Cultural de Talca · Talca, Maule</span></p>
                   </div>
                 </article>
               </div>
               <div class="col" data-disciplina="musica" data-precio="15000">
                 <article class="evento" style="--d: var(--ui-success)">
+                  <a class="stretched-link" href="single-evento.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                  <div class="entry-img">
+                    <img class="entry-photo" src="https://images.unsplash.com/photo-1569783721854-33a99b4c0bae?auto=format&fit=crop&w=900&h=600&q=70" alt="Afiche de Jazz en el sótano: cuarteto en vivo" loading="lazy" />
+                  </div>
                   <time class="evento-fecha" datetime="2026-11-28">Sáb<b>28</b>nov</time>
-                  <img class="evento-afiche" src="https://images.unsplash.com/photo-1569783721854-33a99b4c0bae?auto=format&fit=crop&w=300&h=400&q=70" alt="Afiche de Jazz en el sótano: cuarteto en vivo" loading="lazy" />
                   <div class="entry-content">
-                    <span class="etiqueta">Música</span>
                     <h3><a class="text-reset" href="single-evento.html">Jazz en el sótano: cuarteto en vivo</a></h3>
-                    <div class="entry-info"><span>Club de jazz del barrio Italia</span><span>Providencia, Metropolitana</span></div>
-                    <div class="entry-info"><span>22:00</span><span>$15.000</span></div>
-                    <a href="#" target="_blank" rel="noopener">Entradas</a>
+                    <p class="entry-info mb-0"><span>Club de jazz del barrio Italia · Providencia, Metropolitana</span></p>
                   </div>
                 </article>
               </div>

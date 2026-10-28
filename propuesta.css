@@ -585,3 +585,25 @@
 .p-footer-bottom a {
   color: var(--text-muted);
 }
+
+/* Marco de papel e ícono de las tarjetas: el sitio ya no los usa (se sacaron de style.css), solo esta propuesta */
+.rasgado-total {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+/* Ícono de Anómala sobre la foto. Es una máscara: el archivo da la forma y el fondo, el color.
+   Sin el script de íconos al azar, todos muestran el asterisco en el color de la marca */
+.anomala-icon {
+  position: absolute;
+  pointer-events: none; /* deja pasar el clic al enlace de la tarjeta */
+  top: calc(var(--xlg) * -1 + 5px);
+  right: var(--xs);
+  z-index: 2;
+  width: var(--xlg);
+  height: var(--xlg);
+  background-color: var(--icono-color, var(--brand));
+  -webkit-mask: var(--icono, url("iconos-anomala/asterisco.webp")) center / contain no-repeat;
+  mask: var(--icono, url("iconos-anomala/asterisco.webp")) center / contain no-repeat;
+}

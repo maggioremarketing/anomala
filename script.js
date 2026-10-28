@@ -135,25 +135,6 @@
   if (precio) precio.addEventListener("change", aplicar);
 })();
 
-/* Íconos de las entradas: a cada uno le toca al azar una forma y un color de la marca,
-   sin repetir la forma ni el color del ícono anterior */
-(function () {
-  const iconos = ["asterisco", "flecha", "flecha-2", "punto"]; // archivos en iconos-anomala/
-  const colores = ["--brand", "--ui-highlight", "--ui-success", "--ui-info"];
-  const azar = (lista, evitar) => {
-    const opciones = lista.filter((x) => x !== evitar);
-    return opciones[Math.floor(Math.random() * opciones.length)];
-  };
-
-  let icono, color;
-  for (const el of document.querySelectorAll(".anomala-icon")) {
-    icono = azar(iconos, icono);
-    color = azar(colores, color);
-    el.style.setProperty("--icono", `url("iconos-anomala/${icono}.webp")`);
-    el.style.setProperty("--icono-color", `var(${color})`);
-  }
-})();
-
 /* Panel Hazte Anómala: los botones de plan quedan deshabilitados hasta aceptar los términos */
 (function () {
   const acepto = document.querySelector("#hazte-anomala [data-terminos]");

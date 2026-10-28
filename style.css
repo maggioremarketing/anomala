@@ -3,7 +3,7 @@
    1. Variables · 2. Base · 3. Layout · 4. Componentes · 5. Utilidades
    Las fuentes se cargan con <link> en el <head> del HTML (un @import aquí retrasaría su descarga).
    ========================================================= */
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 /* ---------- 1. Variables ---------- */
 :root {
   /* Fondos y superficies */
@@ -27,10 +27,10 @@
   --ui-info: #00cfff; /* azul eléctrico */
 
   /* Tipografías */
-  --font-body: "Space Grotesk", sans-serif;
-  --font-read: "Inter", sans-serif; /* texto largo de las notas */
-  --font-title: "heading-seminarrow", sans-serif;
-  --font-title-bold: 700 normal "heading-narrow", sans-serif;
+  --font-body: "Nunito Sans", sans-serif;
+  --font-read: "Nunito Sans", sans-serif; /* texto largo de las notas */
+  --font-title: "Nunito Sans", sans-serif;
+  --font-title-bold: 700 normal "Nunito Sans", sans-serif;
 
   /* Pesos */
   --fw-md: 500;
@@ -88,7 +88,8 @@ h3, .h3,
 .btn-brand,
 .btn-pink {
   font-family: var(--font-title);
-  text-transform: uppercase;
+  font-weight: var(--fw-b);
+  letter-spacing: -0.05rem;
 }
 /* Las clases .h1/.h2/.h3 dan el tamaño de encabezado a otro elemento (p. ej. <p class="h3">) */
 h1, .h1 {
@@ -122,6 +123,13 @@ a:hover {
 .container-fluid {
   padding-right: var(--gutter);
   padding-left: var(--gutter);
+}
+/* En celular el margen lateral (--gutter, ~17px) es menor que la mitad del espacio de .g-5 (24px):
+   sin esto, las filas .g-5 sobresalen y aparece scroll horizontal. Se mantiene el espacio vertical */
+@media (max-width: 575.98px) {
+  .g-5 {
+    --bs-gutter-x: 1.5rem;
+  }
 }
 section,
 header .container-fluid {
@@ -230,7 +238,8 @@ header {
   transition: color var(--transition);
 }
 .entry-card:hover h3,
-.main-entry:hover h3 {
+.main-entry:hover h3,
+.evento:has(.stretched-link):hover h3 {
   color: var(--ui-success);
 }
 .entry-card {
@@ -240,8 +249,8 @@ header {
 }
 .entry-cat {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 5px;
+  right: 10px;
   display: flex;
   gap: 5px;
   font-size: var(--smallest);
@@ -269,7 +278,10 @@ header {
 .entry-img {
   position: relative;
   aspect-ratio: 4 / 2;
-  background-color: var(--surface);
+      border-radius: 10px;
+      border: white solid 1px;
+      overflow: hidden;
+      background-color: var(--surface);
 }
 .entry-photo {
   position: absolute;
@@ -277,12 +289,6 @@ header {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-.rasgado-total {
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
 }
 .entry-content {
   position: relative;
@@ -299,20 +305,6 @@ header {
   margin: var(--xs) 0;
   font-size: var(--smallest);
   color: var(--text-muted);
-}
-/* Ícono de Anómala sobre la foto. Es una máscara: el archivo da la forma y el fondo, el color.
-   script.js elige al azar --icono (iconos-anomala/*.webp) y --icono-color (brand o colores UI) */
-.anomala-icon {
-  position: absolute;
-  pointer-events: none; /* deja pasar el clic al enlace de la tarjeta */
-  top: calc(var(--xlg) * -1 + 5px);
-  right: var(--xs);
-  z-index: 2;
-  width: var(--xlg);
-  height: var(--xlg);
-  background-color: var(--icono-color, var(--brand));
-  -webkit-mask: var(--icono, url("iconos-anomala/asterisco.webp")) center / contain no-repeat;
-  mask: var(--icono, url("iconos-anomala/asterisco.webp")) center / contain no-repeat;
 }
 /* Medio del contenido: ícono sobre la foto solo si es video o audio (los textos no llevan) */
 .icono-medio {
@@ -349,6 +341,10 @@ header {
     grid-auto-rows: 1fr; /* las tarjetas se reparten el alto: la última termina al pie, como el carrusel */
     gap: var(--sm); /* igual que el margen de .col-title, para que las columnas queden alineadas */
   }
+  .horizontal .entry-cat {
+  top: -5px;
+    right: 0px;
+  }
   .horizontal > .col-title {
     margin-bottom: 0; /* el gap de la grilla ya separa */
   }
@@ -356,18 +352,20 @@ header {
     display: flex;
     min-width: 0; /* la columna de la grilla no se ensancha con la bajada cortada */
   }
+     .horizontal .entry-card h3 {
+      font-size: var(--md);
+       /* la columna de la grilla no se ensancha con la bajada cortada */
+     }
   .horizontal .entry-img {
     flex: none;
-    width: 140px;
-    min-height: 140px; /* la foto toma el alto de la entrada: sin hueco bajo la imagen */
-    aspect-ratio: auto;
+    width: auto;
+    min-width: 140px;
+    min-height: 140px;
+    aspect-ratio: 1; /* siempre cuadrada: toma el alto de la entrada y ajusta el ancho, sin hueco bajo la imagen */
   }
   .horizontal .entry-content {
     max-height: fit-content;
     padding-top: var(--lg);
-  }
-  .horizontal .anomala-icon {
-    display: none;
   }
 }
 
@@ -411,8 +409,12 @@ header {
   inset: 0;
   background: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.75));
 }
+/* En el carrusel las etiquetas van en el flujo, sobre el título: sin el desplazamiento de las tarjetas */
 .main-entry .entry-cat {
   position: relative;
+  top: auto;
+  right: auto;
+  margin-bottom: var(--xs);
 }
 .main-entry-content {
   position: absolute;
@@ -427,6 +429,65 @@ header {
   line-height: 1;
   color: var(--text-main);
   background-color: var(--bg-main);
+}
+
+/* ---------- Propuestas del destacado (destacados-propuestas.html) ----------
+   Elegir una, pasarla a la portada y borrar las reglas de las otras.
+   Las tres usan el borde blanco redondeado de .entry-img. */
+.destacado-oscuro .main-entry,
+.destacado-mosaico .main-entry {
+  border: 1px solid white;
+  border-radius: 10px;
+}
+/* A y C: sin fondo negro bajo el título; la foto se oscurece entera, más abajo */
+.destacado-oscuro .main-entry::after,
+.destacado-mosaico .main-entry::after {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.85) 75%);
+}
+.destacado-oscuro .main-entry h3,
+.destacado-aparte .main-entry h3,
+.destacado-mosaico .main-entry h3 {
+  background-color: transparent;
+}
+
+/* B · texto aparte: la foto en su caja y el texto debajo, sobre el fondo de la página */
+.destacado-aparte .main-entry {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+}
+.destacado-aparte .main-entry::after {
+  content: none;
+}
+.destacado-aparte .entry-img {
+  flex: 1;
+  aspect-ratio: auto;
+  min-height: 320px;
+}
+.destacado-aparte .main-entry-content {
+  position: static;
+  max-width: none;
+  padding: var(--md) 0 0;
+}
+.destacado-aparte .main-entry h3 {
+  font-size: var(--xl);
+}
+
+/* C · mosaico: uno grande y dos chicos, sin carrusel. ELEGIDA: es la que usa la portada (home-page.html) */
+.destacado-mosaico .main-entry {
+  min-height: 0;
+}
+.destacado-mosaico > :first-child .main-entry {
+  min-height: 420px;
+}
+.destacado-mosaico > :not(:first-child) .main-entry {
+  aspect-ratio: 4 / 3;
+}
+.destacado-mosaico > :not(:first-child) .main-entry-content {
+  padding: var(--sm);
+}
+.destacado-mosaico > :not(:first-child) .main-entry h3 {
+  font-size: var(--lg);
 }
 
 /* Lista de enlaces con líneas (Temas y menús del footer). En una columna flex, ocupa todo el alto */
@@ -595,6 +656,8 @@ header {
 /* Cartelera: evento como tarjeta tipo entrada. --d = color de la disciplina */
 .evento {
   display: flex;
+  flex-wrap: wrap; /* con imagen: la foto ocupa toda la tarjeta y el talón y el texto van encima */
+  position: relative;
   height: 100%;
   background: var(--surface);
   border-top: 4px solid var(--d, var(--brand));
@@ -634,16 +697,48 @@ header {
   color: var(--d, var(--text-main));
 }
 
-/* Afiche del evento: vertical 3/4, entre el talón de la fecha y el texto */
-.evento-afiche {
-  flex: none;
-  align-self: flex-start;
-  width: clamp(80px, 22%, 120px);
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  margin: var(--xs) 0 var(--xs) var(--xs);
-  background-color: var(--bg-main);
+/* Tarjeta de cartelera con imagen: la foto, horizontal, ocupa toda la tarjeta y el talón y el texto van encima, abajo */
+/* El texto ocupa lo que deja el talón (sin esto, con flex-wrap, baja debajo de la fecha en las barras laterales) */
+.evento > .entry-content {
+  flex: 1;
+  min-width: 0;
 }
+/* Eventos de la cartelera (con talón), sin el borde superior de color: la disciplina se ve en la ficha.
+   Los movimientos de Quiénes somos (sin talón) lo conservan */
+.evento:has(> .evento-fecha) {
+  border-top: 0;
+}
+.evento > .entry-img {
+  flex-basis: 100%;
+  aspect-ratio: 16 / 9;
+}
+/* Oscurece la parte inferior de la foto para que el texto se lea (igual que el destacado) */
+.evento > .entry-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.85));
+}
+.evento > .entry-img ~ .evento-fecha,
+.evento > .entry-img ~ .entry-content {
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+}
+.evento > .entry-img ~ .evento-fecha {
+  left: 0;
+  border-right-color: rgba(255, 255, 255, 0.4);
+}
+.evento > .entry-img ~ .evento-fecha::before,
+.evento > .entry-img ~ .evento-fecha::after {
+  content: none; /* sobre la foto, el troquel queda solo como línea punteada */
+}
+.evento > .entry-img ~ .entry-content {
+  left: 86px; /* ancho del talón */
+  right: 0;
+  width: auto; /* sin el 100% de .entry-content, que la sacaría del borde */
+}
+
 
 /* Cuerpo del artículo: envuelve the_content() de WordPress. Lo que escribe la redacción en el editor
    (párrafos, títulos, citas, imágenes, listas) llega sin clases propias, por eso se estiliza desde aquí */

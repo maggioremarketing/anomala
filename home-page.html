@@ -79,119 +79,68 @@
       <h1 class="visually-hidden">Anómala · Intensa, dispersa, distinta</h1>
 
       <!--
-        DESTACADOS (front-page.php): carrusel de tres, elegidos y ordenados desde el administrador.
-        Navegación manual (sin avance automático). Cada uno: imagen, formato, título, bajada y autor.
+        DESTACADOS (front-page.php): mosaico de tres, elegidos y ordenados desde el administrador (anm_destacado + anm_destacado_orden).
+        El primero va grande; los otros dos, debajo. Sin carrusel: los tres quedan a la vista. Cada uno: imagen, formato, tema, título y autor
+        (el grande, además, la bajada).
       -->
       <section>
         <div class="container-fluid">
-          <div class="row g-5">
+          <div class="row g-3">
             <div class="col-12 col-xl-7 d-flex flex-column">
               <h2 class="col-title">Destacados</h2>
-              <div
-                id="destacados"
-                class="carousel slide main-carousel"
-              >
-                <div class="carousel-indicators">
-                  <button
-                    type="button"
-                    data-bs-target="#destacados"
-                    data-bs-slide-to="0"
-                    class="active"
-                    aria-current="true"
-                    aria-label="Destacado 1"
-                  ></button>
-                  <button
-                    type="button"
-                    data-bs-target="#destacados"
-                    data-bs-slide-to="1"
-                    aria-label="Destacado 2"
-                  ></button>
-                  <button
-                    type="button"
-                    data-bs-target="#destacados"
-                    data-bs-slide-to="2"
-                    aria-label="Destacado 3"
-                  ></button>
-                </div>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <div class="main-entry">
-                      <a class="stretched-link" href="single.html" tabindex="-1" aria-hidden="true" data-cubre></a>
-                      <img
-                        class="entry-photo"
-                        src="https://images.unsplash.com/photo-1638732984528-f255c9714619?auto=format&fit=crop&w=1400&q=70"
-                        alt="Campo de dunas en el desierto"
-                      />
-                      <div class="main-entry-content">
-                        <span class="entry-cat"><a href="publicaciones.html">Reportaje</a><a href="publicaciones.html">Cine</a></span>
-                        <p class="etiqueta mb-1" style="--d: var(--ui-info)">Spoiler Alert!</p>
-                        <h3><a class="text-reset" href="single.html">Cómo Alejandro Jodorowsky inventó el cine de ciencia ficción sin filmar un solo minuto de Dune</a></h3>
-                        <p>A propósito del estreno de Dune 3, desarmamos la historia del fracaso más influyente de Hollywood.</p>
-                        <div class="entry-info mt-auto"><span>por Isabel Agurto</span></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <div class="main-entry">
-                      <a class="stretched-link" href="single-entrevista-orlandini.html" tabindex="-1" aria-hidden="true" data-cubre></a>
-                      <img
-                        class="entry-photo"
-                        src="https://images.unsplash.com/photo-1782760255215-7a7e24e529a9?auto=format&fit=crop&w=1400&q=70"
-                        alt="Guitarra clásica sobre un sillón oscuro"
-                      />
-                      <span class="icono-medio"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" fill="currentColor"><path d="M8 5v14l11-7z" /></svg><span class="visually-hidden">Video</span></span>
-                      <div class="main-entry-content">
-                        <span class="entry-cat"><a href="publicaciones.html">Entrevista</a><a href="publicaciones.html">Música</a></span>
-                        <h3><a class="text-reset" href="single-entrevista-orlandini.html">¿De quién es la música?</a></h3>
-                        <p>Conversación con Luis Orlandini sobre el acceso a la música docta, su relación con lo popular y la educación artística.</p>
-                        <div class="entry-info mt-auto"><span>por Camila Ibáñez y Carlos Sepúlveda</span></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <div class="main-entry">
-                      <a class="stretched-link" href="single-ensayo.html" tabindex="-1" aria-hidden="true" data-cubre></a>
-                      <img
-                        class="entry-photo"
-                        src="https://images.unsplash.com/photo-1788145749232-9373a45863b0?auto=format&fit=crop&w=1400&q=70"
-                        alt="Cráneos, un modelo anatómico y una máquina de escribir sobre una mesa de madera"
-                      />
-                      <div class="main-entry-content">
-                        <span class="entry-cat"><a href="publicaciones.html">Ensayo</a><a href="publicaciones.html">Fotografía</a></span>
-                        <h3><a class="text-reset" href="single-ensayo.html">Coleccionistas psiquiátricos: primera entrega</a></h3>
-                        <p>Retrato de un coleccionista y su relación con los objetos.</p>
-                        <div class="entry-info mt-auto"><span>por Carlos Sepúlveda, Camila Ibáñez y Catalina</span></div>
-                      </div>
+              <!-- Mosaico: los tres destacados a la vista, sin carrusel. El primero, grande; los otros dos, debajo -->
+              <div class="row g-3 flex-grow-1 destacado-mosaico">
+                <div class="col-12">
+                  <div class="main-entry">
+                    <a class="stretched-link" href="single.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                    <img
+                      class="entry-photo"
+                      src="https://images.unsplash.com/photo-1638732984528-f255c9714619?auto=format&fit=crop&w=1400&q=70"
+                      alt="Campo de dunas en el desierto"
+                    />
+                    <div class="main-entry-content">
+                      <span class="entry-cat"><a href="publicaciones.html">Reportaje</a><a href="publicaciones.html">Cine</a></span>
+                      <p class="etiqueta mb-1" style="--d: var(--ui-info)">Spoiler Alert!</p>
+                      <h3><a class="text-reset" href="single.html">Cómo Alejandro Jodorowsky inventó el cine de ciencia ficción sin filmar un solo minuto de Dune</a></h3>
+                      <p>A propósito del estreno de Dune 3, desarmamos la historia del fracaso más influyente de Hollywood.</p>
+                      <div class="entry-info mt-auto"><span>por Isabel Agurto</span></div>
                     </div>
                   </div>
                 </div>
-                <button
-                  class="carousel-control-prev"
-                  type="button"
-                  data-bs-target="#destacados"
-                  data-bs-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="visually-hidden">Anterior</span>
-                </button>
-                <button
-                  class="carousel-control-next"
-                  type="button"
-                  data-bs-target="#destacados"
-                  data-bs-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="visually-hidden">Siguiente</span>
-                </button>
+                <div class="col-6">
+                  <div class="main-entry">
+                    <a class="stretched-link" href="single-entrevista-orlandini.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                    <img
+                      class="entry-photo"
+                      src="https://images.unsplash.com/photo-1782760255215-7a7e24e529a9?auto=format&fit=crop&w=1400&q=70"
+                      alt="Guitarra clásica sobre un sillón oscuro"
+                    />
+                    <span class="icono-medio"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" fill="currentColor"><path d="M8 5v14l11-7z" /></svg><span class="visually-hidden">Video</span></span>
+                    <div class="main-entry-content">
+                      <span class="entry-cat"><a href="publicaciones.html">Entrevista</a><a href="publicaciones.html">Música</a></span>
+                      <h3><a class="text-reset" href="single-entrevista-orlandini.html">¿De quién es la música?</a></h3>
+                      <div class="entry-info mt-auto"><span>por Camila Ibáñez y Carlos Sepúlveda</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="main-entry">
+                    <a class="stretched-link" href="single-ensayo.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                    <img
+                      class="entry-photo"
+                      src="https://images.unsplash.com/photo-1788145749232-9373a45863b0?auto=format&fit=crop&w=1400&q=70"
+                      alt="Cráneos, un modelo anatómico y una máquina de escribir sobre una mesa de madera"
+                    />
+                    <div class="main-entry-content">
+                      <span class="entry-cat"><a href="publicaciones.html">Ensayo</a><a href="publicaciones.html">Fotografía</a></span>
+                      <h3><a class="text-reset" href="single-ensayo.html">Coleccionistas psiquiátricos: primera entrega</a></h3>
+                      <div class="entry-info mt-auto"><span>por Carlos Sepúlveda, Camila Ibáñez y Catalina</span></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <!-- LO NUEVO (antes "Reciente"): las últimas publicaciones, automático. "Ver más" lleva al índice -->
+            <!-- LO NUEVO (antes "Reciente"): las 5 últimas publicaciones, automático. "Ver más" lleva al índice -->
 
             <div class="col-12 col-xl-5 horizontal">
               <div class="col-title d-flex justify-content-between align-items-baseline">
@@ -210,7 +159,6 @@
                   <span class="icono-medio"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" fill="currentColor"><path d="M8 5v14l11-7z" /></svg><span class="visually-hidden">Video</span></span>
                 </div>
                 <div class="entry-content">
-                  <span class="anomala-icon" aria-hidden="true"></span>
                   <h3 class="mb-1"><a class="text-reset" href="single-entrevista.html">Nadie te pidió que escribieras: Romina Pistolas</a></h3>
                   <p class="text-truncate mb-2">Romina Pistolas sobre sus comienzos, obstáculos y procesos de escritura.</p>
                   <div class="entry-info mt-auto"><span>por Alonso</span><span>26/10/26</span></div>
@@ -227,7 +175,6 @@
                   />
                 </div>
                 <div class="entry-content">
-                  <span class="anomala-icon" aria-hidden="true"></span>
                   <h3 class="mb-1"><a class="text-reset" href="single-cronica.html">Anti-Manual del buen espectador</a></h3>
                   <p class="text-truncate mb-2">Crónica sarcástica y absurda sobre los rituales de ir al teatro.</p>
                   <div class="entry-info mt-auto"><span>por Isabel Agurto</span><span>25/10/26</span></div>
@@ -244,7 +191,6 @@
                   />
                 </div>
                 <div class="entry-content">
-                  <span class="anomala-icon" aria-hidden="true"></span>
                   <h3 class="mb-1"><a class="text-reset" href="single-columna-boxeo.html">Boxeo en Chile y Club México</a></h3>
                   <p class="text-truncate mb-2">Historias y personajes alrededor del ring del Club México.</p>
                   <div class="entry-info mt-auto"><span>por Camilo Espinoza</span><span>24/10/26</span></div>
@@ -261,10 +207,25 @@
                   />
                 </div>
                 <div class="entry-content">
-                  <span class="anomala-icon" aria-hidden="true"></span>
                   <h3 class="mb-1"><a class="text-reset" href="single-columna-match.html">Del Messenger al match</a></h3>
                   <p class="text-truncate mb-2">Cómo han cambiado los códigos del coqueteo, desde Messenger hasta las aplicaciones de citas.</p>
                   <div class="entry-info mt-auto"><span>por Javier Manríquez</span><span>22/10/26</span></div>
+                                   </div>
+              </article>
+              <article class="entry-card">
+                <a class="stretched-link" href="single-columna-meme.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                <div class="entry-cat"><a href="publicaciones.html">Columna</a><a href="publicaciones.html">Humor</a></div>
+                <div class="entry-img">
+                  <img
+                    class="entry-photo"
+                    src="https://images.unsplash.com/photo-1642750572848-bb6ed7ae820c?auto=format&fit=crop&w=800&q=70"
+                    alt="Mano sosteniendo un teléfono con la foto de un gato en la pantalla"
+                  />
+                </div>
+                <div class="entry-content">
+                  <h3 class="mb-1"><a class="text-reset" href="single-columna-meme.html">Meme, humor digital y sátira política</a></h3>
+                  <p class="text-truncate mb-2">Cómo el meme y el humor digital han reemplazado o complementado la sátira política tradicional.</p>
+                  <div class="entry-info mt-auto"><span>por Matías Hermosilla</span><span>23/10/26</span></div>
                                    </div>
               </article>
             </div>
@@ -338,17 +299,15 @@
           <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 entry-grid">
             <div class="col">
               <article class="entry-card">
-                <a class="stretched-link" href="single-columna-meme.html" tabindex="-1" aria-hidden="true" data-cubre></a>
-                <div class="entry-cat"><a href="publicaciones.html">Columna</a><a href="publicaciones.html">Humor</a></div>
+                <a class="stretched-link" href="single-columna-relato.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                <div class="entry-cat"><a href="publicaciones.html">Columna</a><a href="publicaciones.html">Cultura digital</a></div>
                 <div class="entry-img">
-                  <img class="entry-photo" src="https://images.unsplash.com/photo-1642750572848-bb6ed7ae820c?auto=format&fit=crop&w=800&q=70" alt="Mano sosteniendo un teléfono con la foto de un gato en la pantalla" />
-                  <img src="papel-rasgado.webp" class="rasgado-total" alt="" />
+                  <img class="entry-photo" src="https://images.unsplash.com/photo-1760892165556-a109903281c6?auto=format&fit=crop&w=800&q=70" alt="Hombre con un megáfono hablándole a una multitud" />
                 </div>
                 <div class="entry-content">
-                  <span class="anomala-icon" aria-hidden="true"></span>
-                  <h3><a class="text-reset" href="single-columna-meme.html">Meme, humor digital y sátira política</a></h3>
-                  <p>Cómo el meme y el humor digital han reemplazado o complementado la sátira política tradicional.</p>
-                  <div class="entry-info mt-auto"><span>por Matías Hermosilla</span><span>23/10/26</span></div>
+                  <h3><a class="text-reset" href="single-columna-relato.html">El colapso del relato político y la era del poder autoproducido</a></h3>
+                  <p>Cómo se desplaza el poder desde la política y las instituciones hacia las narrativas individuales.</p>
+                  <div class="entry-info mt-auto"><span>por Mirko Macari</span><span>22/10/26</span></div>
                 </div>
               </article>
             </div>
@@ -358,10 +317,8 @@
                 <div class="entry-cat"><a href="publicaciones.html">Columna</a><a href="publicaciones.html">Política cultural</a></div>
                 <div class="entry-img">
                   <img class="entry-photo" src="https://images.unsplash.com/photo-1696694139314-e0e5962b8dc0?auto=format&fit=crop&w=800&q=70" alt="Pasillo en penumbra de un museo con una vitrina" />
-                  <img src="papel-rasgado2.webp" class="rasgado-total" alt="" />
                 </div>
                 <div class="entry-content">
-                  <span class="anomala-icon" aria-hidden="true"></span>
                   <h3><a class="text-reset" href="single-columna.html">La cultura cambia: ¿cómo deben cambiar sus instituciones?</a></h3>
                   <p>Reflexión sobre cómo deben adaptarse las instituciones culturales a nuevas formas de crear, participar y acceder a la cultura.</p>
                   <div class="entry-info mt-auto"><span>por Juan Carlos Silva</span><span>25/10/26</span></div>
@@ -374,10 +331,8 @@
                 <div class="entry-cat"><a href="publicaciones.html">Columna</a><a href="publicaciones.html">Cine</a></div>
                 <div class="entry-img">
                   <img class="entry-photo" src="https://images.unsplash.com/photo-1717228359912-e2f6401df18f?auto=format&fit=crop&w=800&q=70" alt="Telescopio en un campo bajo el cielo nocturno" />
-                  <img src="papel-rasgado3.webp" class="rasgado-total" alt="" />
                 </div>
                 <div class="entry-content">
-                  <span class="anomala-icon" aria-hidden="true"></span>
                   <h3><a class="text-reset" href="single-columna-futuro.html">¿Cuándo dejamos de imaginar un futuro mejor?</a></h3>
                   <p>Cómo la ciencia, el cine, las series y la tecnología moldean nuestras ideas sobre el futuro.</p>
                   <div class="entry-info mt-auto"><span>por Paloma Ávila Barrera</span><span>23/10/26</span></div>
@@ -390,15 +345,67 @@
                 <div class="entry-cat"><a href="publicaciones.html">Columna</a><a href="publicaciones.html">Cultura digital</a></div>
                 <div class="entry-img">
                   <img class="entry-photo" src="https://images.unsplash.com/photo-1662974770404-468fd9660389?auto=format&fit=crop&w=800&q=70" alt="Globos de diálogo sobre una pantalla translúcida" />
-                  <img src="papel-rasgado.webp" class="rasgado-total" alt="" />
                 </div>
                 <div class="entry-content">
-                  <span class="anomala-icon" aria-hidden="true"></span>
                   <h3><a class="text-reset" href="single-columna-ia.html">Cuando una IA aprende nuestros modismos, ¿qué aprende realmente de nosotros?</a></h3>
                   <p>Qué aprende una IA cuando imita nuestros modismos y qué queda fuera de esa imitación.</p>
                   <div class="entry-info mt-auto"><span>por Sebastián Ferrada Aliaga</span><span>24/10/26</span></div>
                 </div>
               </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--
+        SECCIONES: get_terms( 'seccion' ). Cada una: imagen y resumen (campos del término), nombre, lema (descripción)
+        y cantidad de entregas. Enlazan a su archivo (taxonomy-seccion.php); «Ver todas» lleva al índice (page-secciones.php).
+      -->
+      <section>
+        <div class="container-fluid mt-5">
+          <div class="d-flex justify-content-between align-items-baseline">
+            <h2>Secciones</h2>
+            <a class="link-mas mt-0" href="secciones.html">Ver todas las secciones</a>
+          </div>
+          <div class="row row-cols-1 row-cols-md-3 g-4 entry-grid">
+            <div class="col">
+              <a class="entry-card" href="seccion.html">
+                <div class="entry-img">
+                  <img class="entry-photo" src="https://images.unsplash.com/photo-1638732984528-f255c9714619?auto=format&fit=crop&w=800&q=70" alt="Campo de dunas en el desierto" loading="lazy" />
+                </div>
+                <div class="entry-content">
+                  <h3>Spoiler Alert!</h3>
+                  <p class="etiqueta mb-2" style="--d: var(--ui-info)">Secretos y accidentes de la cultura pop.</p>
+                  <p>Relatos sobre historias curiosas y poco conocidas de artistas, obras y procesos creativos, y su relación con la cultura pop.</p>
+                  <div class="entry-info mt-auto"><span>1 entrega</span><span>Ver todo</span></div>
+                </div>
+              </a>
+            </div>
+            <div class="col">
+              <a class="entry-card" href="seccion.html">
+                <div class="entry-img">
+                  <img class="entry-photo" src="https://images.unsplash.com/photo-1788145749232-9373a45863b0?auto=format&fit=crop&w=800&q=70" alt="Cráneos, un modelo anatómico y una máquina de escribir sobre una mesa" loading="lazy" />
+                </div>
+                <div class="entry-content">
+                  <h3>Coleccionistas psiquiátricos</h3>
+                  <p class="etiqueta mb-2" style="--d: var(--ui-info)">Viaje visual al corazón de las obsesiones.</p>
+                  <p>La relación entre las personas y sus objetos: qué lugar ocupa una colección en su vida, qué necesidades satisface y por qué se elige una rareza específica.</p>
+                  <div class="entry-info mt-auto"><span>1 entrega</span><span>Ver todo</span></div>
+                </div>
+              </a>
+            </div>
+            <div class="col">
+              <a class="entry-card" href="seccion.html">
+                <div class="entry-img">
+                  <img class="entry-photo" src="https://images.unsplash.com/photo-1586943759341-be5595944989?auto=format&fit=crop&w=800&q=70" alt="Máquina de escribir con una hoja que dice «Write something»" loading="lazy" />
+                </div>
+                <div class="entry-content">
+                  <h3>Nadie te pidió que escribieras</h3>
+                  <p class="etiqueta mb-2" style="--d: var(--ui-info)">Diálogos con escritores latinoamericanos sobre la maravillosa inutilidad de contar historias.</p>
+                  <p>Entrevistas para quienes quieren empezar a escribir: comienzos, obstáculos y procesos de trabajo, contados de manera cercana y desmitificada.</p>
+                  <div class="entry-info mt-auto"><span>1 entrega</span><span>Ver todo</span></div>
+                </div>
+              </a>
             </div>
           </div>
         </div>
@@ -416,37 +423,40 @@
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             <div class="col">
               <article class="evento" style="--d: var(--ui-highlight)">
+                <a class="stretched-link" href="single-evento.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                <div class="entry-img">
+                  <img class="entry-photo" src="https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=900&h=600&q=70" alt="Afiche de la obra Las cosas que no dijimos" loading="lazy" />
+                </div>
                 <time class="evento-fecha" datetime="2026-10-17">Sáb<b>17</b>oct</time>
-                <img class="evento-afiche" src="https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=300&h=400&q=70" alt="Afiche de la obra Las cosas que no dijimos" loading="lazy" />
                 <div class="entry-content">
-                  <span class="etiqueta">Teatro</span>
                   <h3><a class="text-reset" href="single-evento.html">Las cosas que no dijimos</a></h3>
-                  <div class="entry-info"><span>Teatro del Puente · Santiago, RM</span><span>20:00 · desde $6.000</span></div>
-                  <a href="#" target="_blank" rel="noopener">Entradas</a>
+                  <p class="entry-info mb-0"><span>Teatro del Puente · Santiago, RM</span></p>
                 </div>
               </article>
             </div>
             <div class="col">
               <article class="evento" style="--d: var(--ui-success)">
+                <a class="stretched-link" href="single-evento.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                <div class="entry-img">
+                  <img class="entry-photo" src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=900&h=600&q=70" alt="Afiche del concierto Cuerdas del norte" loading="lazy" />
+                </div>
                 <time class="evento-fecha" datetime="2026-10-18">Dom<b>18</b>oct</time>
-                <img class="evento-afiche" src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=300&h=400&q=70" alt="Afiche del concierto Cuerdas del norte" loading="lazy" />
                 <div class="entry-content">
-                  <span class="etiqueta">Música</span>
                   <h3><a class="text-reset" href="single-evento.html">Cuerdas del norte: guitarra y charango</a></h3>
-                  <div class="entry-info"><span>Teatro Regional · La Serena, Coquimbo</span><span>20:00 · desde $8.000</span></div>
-                  <a href="#" target="_blank" rel="noopener">Entradas</a>
+                  <p class="entry-info mb-0"><span>Teatro Regional · La Serena, Coquimbo</span></p>
                 </div>
               </article>
             </div>
             <div class="col">
               <article class="evento" style="--d: var(--ui-info)">
+                <a class="stretched-link" href="single-evento.html" tabindex="-1" aria-hidden="true" data-cubre></a>
+                <div class="entry-img">
+                  <img class="entry-photo" src="https://images.unsplash.com/photo-1569783721854-33a99b4c0bae?auto=format&fit=crop&w=900&h=600&q=70" alt="Afiche de la muestra Archivo vivo" loading="lazy" />
+                </div>
                 <time class="evento-fecha" datetime="2026-10-09">Hasta<b>30</b>nov</time>
-                <img class="evento-afiche" src="https://images.unsplash.com/photo-1569783721854-33a99b4c0bae?auto=format&fit=crop&w=300&h=400&q=70" alt="Afiche de la muestra Archivo vivo" loading="lazy" />
                 <div class="entry-content">
-                  <span class="etiqueta">Artes visuales</span>
                   <h3><a class="text-reset" href="single-evento.html">Archivo vivo: fotografía popular del sur</a></h3>
-                  <div class="entry-info"><span>Casa de la Cultura · Valdivia, Los Ríos</span><span>Mar a dom · 10:00 a 18:00 · Gratis</span></div>
-                  <a href="#" target="_blank" rel="noopener">Más info</a>
+                  <p class="entry-info mb-0"><span>Casa de la Cultura · Valdivia, Los Ríos</span></p>
                 </div>
               </article>
             </div>
