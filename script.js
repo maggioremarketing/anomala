@@ -135,11 +135,11 @@
   if (precio) precio.addEventListener("change", aplicar);
 })();
 
-/* Panel Hazte Anómala: los botones de plan quedan deshabilitados hasta aceptar los términos */
+/* Página de suscripciones: los botones de perfil quedan deshabilitados hasta aceptar los términos */
 (function () {
-  const acepto = document.querySelector("#hazte-anomala [data-terminos]");
+  const acepto = document.querySelector("[data-terminos]");
   if (!acepto) return;
-  const botones = document.querySelectorAll("#hazte-anomala [data-requiere-terminos]");
+  const botones = document.querySelectorAll("[data-requiere-terminos]");
   const actualizar = () => {
     for (const b of botones) {
       b.classList.toggle("pe-none", !acepto.checked);

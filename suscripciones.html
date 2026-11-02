@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hazte Anómala · Anómala</title>
+    <!-- Fuentes: Typekit (títulos) y Google Fonts (texto). preconnect adelanta la conexión -->
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://use.typekit.net/aie8ork.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main>
+      <!-- HEADER (header.php) -->
+      <header class="mid-nav sticky-top" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg" aria-label="Navegación principal">
+          <div class="container-fluid gap-2">
+            <a class="navbar-brand me-0" href="home-page.html" aria-label="Anómala, ir al inicio">
+              <svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44.97 7.2" aria-hidden="true">
+                <path fill="#f8f8f8" d="M42.38.25h-2.67l-1.86,4.87h-1.82V.25h-2.38v4.75s-1.77-4.75-1.77-4.75h-2.68l-1.83,4.76V.25h-2.47l-1.29,2.27v-.02s-1.44-2.25-1.44-2.25h0s-2.54,0-2.54,0v.94c.52.67.84,1.52.84,2.44s-.32,1.78-.85,2.46v.98s2.56,0,2.56,0v-1.94l1.38,1.94,1.5-1.94v1.94s1.42,0,1.42,0h2.62l.32-.84h2.21l.32.83h1.71s2.4,0,2.4,0h3.61l.32-.84h2.2l.32.83h2.47l-2.59-6.81ZM29.84,4.6l.67-2.11.63,2.11h-1.31ZM40.41,4.6l.66-2.09.66,2.09h-1.32Z" />
+                <path fill="#f8f8f8" d="M11.06,2.9l-1.81-2.65h-2.04l-.08,4.68L5.35.25h-2.61L0,7.07h2.62l.32-.84h2.21l.32.83h3.93s0-2.79,0-2.79l1.85,2.79h2.18v-.91c-.57-.69-.92-1.57-.92-2.54s.34-1.85.92-2.54V.25h-2.35v2.65ZM3.38,4.6l.66-2.09.65,2.09h-1.3Z" />
+                <path fill="#a020f0" d="M19.54,1.69c-.64-1.01-1.76-1.69-3.05-1.69s-2.33.62-2.98,1.57c-.39.58-.63,1.28-.63,2.03s.23,1.45.63,2.03c.65.95,1.74,1.57,2.98,1.57s2.4-.67,3.04-1.67c.36-.56.56-1.22.56-1.93s-.21-1.36-.55-1.91" />
+              </svg>
+            </a>
+            <!-- Completar con la URL real de la cuenta de Instagram -->
+            <a class="nav-link d-none d-lg-block ms-lg-4" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Anómala en Instagram">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" /></svg>
+            </a>
+            <!-- Cuenta: sin sesión lleva a ingresar.html; con sesión muestra la foto o las iniciales y lleva a mi-cuenta.html:
+                 <a class="nav-link" href="mi-cuenta.html" aria-label="Mi cuenta"><span class="avatar" style="--avatar: 30px" aria-hidden="true">CR</span></a> -->
+            <a class="nav-link ms-auto ms-lg-0" href="ingresar.html" aria-label="Ingresar a tu cuenta">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4" /><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" /></svg>
+            </a>
+            <!-- Móvil: la lupa queda afuera del menú, siempre a la vista -->
+            <button class="nav-link d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#buscador" aria-controls="buscador" aria-expanded="false" aria-label="Abrir buscador">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m15.5 15.5 5 5" /></svg>
+            </button>
+            <a class="btn-hazte order-lg-last" href="suscripciones.html">Hazte Anómala</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menú">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu-principal">
+              <!-- wp_nav_menu( 'principal' ). Cultura y Vida real son las dos grandes categorías; Secciones despliega las cinco secciones editoriales -->
+              <ul class="navbar-nav ms-lg-auto align-items-lg-center">
+                <li class="nav-item d-none d-lg-block">
+                  <button class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#buscador" aria-controls="buscador" aria-expanded="false" aria-label="Abrir buscador">
+                    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m15.5 15.5 5 5" /></svg>
+                  </button>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="quienes-somos.html">Quiénes somos</a></li>
+                <li class="nav-item"><a class="nav-link" href="eje.html">Cultura</a></li>
+                <li class="nav-item"><a class="nav-link" href="vida-real.html">Vida real</a></li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="secciones.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Secciones</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="seccion.html">Spoiler Alert</a></li>
+                    <li><a class="dropdown-item" href="seccion.html">Coleccionistas psiquiátricos</a></li>
+                    <li><a class="dropdown-item" href="seccion.html">Nadie te pidió</a></li>
+                    <li><a class="dropdown-item" href="seccion.html">Antimanuales</a></li>
+                    <li><a class="dropdown-item" href="seccion.html">Panoramas taqui</a></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><a class="dropdown-item" href="secciones.html">Todas las secciones</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="cartelera.html">Cartelera</a></li>
+                <li class="nav-item d-lg-none"><a class="nav-link" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- Buscador (get_search_form): busca por título, tema y autor. El parámetro "s" es el de WordPress -->
+        <div class="collapse" id="buscador">
+          <div class="container-fluid pb-3">
+            <form class="form-fila" role="search" action="busqueda.html">
+              <label class="visually-hidden" for="buscar">Buscar</label>
+              <input id="buscar" name="s" type="search" placeholder="Busca por título, tema o autor" />
+              <button class="btn-brand" type="submit">Buscar</button>
+            </form>
+          </div>
+        </div>
+      </header>
+
+      <!--
+        PÁGINA DE SUSCRIPCIONES (page-suscripciones.php): cinco perfiles, cada uno con el nombre de un referente anómalo.
+        Los contenidos editoriales son gratuitos: los perfiles pagos habilitan los comentarios, las invitaciones y los créditos.
+        Los botones llevan a ingresar.html?plan=… (registro + pago); el cobro recurrente lo resuelve la pasarela.
+      -->
+      <section>
+        <div class="container-fluid mt-5">
+          <div class="susc-intro">
+            <h1 class="frase-grande">Sé anómala/o</h1>
+            <p class="h3">¿Qué referente anómalo eres según tu suscripción?</p>
+            <p class="lead">En Anómala no hay muros de pago, pero sí trabajo remunerado. Con tu aporte mensual sostienes debates culturales, crítica independiente y la cartelera cultural. Elige tu perfil y súmate.</p>
+          </div>
+
+          <!-- Términos: los botones de perfil se habilitan al aceptar (en WP, además, se valida en el registro) -->
+          <div class="form-check my-4">
+            <input class="form-check-input" type="checkbox" id="acepto-terminos" data-terminos />
+            <label class="form-check-label" for="acepto-terminos">Acepto los <a href="condiciones-suscripcion.html">términos y condiciones de suscripción</a> y las <a href="normas-participacion.html">normas de participación</a>.</label>
+          </div>
+
+          <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+          <div class="col">
+            <article class="perfil perfil-papel">
+              <span class="perfil-num perfil-num-lime" aria-hidden="true">01</span>
+              <h2 class="h2">Keanu Reeves</h2>
+              <p class="perfil-monto"><b>$0</b> / mes<span class="d-block etiqueta">Acceso libre por registro</span></p>
+              <p>El tipo más humilde no te va a cobrar, abre gratis las puertas del sitio y te manda el boletín al correo.</p>
+              <ul class="perfil-beneficios">
+                  <li>Acceso abierto a todos los artículos, ensayos y reportajes del sitio.</li>
+                  <li>Suscripción a nuestro newsletter semanal con curaduría y cartelera cultural.</li>
+              </ul>
+              <a class="btn-brand" href="ingresar.html?plan=keanu#registro" data-requiere-terminos>Registrarme gratis</a>
+            </article>
+          </div>
+          <div class="col">
+            <article class="perfil perfil-negro">
+              <span class="perfil-num perfil-num-pink" aria-hidden="true">02</span>
+              <h2 class="h2">Britney Spears</h2>
+              <p class="perfil-monto"><b>$3.000</b> / mes</p>
+              <p>Sin filtros ni censura, canalizas su espíritu desbloqueando el acceso exclusivo a comentarios para decir exactamente lo que piensas.</p>
+              <ul class="perfil-beneficios">
+                  <li>Todo lo incluido en el nivel anterior.</li>
+                  <li><b>Acceso prioritario a comentarios:</b> habilitación exclusiva para debatir en las publicaciones antes que el resto.</li>
+                  <li><b>Sello de Lector Crítico</b> en tu perfil de usuario.</li>
+              </ul>
+              <a class="btn-pink" href="ingresar.html?plan=britney#registro" data-requiere-terminos>Elegir este perfil</a>
+            </article>
+          </div>
+          <div class="col">
+            <article class="perfil perfil-papel">
+              <span class="perfil-num perfil-num-lime" aria-hidden="true">03</span>
+              <h2 class="h2">Quentin Tarantino</h2>
+              <p class="perfil-monto"><b>$8.000</b> / mes</p>
+              <p>Fanático del circuito en vivo, desbloqueas pases preferenciales a todos nuestros eventos y estrenos presenciales.</p>
+              <ul class="perfil-beneficios">
+                  <li>Todo lo incluido en los niveles anteriores.</li>
+                  <li>Invitaciones preferenciales a todos los eventos, conversatorios y encuentros de la comunidad durante el año.</li>
+              </ul>
+              <a class="btn-brand" href="ingresar.html?plan=tarantino#registro" data-requiere-terminos>Elegir este perfil</a>
+            </article>
+          </div>
+          <div class="col">
+            <article class="perfil perfil-negro">
+              <span class="perfil-num perfil-num-pink" aria-hidden="true">04</span>
+              <h2 class="h2">Madonna</h2>
+              <p class="perfil-monto"><b>$15.000</b> / mes</p>
+              <p>Como la reina indiscutida exige su nombre en marquesina grande, desbloqueas tu crédito oficial como Socio Patrocinador en la web.</p>
+              <ul class="perfil-beneficios">
+                  <li>Todo lo incluido en los niveles anteriores.</li>
+                  <li><b>Opción de visibilidad:</b> crédito permanente como «Socio patrocinador» en la web (público o anónimo).</li>
+              </ul>
+              <a class="btn-pink" href="ingresar.html?plan=madonna#registro" data-requiere-terminos>Elegir este perfil</a>
+            </article>
+          </div>
+          <div class="col">
+            <article class="perfil perfil-papel">
+              <span class="perfil-num perfil-num-lime" aria-hidden="true">05</span>
+              <h2 class="h2">Pedro Pascal</h2>
+              <p class="perfil-monto"><b>$30.000</b> / mes</p>
+              <p>El favorito de todos que quieres tener en casa, te envía la revista impresa semestral con dedicatoria directo a tu puerta.</p>
+              <ul class="perfil-beneficios">
+                  <li>Todo lo incluido en los niveles anteriores.</li>
+                  <li><b>Edición impresa semestral:</b> envío directo a tu domicilio del número de la revista impresa semestral de colección, con dedicatoria especial del equipo.</li>
+              </ul>
+              <a class="btn-brand" href="ingresar.html?plan=pascal#registro" data-requiere-terminos>Elegir este perfil</a>
+            </article>
+          </div>
+          </div>
+
+          <div class="mecenazgo mt-5">
+            <h2>¿Eres empresa o buscas un mecenazgo mayor?</h2>
+            <p class="lead">Si tu organización quiere aportar mediante la Ley de Donaciones Culturales o estás pensando en una alianza estratégica a largo plazo, no rellenes formularios fríos. Habla directo con alguien de nuestro equipo.</p>
+            <!-- Completar con el correo definitivo de alianzas -->
+            <a class="btn-hazte" href="mailto:alianzas@anomala.org?subject=Alianza%20o%20mecenazgo">Agendar una reunión / Escríbenos aquí</a>
+          </div>
+
+          <p class="entry-info mt-4"><span>¿Ya tienes cuenta? <a href="ingresar.html">Inicia sesión</a></span> <a href="condiciones-suscripcion.html">Condiciones de suscripción</a></p>
+        </div>
+      </section>
+
+            <!-- FOOTER (footer.php) -->
+      <footer class="footer">
+        <div class="container-fluid">
+          <div class="row g-5">
+            <div class="col-12 col-lg-3 footer-marca">
+              <a class="d-block" href="home-page.html" aria-label="Anómala, ir al inicio">
+                <svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44.97 7.2" role="img" aria-label="Anómala">
+                <path fill="#f8f8f8" d="M42.38.25h-2.67l-1.86,4.87h-1.82V.25h-2.38v4.75s-1.77-4.75-1.77-4.75h-2.68l-1.83,4.76V.25h-2.47l-1.29,2.27v-.02s-1.44-2.25-1.44-2.25h0s-2.54,0-2.54,0v.94c.52.67.84,1.52.84,2.44s-.32,1.78-.85,2.46v.98s2.56,0,2.56,0v-1.94l1.38,1.94,1.5-1.94v1.94s1.42,0,1.42,0h2.62l.32-.84h2.21l.32.83h1.71s2.4,0,2.4,0h3.61l.32-.84h2.2l.32.83h2.47l-2.59-6.81ZM29.84,4.6l.67-2.11.63,2.11h-1.31ZM40.41,4.6l.66-2.09.66,2.09h-1.32Z" />
+                <path fill="#f8f8f8" d="M11.06,2.9l-1.81-2.65h-2.04l-.08,4.68L5.35.25h-2.61L0,7.07h2.62l.32-.84h2.21l.32.83h3.93s0-2.79,0-2.79l1.85,2.79h2.18v-.91c-.57-.69-.92-1.57-.92-2.54s.34-1.85.92-2.54V.25h-2.35v2.65ZM3.38,4.6l.66-2.09.65,2.09h-1.3Z" />
+                <path fill="#a020f0" d="M19.54,1.69c-.64-1.01-1.76-1.69-3.05-1.69s-2.33.62-2.98,1.57c-.39.58-.63,1.28-.63,2.03s.23,1.45.63,2.03c.65.95,1.74,1.57,2.98,1.57s2.4-.67,3.04-1.67c.36-.56.56-1.22.56-1.93s-.21-1.36-.55-1.91" />
+              </svg>
+              </a>
+              <!-- Bajada: reemplazar por el archivo de diseño de la carpeta de recursos gráficos (pendiente) -->
+              <p class="lema">Intensa · <span class="c-pink">Dispersa</span> · <span class="c-lime">Distinta</span></p>
+              <p>Conectamos voces, disciplinas, territorios y públicos de la cultura.</p>
+              <a href="mailto:hola@anomala.org">hola@anomala.org</a>
+            </div>
+            <nav class="col-6 col-md-4 col-lg-2 offset-lg-3" aria-label="Contenidos">
+              <h2 class="h3">Contenidos</h2>
+              <ul class="tematicas">
+                <li><a href="eje.html">Cultura</a></li>
+                <li><a href="vida-real.html">Vida real</a></li>
+                <li><a href="secciones.html">Secciones</a></li>
+                <li><a href="cartelera.html">Cartelera</a></li>
+              </ul>
+            </nav>
+            <nav class="col-6 col-md-4 col-lg-2" aria-label="Anómala">
+              <h2 class="h3">Anómala</h2>
+              <ul class="tematicas">
+                <li><a href="quienes-somos.html">Quiénes somos</a></li>
+                <li><a href="suscripciones.html">Hazte Anómala</a></li>
+                <li><a href="page.html">Transparencia</a></li>
+                <li><a href="mi-cuenta.html">Mi cuenta</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+              </ul>
+            </nav>
+            <nav class="col-6 col-md-4 col-lg-2" aria-label="Síguenos">
+              <h2 class="h3">Síguenos</h2>
+              <!-- Completar con las URL reales de las redes y canales del medio -->
+              <ul class="tematicas">
+                <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+                <li><a href="https://www.tiktok.com/" target="_blank" rel="noopener">Tiktok</a></li>
+                <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">Youtube</a></li>
+                <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="entry-info border-top pt-3 mt-5">
+            <span>© 2026 Anómala</span>
+            <span><a href="privacidad.html">Privacidad</a> · <a href="condiciones-suscripcion.html">Condiciones de suscripción</a> · <a href="normas-participacion.html">Normas de participación</a> · <a href="#">Créditos</a></span>
+            <span>Desarrollado por <a href="https://maggiore.cl" target="_blank" rel="noopener">Maggiore</a></span>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <!--
+      AVISO DE COOKIES. En WordPress lo pone un plugin de consentimiento (Complianz, CookieYes…), que además
+      bloquea la analítica hasta que se acepta: por defecto no se carga nada que no sea necesario.
+      En la maqueta, script.js lo muestra si no hay elección guardada y la recuerda en localStorage.
+    -->
+    <div class="position-fixed bottom-0 start-0 end-0 py-3 border-top" style="z-index: 1030; background: var(--bg-deep)" role="region" aria-label="Aviso de cookies" data-cookies hidden>
+      <div class="container-fluid d-flex flex-wrap align-items-center gap-3">
+        <p class="mb-0 me-auto">Usamos cookies propias y de analítica para saber qué se lee y mejorar el sitio. <a href="privacidad.html">Política de privacidad</a>.</p>
+        <div class="d-flex flex-wrap gap-2">
+          <button class="btn-dark border" type="button" data-cookies-opcion="necesarias">Solo necesarias</button>
+          <button class="btn-brand" type="button" data-cookies-opcion="todas">Aceptar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

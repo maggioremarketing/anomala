@@ -86,7 +86,8 @@ h3, .h3,
 .evento-fecha b,
 .btn-dark,
 .btn-brand,
-.btn-pink {
+.btn-pink,
+.btn-hazte {
   font-family: var(--font-title);
   font-weight: var(--fw-b);
   letter-spacing: -0.05rem;
@@ -158,7 +159,7 @@ header {
   border-bottom: 1px solid var(--dark);
 }
 .mid-nav .brand-logo {
-  width: clamp(110px, 10vw, 150px);
+  width: clamp(130px, 13vw, 200px);
   margin: 0;
 }
 .mid-nav .navbar-nav {
@@ -167,6 +168,7 @@ header {
 }
 .mid-nav .nav-link {
   padding: 0;
+  font-weight: var(--fw-sb);
   color: var(--text-main);
   background: none;
   border: 0;
@@ -182,7 +184,7 @@ header {
 }
 /* En móvil el botón "Hazte Anómala" queda siempre a la vista, más compacto */
 @media (max-width: 991.98px) {
-  .mid-nav .btn-pink {
+  .mid-nav .btn-hazte {
     font-size: var(--sm);
   }
 }
@@ -249,7 +251,7 @@ header {
 }
 .entry-cat {
   position: absolute;
-  top: 5px;
+  top: 8px;
   right: 10px;
   display: flex;
   gap: 5px;
@@ -259,21 +261,27 @@ header {
 .entry-cat span,
 .entry-cat a {
   z-index: 4;
-  padding: 2px 10px;
-  background-color: var(--brand);
-  border: 2px solid var(--bg-main);
-  border-top: none;
-  border-right: none;
+  padding: 2px 12px;
+  color: var(--bg-main);
+  background-color: var(--ui-success);
+  background-image: var(--papel-textura);
+  clip-path: var(--parche-borde);
+  transform: rotate(-2deg);
+}
+.entry-cat a:nth-child(even),
+.entry-cat span:nth-child(even) {
+  background-color: var(--ui-highlight);
+  transform: rotate(1.5deg);
 }
 /* Las etiquetas son enlaces (formato y tema): quedan sobre el enlace que cubre la tarjeta */
 .entry-cat a {
   position: relative;
-  color: var(--text-main);
+  color: var(--bg-main);
   transition: background-color var(--transition), color var(--transition);
 }
 .entry-cat a:hover {
   color: var(--bg-main);
-  background-color: var(--ui-success);
+  background-color: var(--papel);
 }
 .entry-img {
   position: relative;
@@ -571,36 +579,72 @@ header {
   border-color: var(--brand);
 }
 
-/* Botones (se usan solos, sin la clase .btn de Bootstrap). La tipografía viene de la regla de títulos */
+/* Botones y etiquetas: «parches» de cinta rasgada. Se usan solos, sin la clase .btn de Bootstrap; la tipografía viene de la regla de títulos.
+   Colores: verde ácido, rosa eléctrico y papel; «Hazte Anómala» va en violeta para distinguirse */
+:root {
+  --papel: #e9e6dd;
+  --parche-borde: polygon(
+    5px 0, calc(100% - 4px) 0, 100% 24%, calc(100% - 5px) 46%, 100% 70%, calc(100% - 3px) 100%,
+    4px 100%, 0 78%, 5px 54%, 0 32%
+  );
+  --papel-textura: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
 .btn-dark,
 .btn-brand,
-.btn-pink {
+.btn-pink,
+.btn-hazte {
   display: inline-block;
-  padding: var(--xxs) var(--sm);
+  padding: var(--xxs) calc(var(--sm) * 1.2);
   font-size: var(--md);
   line-height: 1.2;
+  color: var(--bg-main);
+  background-color: var(--papel);
+  background-image: var(--papel-textura);
   border: 0;
-  transition: color var(--transition), background-color var(--transition);
+  clip-path: var(--parche-borde);
+  transform: rotate(-1.2deg);
+  transition: color var(--transition), background-color var(--transition), transform var(--transition);
 }
-.btn-dark {
-  color: var(--text-main);
-  background: var(--bg-main);
-}
-.btn-dark:hover {
-  color: var(--ui-success);
+.btn-dark.border,
+.btn-brand.border,
+.btn-pink.border {
+  border: 0 !important;
 }
 .btn-brand {
-  color: var(--text-main);
-  background: var(--brand);
+  background-color: var(--ui-success);
 }
 .btn-pink {
-  color: var(--bg-main);
-  background: var(--ui-highlight);
+  background-color: var(--ui-highlight);
 }
+.btn-hazte {
+  color: var(--text-main);
+  background-color: var(--brand);
+  white-space: nowrap;
+}
+.btn-dark:hover,
 .btn-brand:hover,
-.btn-pink:hover {
+.btn-pink:hover,
+.btn-hazte:hover {
   color: var(--bg-main);
-  background: var(--ui-success);
+  transform: rotate(0.6deg) scale(1.03);
+}
+.btn-dark:hover,
+.btn-brand:hover {
+  background-color: var(--ui-highlight);
+}
+.btn-pink:hover {
+  background-color: var(--ui-success);
+}
+.btn-hazte:hover {
+  color: var(--text-main);
+  background-color: var(--accent);
+}
+.btn-dark:disabled,
+.btn-brand:disabled,
+.btn-pink:disabled,
+[data-requiere-terminos].disabled,
+[data-requiere-terminos][aria-disabled="true"] {
+  opacity: 0.45;
 }
 
 /* Filtros: fila de píldoras; el activo lleva .is-active.
@@ -976,4 +1020,304 @@ header {
   --bs-offcanvas-bg: var(--bg-main);
   --bs-offcanvas-color: var(--text-main);
   --bs-offcanvas-border-color: var(--dark);
+}
+
+/* ---------- Corrección de la maqueta (02-11) ---------- */
+
+/* Header: los textos del menú no se parten en dos líneas */
+.mid-nav .navbar-nav .nav-link {
+  white-space: nowrap;
+}
+
+/* Header: la lupa va junto al menú; el desplegable de Secciones sigue el tema oscuro */
+.mid-nav .dropdown-menu {
+  --bs-dropdown-bg: var(--surface);
+  --bs-dropdown-border-color: var(--dark);
+  --bs-dropdown-link-hover-bg: var(--bg-main);
+  --bs-dropdown-link-hover-color: var(--ui-success);
+  font-weight: var(--fw-sb);
+}
+.mid-nav .nav-link.dropdown-toggle::after {
+  vertical-align: 0.15em;
+}
+.mid-nav button.nav-link {
+  display: inline-flex;
+  align-items: center;
+}
+.mid-nav .nav-link:hover svg,
+.mid-nav .nav-link:focus-visible svg {
+  color: var(--ui-highlight);
+}
+
+/* Banner: de lado a lado de la pantalla, con la gráfica y el titular. Carrusel con flechas */
+.banner {
+  position: relative;
+}
+.banner .carousel-item {
+  position: relative;
+  min-height: clamp(460px, 78vh, 760px);
+}
+.banner-foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.banner .carousel-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11, 11, 11, 0.25), rgba(11, 11, 11, 0.8));
+}
+.banner-texto {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sm);
+  padding: var(--xl) clamp(56px, 9vw, 140px);
+  text-align: center;
+}
+.banner-texto h2 {
+  max-width: 1100px;
+  margin: 0;
+  font-size: clamp(30px, 4.6vw, 68px);
+  line-height: 1.02;
+  font-weight: 800;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
+}
+.banner-texto p {
+  max-width: 760px;
+  margin: 0;
+  font-size: var(--md);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
+}
+.banner .nota-tags {
+  position: static;
+}
+.banner .carousel-control-prev,
+.banner .carousel-control-next {
+  z-index: 3;
+  width: 48px;
+  height: 72px;
+  top: 50%;
+  bottom: auto;
+  margin: 0 clamp(8px, 2vw, 28px);
+  font-size: 44px;
+  line-height: 1;
+  color: var(--text-main);
+  border: 3px solid rgba(248, 248, 248, 0.6);
+  opacity: 1;
+  transform: translateY(-50%);
+}
+.banner .carousel-control-prev:hover,
+.banner .carousel-control-next:hover {
+  color: var(--ui-success);
+  border-color: var(--ui-success);
+}
+
+/* Huincha de suscripción: franja a todo el ancho bajo el banner */
+.huincha {
+  padding: var(--lg) 0;
+  color: var(--bg-main);
+  background-color: var(--ui-success);
+  background-image: var(--papel-textura);
+}
+.huincha-texto {
+  flex: 1 1 520px;
+  max-width: 980px;
+}
+.huincha .etiqueta {
+  --d: var(--bg-main);
+  margin-bottom: 4px;
+}
+.huincha .h3 {
+  font-size: clamp(18px, 1.7vw, 26px);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+/* Tarjetas de nota (Recientes y secciones): imagen, parches de formato y tema, título, autor y minutos de lectura */
+.nota-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--xs);
+  height: 100%;
+}
+.nota-img {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.nota-img .entry-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.nota-card h3 {
+  margin: 0;
+  font-size: var(--md);
+  line-height: 1.15;
+}
+.nota-tags {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 4;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.nota-tags a {
+  position: relative;
+  padding: 3px 14px;
+  font-size: var(--smallest);
+  font-weight: var(--fw-b);
+  color: var(--bg-main);
+  background-color: var(--ui-success);
+  background-image: var(--papel-textura);
+  clip-path: var(--parche-borde);
+  transform: rotate(-2deg);
+}
+.nota-tags a:nth-child(even) {
+  background-color: var(--ui-highlight);
+  transform: rotate(1.5deg);
+}
+.nota-tags a:hover {
+  color: var(--bg-main);
+  background-color: var(--papel);
+}
+.bajada-seccion {
+  max-width: 760px;
+  margin-bottom: var(--md);
+  font-size: var(--md);
+  color: var(--text-muted);
+}
+
+/* Ley de donaciones culturales y logos pendientes */
+.donaciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--md);
+  padding: var(--md);
+  border: 1px solid var(--dark);
+}
+.logo-pendiente {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+  min-height: 90px;
+  padding: var(--sm);
+  font-weight: var(--fw-b);
+  color: var(--text-muted);
+  border: 1px dashed var(--dark);
+}
+
+/* Footer: logo y bajada alineados a la misma línea izquierda */
+.footer-marca .brand-logo {
+  width: min(100%, 300px);
+  margin: 0;
+}
+.footer-marca .lema {
+  margin: var(--xs) 0;
+  font-size: var(--lg);
+}
+
+/* Página de suscripciones: perfiles como tarjetas de papel y de tinta, con cinta rasgada en la esquina */
+.susc-intro {
+  max-width: 900px;
+}
+.susc-intro .frase-grande {
+  margin: 0 0 var(--sm);
+  text-transform: uppercase;
+}
+.perfil {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--xs);
+  height: 100%;
+  padding: var(--md);
+  padding-top: calc(var(--xl) * 2);
+  border: 1px solid var(--text-main);
+}
+.perfil-papel {
+  color: var(--bg-main);
+  background-color: var(--papel);
+  background-image: var(--papel-textura);
+}
+.perfil-papel .etiqueta {
+  --d: var(--bg-main);
+}
+.perfil-papel p,
+.perfil-papel li,
+.perfil-papel h2 {
+  color: var(--bg-main);
+}
+.perfil-negro {
+  background: var(--bg-deep);
+}
+.perfil h2 {
+  margin: 0;
+  text-transform: uppercase;
+}
+.perfil-num {
+  position: absolute;
+  top: var(--md);
+  left: var(--md);
+  padding: 2px 12px;
+  font-size: var(--lg);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--bg-main);
+}
+.perfil-num-lime { background: var(--ui-success); }
+.perfil-num-pink { background: var(--ui-highlight); }
+.perfil::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: 16px;
+  width: 84px;
+  height: 26px;
+  background-color: var(--ui-success);
+  background-image: var(--papel-textura);
+  clip-path: var(--parche-borde);
+  transform: rotate(6deg);
+}
+.perfil:nth-child(even)::after {
+  background-color: var(--ui-highlight);
+  transform: rotate(-5deg);
+}
+.perfil-monto {
+  margin: 0;
+  font-size: var(--lg);
+}
+.perfil-monto b {
+  font-size: var(--xl);
+}
+.perfil-beneficios {
+  flex: 1;
+  margin: 0 0 var(--sm);
+  padding-left: 1.1em;
+}
+.perfil-beneficios li {
+  margin-bottom: var(--xs);
+}
+.perfil .btn-brand,
+.perfil .btn-pink {
+  align-self: flex-start;
+}
+.mecenazgo {
+  max-width: 900px;
+  padding: var(--md);
+  border: 1px solid var(--dark);
 }
