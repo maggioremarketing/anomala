@@ -1321,3 +1321,82 @@ header {
   padding: var(--md);
   border: 1px solid var(--dark);
 }
+
+/* Celular: el header cabe en una sola fila (logo, cuenta, lupa, Hazte Anómala, menú) */
+@media (max-width: 991.98px) {
+  .mid-nav .brand-logo {
+    width: 92px;
+  }
+  .mid-nav .btn-hazte {
+    padding: 3px 10px;
+    font-size: 14px;
+  }
+  .mid-nav .navbar-toggler {
+    padding: 2px 8px;
+  }
+  .mid-nav .container-fluid {
+    gap: 8px !important;
+  }
+  .banner-texto h2 {
+    font-size: clamp(24px, 7vw, 36px);
+  }
+  .banner-texto p {
+    font-size: var(--sm);
+  }
+  .banner-texto {
+    padding-inline: 52px;
+  }
+}
+
+/* Filtros y paginación: también como parches (papel; el activo en verde ácido) */
+.filtros {
+  gap: var(--xs);
+}
+.filtros button,
+.filtros a {
+  padding: 4px calc(var(--sm) * 1.1);
+  font-weight: var(--fw-sb);
+  color: var(--bg-main);
+  background-color: var(--papel);
+  background-image: var(--papel-textura);
+  border: 0;
+  border-radius: 0;
+  clip-path: var(--parche-borde);
+  transform: rotate(-1deg);
+}
+.filtros button:nth-child(even),
+.filtros a:nth-child(even) {
+  transform: rotate(1deg);
+}
+.filtros button:hover,
+.filtros a:hover {
+  color: var(--bg-main);
+  background-color: var(--ui-highlight);
+}
+.filtros .is-active,
+.filtros .active {
+  color: var(--bg-main);
+  background-color: var(--ui-success);
+}
+.pagination {
+  gap: var(--xs);
+}
+.pagination .page-link {
+  font-weight: var(--fw-sb);
+  color: var(--bg-main);
+  background-color: var(--papel);
+  background-image: var(--papel-textura);
+  border: 0;
+  clip-path: var(--parche-borde);
+}
+.pagination .page-link:hover {
+  color: var(--bg-main);
+  background-color: var(--ui-highlight);
+}
+.pagination .active .page-link {
+  color: var(--bg-main);
+  background-color: var(--ui-success);
+}
+.pagination .disabled .page-link {
+  opacity: 0.4;
+}
