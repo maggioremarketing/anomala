@@ -1226,9 +1226,11 @@ header {
   width: min(100%, 300px);
   margin: 0;
 }
-.footer-marca .lema {
-  margin: var(--xs) 0;
-  font-size: var(--lg);
+.footer-marca .lema-img {
+  display: block;
+  width: 58%;
+  height: auto;
+  margin: var(--sm) 0;
 }
 
 /* Página de suscripciones: perfiles como tarjetas de papel y de tinta, con cinta rasgada en la esquina */
