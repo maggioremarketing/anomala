@@ -1209,6 +1209,12 @@ header {
   padding: var(--md);
   border: 1px solid var(--dark);
 }
+.logo-mincap {
+  width: 150px;
+  height: auto;
+  padding: 10px 14px;
+  background: #fff;
+}
 .logo-pendiente {
   display: flex;
   align-items: center;
