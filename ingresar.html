@@ -95,7 +95,7 @@
       <!--
         INGRESAR (en WordPress: página con la plantilla de acceso del plugin de cuentas: login, registro y
         recuperar contraseña). Tres pestañas en la misma URL; ingresar.html#registro o #recuperar abre esa pestaña.
-        El plan llega preseleccionado desde el panel Hazte Anómala (?plan=conversa / ?plan=encuentro).
+        El perfil llega preseleccionado desde la página de suscripciones (?plan=keanu / britney / tarantino / madonna / pascal).
         Quien ya inició sesión no ve esta página: se le redirige a mi-cuenta.html.
       -->
       <section class="pt-5">
@@ -155,11 +155,13 @@
                       <div class="form-text c-muted" id="registro-clave-ayuda">Mínimo 8 caracteres.</div>
                     </div>
                     <div class="col-12 col-md-6">
-                      <label class="form-label" for="registro-plan">Plan</label>
+                      <label class="form-label" for="registro-plan">Perfil</label>
                       <select class="form-select" id="registro-plan">
-                        <option value="abierta">Anómala Abierta · Gratis</option>
-                        <option value="conversa" selected>Anómala Conversa · $5.000 CLP mensuales</option>
-                        <option value="encuentro">Anómala Encuentro · $10.000 CLP mensuales</option>
+                        <option value="keanu" selected>Keanu Reeves · $0 al mes (acceso libre)</option>
+                        <option value="britney">Britney Spears · $3.000 CLP mensuales</option>
+                        <option value="tarantino">Quentin Tarantino · $8.000 CLP mensuales</option>
+                        <option value="madonna">Madonna · $15.000 CLP mensuales</option>
+                        <option value="pascal">Pedro Pascal · $30.000 CLP mensuales</option>
                       </select>
                     </div>
                     <div class="col-12">

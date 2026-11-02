@@ -21,7 +21,7 @@ Estado: **borrador**. Lo marcado como *Pendiente* falta decidirlo con el cliente
 | Evento | `evento` (CPT) | Actividades de la cartelera | `/cartelera/` | `archive-evento.php`, `single-evento.php` |
 | Página | `page` (nativo) | Quiénes somos, Contacto, Transparencia, legales | — | `page.php`, `page-{slug}.php` |
 
-**Por qué `autor` es un CPT y no un usuario:** los usuarios de WordPress son los suscriptores de los planes pagos (Conversa, Encuentro), y separarlos evita mezclar firmas con cuentas. Además, los columnistas invitados no necesitan una cuenta. Quien edita en el panel sigue siendo un usuario; quien firma es una ficha `autor`.
+**Por qué `autor` es un CPT y no un usuario:** los usuarios de WordPress son los suscriptores de los planes pagos (perfiles Britney Spears, Quentin Tarantino, Madonna y Pedro Pascal), y separarlos evita mezclar firmas con cuentas. Además, los columnistas invitados no necesitan una cuenta. Quien edita en el panel sigue siendo un usuario; quien firma es una ficha `autor`.
 
 **Por qué los formatos no son CPT:** se evaluó y se descartó. Casi todos los listados mezclan formatos (Lo nuevo, Publicaciones, Cultura, Vida real, temas, secciones, autor, búsqueda, RSS). Como taxonomía, cada formato conserva su menú propio en el panel (ver §6) y sus campos específicos (ver §3) sin complicar las consultas.
 
@@ -186,7 +186,7 @@ Todos se registran con `register_post_meta()` (`show_in_rest => true`, `sanitize
 | Tipo | `anm_tipo` | `propio` (Evento de Anómala) · `terceros` |
 | Organizador | `anm_organizador` | Solo si es de terceros |
 | Destacado | `anm_destacado` | Aparece en la portada |
-| Invitaciones Encuentro | `anm_invitaciones` | bool + cupos, solo si es propio |
+| Invitaciones (perfil Quentin Tarantino y superiores) | `anm_invitaciones` | bool + cupos, solo si es propio |
 
 ---
 
@@ -261,9 +261,9 @@ Todos se registran con `register_post_meta()` (`show_in_rest => true`, `sanitize
 
 ## 8. Suscripción y comentarios (sin plugins)
 
-Todo el contenido editorial es gratuito. Los planes pagos habilitan los comentarios (Conversa) y además las invitaciones a eventos propios (Encuentro).
+Todo el contenido editorial es gratuito. Hay cinco perfiles de suscripción, con nombre de referente: Keanu Reeves ($0, registro libre), Britney Spears ($3.000, comentarios prioritarios y sello de Lector Crítico), Quentin Tarantino ($8.000, invitaciones a eventos), Madonna ($15.000, crédito de socio patrocinador) y Pedro Pascal ($30.000, revista impresa semestral). Cada uno incluye lo de los anteriores.
 
-- **Plan del usuario:** roles propios `anm_conversa` y `anm_encuentro`, o `anm_plan` en user meta con su vencimiento `anm_plan_vence`.
+- **Plan del usuario:** `anm_plan` en user meta (`keanu`, `britney`, `tarantino`, `madonna` o `pascal`) con su vencimiento `anm_plan_vence`; el perfil Madonna suma el campo `anm_credito_visible` (público o anónimo) y el Pedro Pascal, la dirección de despacho.
 - **Comentarios:** `comments.php` revisa el plan **en el servidor**. A quien no tiene plan no se le envían los comentarios en el HTML. Además, el filtro `pre_comment_approved` y el permiso de `comment_form` bloquean el envío sin plan.
 - **Pago recurrente:** integración propia con la pasarela vía API y webhooks que actualizan el plan. *Pendiente:* elegir la pasarela (Flow, Mercado Pago o Webpay Plus).
 - **Newsletter:** se envía desde un proveedor de mailing externo, no desde WordPress. *Pendiente:* definir qué servicio usarán (ver §10).

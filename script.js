@@ -152,9 +152,9 @@
   actualizar();
 })();
 
-/* Montos del aporte único (panel Hazte Anómala): marca el monto elegido y limpia "Otro monto" */
+/* Montos del aporte único (página de suscripciones): marca el monto elegido y limpia "Otro monto" */
 (function () {
-  const montos = document.querySelector("#hazte-anomala .filtros");
+  const montos = document.querySelector("[data-aporte-montos]");
   if (!montos) return;
   const otro = document.querySelector("#aporte-otro");
   montos.addEventListener("click", (e) => {
@@ -201,7 +201,7 @@
 })();
 
 /* Ingresar: abre la pestaña del hash (#registro, #recuperar), la cambia con los enlaces internos
-   y preselecciona el plan que llega en la URL (?plan=conversa / ?plan=encuentro) */
+   y preselecciona el plan que llega en la URL (?plan=keanu / britney / tarantino / madonna / pascal) */
 (function () {
   const pestañas = document.querySelectorAll('[data-bs-toggle="pill"]');
   if (!pestañas.length || !window.bootstrap) return;

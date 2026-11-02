@@ -175,6 +175,25 @@
           </div>
           </div>
 
+          <!-- Aporte único: no cambia el perfil ni habilita beneficios. Es una operación distinta de la suscripción -->
+          <div class="mecenazgo mt-5">
+            <h2>Quiero hacer un aporte único</h2>
+            <form action="aporte-gracias.html">
+              <div class="filtros" role="group" aria-label="Monto del aporte" data-aporte-montos>
+                <button type="button" aria-pressed="false">$3.000</button>
+                <button type="button" class="is-active" aria-pressed="true">$5.000</button>
+                <button type="button" aria-pressed="false">$10.000</button>
+                <button type="button" aria-pressed="false">$20.000</button>
+              </div>
+              <div class="form-fila">
+                <label class="visually-hidden" for="aporte-otro">Otro monto</label>
+                <input id="aporte-otro" type="number" min="1000" step="500" placeholder="Otro monto" />
+                <button class="btn-brand" type="submit">Aportar</button>
+              </div>
+              <p class="entry-info">Un aporte único no cambia tu perfil ni habilita beneficios de suscripción.</p>
+            </form>
+          </div>
+
           <div class="mecenazgo mt-5">
             <h2>¿Eres empresa o buscas un mecenazgo mayor?</h2>
             <p class="lead">Si tu organización quiere aportar mediante la Ley de Donaciones Culturales o estás pensando en una alianza estratégica a largo plazo, no rellenes formularios fríos. Habla directo con alguien de nuestro equipo.</p>
