@@ -610,10 +610,10 @@ header {
   border: 0 !important;
 }
 .btn-brand {
-  background-color: var(--ui-success);
+background: url("boton-amarillo.webp") center / 100% 100% no-repeat;
 }
 .btn-pink {
-  background-color: var(--ui-highlight);
+ background: url("boton-rosado.webp") center / 100% 100% no-repeat;
 }
 .btn-hazte {
   color: var(--text-main);
