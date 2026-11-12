@@ -257,20 +257,19 @@ header {
   gap: 5px;
   font-size: var(--smallest);
   color: var(--text-main);
-}
+  } 
 .entry-cat span,
 .entry-cat a {
   z-index: 4;
-  padding: 2px 12px;
+  padding: 3px 14px;
   color: var(--bg-main);
-  background-color: var(--ui-success);
-  background-image: var(--papel-textura);
-  clip-path: var(--parche-borde);
+  background: url("boton-amarillo.webp") center / 100% 100% no-repeat;
+  clip-path: none;
   transform: rotate(-2deg);
 }
 .entry-cat a:nth-child(even),
 .entry-cat span:nth-child(even) {
-  background-color: var(--ui-highlight);
+  background-image: url("boton-rosado.webp");
   transform: rotate(1.5deg);
 }
 /* Las etiquetas son enlaces (formato y tema): quedan sobre el enlace que cubre la tarjeta */
@@ -281,7 +280,7 @@ header {
 }
 .entry-cat a:hover {
   color: var(--bg-main);
-  background-color: var(--papel);
+  filter: brightness(0.9);
 }
 .entry-img {
   position: relative;
