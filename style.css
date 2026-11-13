@@ -595,30 +595,30 @@ font-weight: var(--fw-b);
 .btn-hazte {
   display: inline-block;
   padding: var(--xxs) calc(var(--sm) * 1.2);
- font-weight: var(--fw-b);
+  font-weight: var(--fw-b);
   line-height: 1.2;
   color: var(--bg-main);
-  background-color: var(--papel);
-  background-image: var(--papel-textura);
   border: 0;
-  clip-path: var(--parche-borde);
   transform: rotate(-1.2deg);
-  transition: color var(--transition), background-color var(--transition), transform var(--transition);
+  transition: color var(--transition), filter var(--transition), transform var(--transition);
 }
 .btn-dark.border,
 .btn-brand.border,
 .btn-pink.border {
   border: 0 !important;
 }
+/* Cinta amarilla y cinta rosada: imágenes estiradas al tamaño del botón */
 .btn-brand {
-background: url("boton-amarillo.webp") center / 100% 100% no-repeat;
+  background: url("boton-amarillo.webp") center / 100% 100% no-repeat;
 }
+.btn-dark,
 .btn-pink {
- background: url("boton-rosado.webp") center / 100% 100% no-repeat;
+  background: url("boton-rosado.webp") center / 100% 100% no-repeat;
 }
+/* «Hazte Anómala»: cinta morada */
 .btn-hazte {
   color: var(--text-main);
-  background-color: var(--brand);
+  background: url("boton-morado.webp") center / 100% 100% no-repeat;
   white-space: nowrap;
 }
 .btn-dark:hover,
@@ -629,15 +629,13 @@ background: url("boton-amarillo.webp") center / 100% 100% no-repeat;
   transform: rotate(0.6deg) scale(1.03);
 }
 .btn-dark:hover,
-.btn-brand:hover {
-  background-color: var(--ui-highlight);
-}
-.btn-pink:hover {
-  background-color: var(--ui-success);
+.btn-brand:hover,
+.btn-pink:hover,
+.btn-hazte:hover {
+  filter: brightness(0.9);
 }
 .btn-hazte:hover {
   color: var(--text-main);
-  background-color: var(--accent);
 }
 .btn-dark:disabled,
 .btn-brand:disabled,
