@@ -595,7 +595,7 @@ font-weight: var(--fw-b);
 .btn-hazte {
   display: inline-block;
   padding: var(--xxs) calc(var(--sm) * 1.2);
-  font-size: var(--md);
+ font-weight: var(--fw-b);
   line-height: 1.2;
   color: var(--bg-main);
   background-color: var(--papel);
