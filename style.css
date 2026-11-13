@@ -255,7 +255,7 @@ header {
   right: 10px;
   display: flex;
   gap: 5px;
-  font-size: var(--smallest);
+font-weight: var(--fw-b);
   color: var(--text-main);
   } 
 .entry-cat span,
