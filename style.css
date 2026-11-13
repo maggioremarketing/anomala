@@ -262,6 +262,7 @@ header {
 .entry-cat a {
   z-index: 4;
   padding: 3px 14px;
+font-weight: var(--fw-b);
   color: var(--bg-main);
   background: url("boton-amarillo.webp") center / 100% 100% no-repeat;
   clip-path: none;
